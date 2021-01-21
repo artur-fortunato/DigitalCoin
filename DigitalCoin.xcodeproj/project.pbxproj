@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		228424E3BACC8B82323FDD57 /* Pods_DigitalCoin_DigitalCoinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825206D7E6BD80A205C6AD84 /* Pods_DigitalCoin_DigitalCoinUITests.framework */; };
+		3DA086C7AD13236E927CBF6D /* Pods_DigitalCoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADEF42C0A0CE710A596606A0 /* Pods_DigitalCoinTests.framework */; };
 		8B9C9C2D25BA05D300260E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C2C25BA05D300260E82 /* AppDelegate.swift */; };
 		8B9C9C2F25BA05D300260E82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C2E25BA05D300260E82 /* SceneDelegate.swift */; };
 		8B9C9C3125BA05D300260E82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3025BA05D300260E82 /* ViewController.swift */; };
@@ -16,6 +18,7 @@
 		8B9C9C3C25BA05D800260E82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3A25BA05D800260E82 /* LaunchScreen.storyboard */; };
 		8B9C9C4725BA05D900260E82 /* DigitalCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C4625BA05D900260E82 /* DigitalCoinTests.swift */; };
 		8B9C9C5225BA05D900260E82 /* DigitalCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */; };
+		B5C6B895B4457CA3284B83AC /* Pods_DigitalCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D544E30314E81D5D132C3B /* Pods_DigitalCoin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10D544E30314E81D5D132C3B /* Pods_DigitalCoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalCoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1136EB462A3282ED88488276 /* Pods-DigitalCoin-DigitalCoinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin-DigitalCoinUITests.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCoin-DigitalCoinUITests/Pods-DigitalCoin-DigitalCoinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2E5104E650E98D8B54D26B3F /* Pods-DigitalCoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin.release.xcconfig"; path = "Target Support Files/Pods-DigitalCoin/Pods-DigitalCoin.release.xcconfig"; sourceTree = "<group>"; };
+		6F4FB7C3648CE3BA5C26EB2B /* Pods-DigitalCoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinTests.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCoinTests/Pods-DigitalCoinTests.debug.xcconfig"; sourceTree = "<group>"; };
+		825206D7E6BD80A205C6AD84 /* Pods_DigitalCoin_DigitalCoinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalCoin_DigitalCoinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9C9C2925BA05D300260E82 /* DigitalCoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DigitalCoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9C9C2C25BA05D300260E82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B9C9C2E25BA05D300260E82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +59,10 @@
 		8B9C9C4D25BA05D900260E82 /* DigitalCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinUITests.swift; sourceTree = "<group>"; };
 		8B9C9C5325BA05D900260E82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABB2778DC85835C61B7C9E42 /* Pods-DigitalCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinTests.release.xcconfig"; path = "Target Support Files/Pods-DigitalCoinTests/Pods-DigitalCoinTests.release.xcconfig"; sourceTree = "<group>"; };
+		ADE25748FE9297E34D6E089E /* Pods-DigitalCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCoin/Pods-DigitalCoin.debug.xcconfig"; sourceTree = "<group>"; };
+		ADEF42C0A0CE710A596606A0 /* Pods_DigitalCoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalCoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DECEE558F8871F55F21F2DD6 /* Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig"; path = "Target Support Files/Pods-DigitalCoin-DigitalCoinUITests/Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5C6B895B4457CA3284B83AC /* Pods_DigitalCoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA086C7AD13236E927CBF6D /* Pods_DigitalCoinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228424E3BACC8B82323FDD57 /* Pods_DigitalCoin_DigitalCoinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,8 @@
 				8B9C9C4525BA05D900260E82 /* DigitalCoinTests */,
 				8B9C9C5025BA05D900260E82 /* DigitalCoinUITests */,
 				8B9C9C2A25BA05D300260E82 /* Products */,
+				BEA91F9283E3331B218EC065 /* Pods */,
+				F7C07DEF1D3E3012891A0E42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +148,30 @@
 			path = DigitalCoinUITests;
 			sourceTree = "<group>";
 		};
+		BEA91F9283E3331B218EC065 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ADE25748FE9297E34D6E089E /* Pods-DigitalCoin.debug.xcconfig */,
+				2E5104E650E98D8B54D26B3F /* Pods-DigitalCoin.release.xcconfig */,
+				1136EB462A3282ED88488276 /* Pods-DigitalCoin-DigitalCoinUITests.debug.xcconfig */,
+				DECEE558F8871F55F21F2DD6 /* Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig */,
+				6F4FB7C3648CE3BA5C26EB2B /* Pods-DigitalCoinTests.debug.xcconfig */,
+				ABB2778DC85835C61B7C9E42 /* Pods-DigitalCoinTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F7C07DEF1D3E3012891A0E42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10D544E30314E81D5D132C3B /* Pods_DigitalCoin.framework */,
+				825206D7E6BD80A205C6AD84 /* Pods_DigitalCoin_DigitalCoinUITests.framework */,
+				ADEF42C0A0CE710A596606A0 /* Pods_DigitalCoinTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +179,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B9C9C5625BA05D900260E82 /* Build configuration list for PBXNativeTarget "DigitalCoin" */;
 			buildPhases = (
+				17A4013A5BFD15CCED858CF0 /* [CP] Check Pods Manifest.lock */,
 				8B9C9C2525BA05D300260E82 /* Sources */,
 				8B9C9C2625BA05D300260E82 /* Frameworks */,
 				8B9C9C2725BA05D300260E82 /* Resources */,
@@ -155,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B9C9C5925BA05D900260E82 /* Build configuration list for PBXNativeTarget "DigitalCoinTests" */;
 			buildPhases = (
+				DF2485265F42F29ACD0A02A6 /* [CP] Check Pods Manifest.lock */,
 				8B9C9C3E25BA05D900260E82 /* Sources */,
 				8B9C9C3F25BA05D900260E82 /* Frameworks */,
 				8B9C9C4025BA05D900260E82 /* Resources */,
@@ -173,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B9C9C5C25BA05D900260E82 /* Build configuration list for PBXNativeTarget "DigitalCoinUITests" */;
 			buildPhases = (
+				858ABCD7B861323A4A104D8C /* [CP] Check Pods Manifest.lock */,
 				8B9C9C4925BA05D900260E82 /* Sources */,
 				8B9C9C4A25BA05D900260E82 /* Frameworks */,
 				8B9C9C4B25BA05D900260E82 /* Resources */,
@@ -255,6 +299,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17A4013A5BFD15CCED858CF0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DigitalCoin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		858ABCD7B861323A4A104D8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DigitalCoin-DigitalCoinUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF2485265F42F29ACD0A02A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DigitalCoinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B9C9C2525BA05D300260E82 /* Sources */ = {
@@ -437,6 +550,7 @@
 		};
 		8B9C9C5725BA05D900260E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADE25748FE9297E34D6E089E /* Pods-DigitalCoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -455,6 +569,7 @@
 		};
 		8B9C9C5825BA05D900260E82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E5104E650E98D8B54D26B3F /* Pods-DigitalCoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -473,6 +588,7 @@
 		};
 		8B9C9C5A25BA05D900260E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F4FB7C3648CE3BA5C26EB2B /* Pods-DigitalCoinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +610,7 @@
 		};
 		8B9C9C5B25BA05D900260E82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABB2778DC85835C61B7C9E42 /* Pods-DigitalCoinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -515,6 +632,7 @@
 		};
 		8B9C9C5D25BA05D900260E82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1136EB462A3282ED88488276 /* Pods-DigitalCoin-DigitalCoinUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +652,7 @@
 		};
 		8B9C9C5E25BA05D900260E82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DECEE558F8871F55F21F2DD6 /* Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

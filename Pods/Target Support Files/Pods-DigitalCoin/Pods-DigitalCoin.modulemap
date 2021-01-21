@@ -1,0 +1,6 @@
+framework module Pods_DigitalCoin {
+  umbrella header "Pods-DigitalCoin-umbrella.h"
+
+  export *
+  module * { export * }
+}

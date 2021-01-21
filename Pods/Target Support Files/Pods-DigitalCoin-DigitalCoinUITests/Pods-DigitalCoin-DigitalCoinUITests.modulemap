@@ -1,0 +1,6 @@
+framework module Pods_DigitalCoin_DigitalCoinUITests {
+  umbrella header "Pods-DigitalCoin-DigitalCoinUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
