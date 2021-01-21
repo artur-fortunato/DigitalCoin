@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DetailsViewController.swift
 //  DigitalCoin
 //
 //  Created by Artur Rodrigues Fortunato on 21/01/21.
@@ -7,14 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
-
     }
+    
 
+   
 
 }
-

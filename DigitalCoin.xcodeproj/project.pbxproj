@@ -12,12 +12,15 @@
 		8B9C9C2D25BA05D300260E82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C2C25BA05D300260E82 /* AppDelegate.swift */; };
 		8B9C9C2F25BA05D300260E82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C2E25BA05D300260E82 /* SceneDelegate.swift */; };
 		8B9C9C3125BA05D300260E82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3025BA05D300260E82 /* ViewController.swift */; };
-		8B9C9C3425BA05D300260E82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3225BA05D300260E82 /* Main.storyboard */; };
 		8B9C9C3725BA05D300260E82 /* DigitalCoin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3525BA05D300260E82 /* DigitalCoin.xcdatamodeld */; };
 		8B9C9C3925BA05D800260E82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3825BA05D800260E82 /* Assets.xcassets */; };
 		8B9C9C3C25BA05D800260E82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3A25BA05D800260E82 /* LaunchScreen.storyboard */; };
 		8B9C9C4725BA05D900260E82 /* DigitalCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C4625BA05D900260E82 /* DigitalCoinTests.swift */; };
 		8B9C9C5225BA05D900260E82 /* DigitalCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */; };
+		8B9C9C9025BA1B9000260E82 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C8F25BA1B9000260E82 /* DetailsView.swift */; };
+		8B9C9C9525BA1B9E00260E82 /* DetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C9C9425BA1B9E00260E82 /* DetailsView.xib */; };
+		8B9C9C9A25BA1CFC00260E82 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C9925BA1CFC00260E82 /* DetailsViewController.swift */; };
+		8B9C9CA225BA216100260E82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C9CA125BA216100260E82 /* Main.storyboard */; };
 		B5C6B895B4457CA3284B83AC /* Pods_DigitalCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D544E30314E81D5D132C3B /* Pods_DigitalCoin.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +51,6 @@
 		8B9C9C2C25BA05D300260E82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B9C9C2E25BA05D300260E82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B9C9C3025BA05D300260E82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8B9C9C3325BA05D300260E82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B9C9C3625BA05D300260E82 /* DigitalCoin.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DigitalCoin.xcdatamodel; sourceTree = "<group>"; };
 		8B9C9C3825BA05D800260E82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B9C9C3B25BA05D800260E82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,10 @@
 		8B9C9C4D25BA05D900260E82 /* DigitalCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinUITests.swift; sourceTree = "<group>"; };
 		8B9C9C5325BA05D900260E82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B9C9C8F25BA1B9000260E82 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		8B9C9C9425BA1B9E00260E82 /* DetailsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsView.xib; sourceTree = "<group>"; };
+		8B9C9C9925BA1CFC00260E82 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8B9C9CA125BA216100260E82 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ABB2778DC85835C61B7C9E42 /* Pods-DigitalCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinTests.release.xcconfig"; path = "Target Support Files/Pods-DigitalCoinTests/Pods-DigitalCoinTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADE25748FE9297E34D6E089E /* Pods-DigitalCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCoin/Pods-DigitalCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEF42C0A0CE710A596606A0 /* Pods_DigitalCoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalCoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,11 +127,14 @@
 				8B9C9C2C25BA05D300260E82 /* AppDelegate.swift */,
 				8B9C9C2E25BA05D300260E82 /* SceneDelegate.swift */,
 				8B9C9C3025BA05D300260E82 /* ViewController.swift */,
-				8B9C9C3225BA05D300260E82 /* Main.storyboard */,
 				8B9C9C3825BA05D800260E82 /* Assets.xcassets */,
+				8B9C9CA125BA216100260E82 /* Main.storyboard */,
 				8B9C9C3A25BA05D800260E82 /* LaunchScreen.storyboard */,
 				8B9C9C3D25BA05D800260E82 /* Info.plist */,
 				8B9C9C3525BA05D300260E82 /* DigitalCoin.xcdatamodeld */,
+				8B9C9C8F25BA1B9000260E82 /* DetailsView.swift */,
+				8B9C9C9425BA1B9E00260E82 /* DetailsView.xib */,
+				8B9C9C9925BA1CFC00260E82 /* DetailsViewController.swift */,
 			);
 			path = DigitalCoin;
 			sourceTree = "<group>";
@@ -158,7 +167,6 @@
 				6F4FB7C3648CE3BA5C26EB2B /* Pods-DigitalCoinTests.debug.xcconfig */,
 				ABB2778DC85835C61B7C9E42 /* Pods-DigitalCoinTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -279,8 +287,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B9C9C3C25BA05D800260E82 /* LaunchScreen.storyboard in Resources */,
+				8B9C9C9525BA1B9E00260E82 /* DetailsView.xib in Resources */,
 				8B9C9C3925BA05D800260E82 /* Assets.xcassets in Resources */,
-				8B9C9C3425BA05D300260E82 /* Main.storyboard in Resources */,
+				8B9C9CA225BA216100260E82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,9 +384,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B9C9C3125BA05D300260E82 /* ViewController.swift in Sources */,
+				8B9C9C9025BA1B9000260E82 /* DetailsView.swift in Sources */,
 				8B9C9C2D25BA05D300260E82 /* AppDelegate.swift in Sources */,
 				8B9C9C2F25BA05D300260E82 /* SceneDelegate.swift in Sources */,
 				8B9C9C3725BA05D300260E82 /* DigitalCoin.xcdatamodeld in Sources */,
+				8B9C9C9A25BA1CFC00260E82 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,14 +424,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8B9C9C3225BA05D300260E82 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8B9C9C3325BA05D300260E82 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8B9C9C3A25BA05D800260E82 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
