@@ -24,12 +24,14 @@ class CoinsDetailsViewController: UIViewController {
     }()
     
     private lazy var buttonBack: UIButton = {
-        let button = UIButton()
+        let button = UIButton.init(type: .roundedRect)
         button.setTitle("Voltar", for: .normal)
         button.setTitleColor(fontColor, for: .normal)
-        //button.addAction(self, for: .touchDown)
-        
+        button.addTarget(self, action: #selector(buttonBackAction), for: .touchUpInside)
 
+        let backButtonImage = UIImage(named: "backbutton")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(backButtonImage, for: .normal)
+        
         return button
     }()
     
@@ -59,11 +61,11 @@ class CoinsDetailsViewController: UIViewController {
     }()
     
     private lazy var buttonAdd: UIButton = {
-        let button = UIButton()
+        let button = UIButton.init(type: .roundedRect)
         button.setTitle("ADICIONAR", for: .normal)
         button.setTitleColor(fontColor, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize:20, weight: .black)
-        //button.addAction(self, for: .touchDown)
+        button.addTarget(self, action: #selector(buttonAddAction), for: .touchUpInside)
         
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
@@ -152,14 +154,24 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //view.backgroundColor = .green
         setupViewConfiguration()
     }
-
+    
+    
+    //MARK:- Buttons
+    
+    @objc func buttonBackAction(sender: UIButton!) {
+        print("Button Clicked")
+    }
+    
+    @objc func buttonAddAction(sender: UIButton!){
+        print("Adicionar")
+    }
 
 }
 
-//
+
+
 extension CoinsDetailsViewController: ViewConfiguration{
    
 
@@ -274,41 +286,3 @@ extension CoinsDetailsViewController: ViewConfiguration{
         view.backgroundColor = .white
     }
 }
-//
-//
-
-
-
-
-
-
-
-
-
-//        ShowCoinsView()
-//        ShowTradeView()
-
-    
-
-    
-
-    
-//    func ShowCoinsView(){
-//        _ = UINib.init(nibName: "CoinsDetailsView", bundle: nil)
-//        let rootView = Bundle.main.loadNibNamed("CoinsDetailsView", owner: self, options: nil)?.first as? CoinsDetailsView
-//        if let coinsDetailsView = rootView{
-//            coinsDetailsView.tag = 100
-//            //coinsDetailsView.frame = CGRect(x:0, y: 0, width: 375, height: 300)
-//            self.navigationController?.view.addSubview(coinsDetailsView)
-//        }
-//    }
-//
-//    func ShowTradeView(){
-//        _ = UINib.init(nibName: "TradeDetailsView", bundle: nil)
-//        let rootView = Bundle.main.loadNibNamed("TradeDetailsView", owner: self, options: nil)?.first as? TradeDetailsView
-//        if let tradeDetailsView = rootView{
-//            tradeDetailsView.tag = 100
-//            //tradeDetailsView.frame = CGRect(x:0, y: 300, width: 375, height: 396)
-//            self.navigationController?.view.addSubview(tradeDetailsView)
-//        }
-//    }
