@@ -158,7 +158,7 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDataUsd()
+        //getDataUsd()
         setupViewConfiguration()
     }
     
@@ -173,21 +173,21 @@ class CoinsDetailsViewController: UIViewController {
         print("Adicionar")
     }
     
-    func getDataUsd() {
-        CoinsAPI().getCoins { (coinsArray, erro) in
-            if let error = erro {
-                print(error)
-            }else if let coins = coinsArray{
-                self.coins = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allUsd = allSingleValue.priceUsd
-                    self.getAllUsd.append(allUsd ?? 0.00)
-                }
-            }
-            print(self.getAllUsd)
-        }
-    }
+//    func getDataUsd() {
+//        CoinsAPI().getCoins { (coinsArray, erro) in
+//            if let error = erro {
+//                print(error)
+//            }else if let coins = coinsArray{
+//                self.coins = coins
+//                for x in 0..<coins.count{
+//                    let allSingleValue = coins[x]
+//                    let allUsd = allSingleValue.priceUsd
+//                    self.getAllUsd.append(allUsd ?? 0.00)
+//                }
+//            }
+//            print(self.getAllUsd)
+//        }
+//    }
 
 }
 
