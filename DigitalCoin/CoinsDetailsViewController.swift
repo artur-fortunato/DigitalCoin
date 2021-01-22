@@ -29,6 +29,7 @@ class CoinsDetailsViewController: UIViewController {
         button.setTitleColor(fontColor, for: .normal)
         //button.addAction(self, for: .touchDown)
         
+
         return button
     }()
     
@@ -61,7 +62,12 @@ class CoinsDetailsViewController: UIViewController {
         let button = UIButton()
         button.setTitle("ADICIONAR", for: .normal)
         button.setTitleColor(fontColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize:20, weight: .black)
         //button.addAction(self, for: .touchDown)
+        
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 1
+        button.layer.borderColor = CGColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
         
         return button
     }()
@@ -153,8 +159,8 @@ extension CoinsDetailsViewController: ViewConfiguration{
        
         buttonAdd.snp.makeConstraints { (make) in
             make.top.equalTo(lblValue.snp.bottom).offset(30)
-            make.left.equalTo(coinDetailView).offset(10)
-            make.right.equalTo(coinDetailView).inset(10)
+            make.left.equalTo(coinDetailView).offset(80)
+            make.right.equalTo(coinDetailView).inset(80)
 
             make.height.equalTo(40)
         }
