@@ -25,6 +25,9 @@
 		D3BC335C25BB149F0096BE97 /* CoinsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC335B25BB149F0096BE97 /* CoinsAPI.swift */; };
 		D3BC336125BB14A90096BE97 /* CoinsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC336025BB14A90096BE97 /* CoinsJSON.swift */; };
 		D3BC336725BB14E30096BE97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC336625BB14E30096BE97 /* ViewController.swift */; };
+		DF21FE7725BB4651008BEF14 /* CoinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FE7625BB4651008BEF14 /* CoinsListViewController.swift */; };
+		DF21FE7D25BB49F2008BEF14 /* TelaPrincipalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF21FE7B25BB49F2008BEF14 /* TelaPrincipalTableViewCell.swift */; };
+		DF21FE7E25BB49F2008BEF14 /* TelaPrincipalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF21FE7C25BB49F2008BEF14 /* TelaPrincipalTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		D3BC336025BB14A90096BE97 /* CoinsJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinsJSON.swift; sourceTree = "<group>"; };
 		D3BC336625BB14E30096BE97 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DECEE558F8871F55F21F2DD6 /* Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig"; path = "Target Support Files/Pods-DigitalCoin-DigitalCoinUITests/Pods-DigitalCoin-DigitalCoinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DF21FE7625BB4651008BEF14 /* CoinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CoinsListViewController.swift; path = ../../../../../../../../CoinsListViewController.swift; sourceTree = "<group>"; };
+		DF21FE7B25BB49F2008BEF14 /* TelaPrincipalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TelaPrincipalTableViewCell.swift; sourceTree = "<group>"; };
+		DF21FE7C25BB49F2008BEF14 /* TelaPrincipalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaPrincipalTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,13 +195,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		8BB9F5FC25BB378C00BBFD3B /* TelaPrincipal */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TelaPrincipal;
-			sourceTree = "<group>";
-		};
 		8BB9F5FD25BB37AD00BBFD3B /* TelaDetalhes */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +213,7 @@
 		8BB9F5FF25BB37EA00BBFD3B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8BB9F5FC25BB378C00BBFD3B /* TelaPrincipal */,
+				DF21FE7525BB4621008BEF14 /* TelaPrincipal */,
 				8BB9F5FD25BB37AD00BBFD3B /* TelaDetalhes */,
 				8BB9F5FE25BB37C000BBFD3B /* TelaFavoritos */,
 			);
@@ -273,6 +272,16 @@
 				D3BC336625BB14E30096BE97 /* ViewController.swift */,
 			);
 			path = ApiViewController;
+			sourceTree = "<group>";
+		};
+		DF21FE7525BB4621008BEF14 /* TelaPrincipal */ = {
+			isa = PBXGroup;
+			children = (
+				DF21FE7B25BB49F2008BEF14 /* TelaPrincipalTableViewCell.swift */,
+				DF21FE7C25BB49F2008BEF14 /* TelaPrincipalTableViewCell.xib */,
+				DF21FE7625BB4651008BEF14 /* CoinsListViewController.swift */,
+			);
+			path = TelaPrincipal;
 			sourceTree = "<group>";
 		};
 		F7C07DEF1D3E3012891A0E42 /* Frameworks */ = {
@@ -393,6 +402,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF21FE7E25BB49F2008BEF14 /* TelaPrincipalTableViewCell.xib in Resources */,
 				8B9C9C3C25BA05D800260E82 /* LaunchScreen.storyboard in Resources */,
 				8B9C9C3925BA05D800260E82 /* Assets.xcassets in Resources */,
 			);
@@ -525,9 +535,11 @@
 				D3BC336725BB14E30096BE97 /* ViewController.swift in Sources */,
 				8B9C9C2D25BA05D300260E82 /* AppDelegate.swift in Sources */,
 				D3BC336125BB14A90096BE97 /* CoinsJSON.swift in Sources */,
+				DF21FE7725BB4651008BEF14 /* CoinsListViewController.swift in Sources */,
 				D3BC335225BB14870096BE97 /* CoinAPIImagem.swift in Sources */,
 				8BB9F60A25BB384C00BBFD3B /* Bindable.swift in Sources */,
 				8B9C9C2F25BA05D300260E82 /* SceneDelegate.swift in Sources */,
+				DF21FE7D25BB49F2008BEF14 /* TelaPrincipalTableViewCell.swift in Sources */,
 				8B9C9C3725BA05D300260E82 /* DigitalCoin.xcdatamodeld in Sources */,
 				8B8C07EB25BA70C200DD7EB6 /* ViewConfiguration.swift in Sources */,
 				8B8C07AC25BA4C5000DD7EB6 /* CoinsDetailsViewController.swift in Sources */,
