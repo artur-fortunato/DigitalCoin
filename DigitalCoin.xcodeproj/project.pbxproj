@@ -19,6 +19,8 @@
 		8B9C9C4725BA05D900260E82 /* DigitalCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C4625BA05D900260E82 /* DigitalCoinTests.swift */; };
 		8B9C9C5225BA05D900260E82 /* DigitalCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */; };
 		8BB9F60A25BB384C00BBFD3B /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9F60925BB384C00BBFD3B /* Bindable.swift */; };
+		8BB9F61525BB3AFF00BBFD3B /* CoinsFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9F61425BB3AFF00BBFD3B /* CoinsFavoritesViewController.swift */; };
+		8BB9F63225BB570900BBFD3B /* FavoritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9F63125BB570900BBFD3B /* FavoritesCollectionViewCell.swift */; };
 		B5C6B895B4457CA3284B83AC /* Pods_DigitalCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D544E30314E81D5D132C3B /* Pods_DigitalCoin.framework */; };
 		D3BC335225BB14870096BE97 /* CoinAPIImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC335125BB14870096BE97 /* CoinAPIImagem.swift */; };
 		D3BC335725BB14910096BE97 /* CoinJSONImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC335625BB14910096BE97 /* CoinJSONImagem.swift */; };
@@ -66,6 +68,8 @@
 		8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinUITests.swift; sourceTree = "<group>"; };
 		8B9C9C5325BA05D900260E82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BB9F60925BB384C00BBFD3B /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		8BB9F61425BB3AFF00BBFD3B /* CoinsFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsFavoritesViewController.swift; sourceTree = "<group>"; };
+		8BB9F63125BB570900BBFD3B /* FavoritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		ABB2778DC85835C61B7C9E42 /* Pods-DigitalCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinTests.release.xcconfig"; path = "Target Support Files/Pods-DigitalCoinTests/Pods-DigitalCoinTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADE25748FE9297E34D6E089E /* Pods-DigitalCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCoin/Pods-DigitalCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEF42C0A0CE710A596606A0 /* Pods_DigitalCoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalCoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +211,8 @@
 		8BB9F5FE25BB37C000BBFD3B /* TelaFavoritos */ = {
 			isa = PBXGroup;
 			children = (
+				8BB9F61425BB3AFF00BBFD3B /* CoinsFavoritesViewController.swift */,
+				8BB9F63125BB570900BBFD3B /* FavoritesCollectionViewCell.swift */,
 			);
 			path = TelaFavoritos;
 			sourceTree = "<group>";
@@ -525,8 +531,10 @@
 				D3BC336725BB14E30096BE97 /* ViewController.swift in Sources */,
 				8B9C9C2D25BA05D300260E82 /* AppDelegate.swift in Sources */,
 				D3BC336125BB14A90096BE97 /* CoinsJSON.swift in Sources */,
+				8BB9F61525BB3AFF00BBFD3B /* CoinsFavoritesViewController.swift in Sources */,
 				D3BC335225BB14870096BE97 /* CoinAPIImagem.swift in Sources */,
 				8BB9F60A25BB384C00BBFD3B /* Bindable.swift in Sources */,
+				8BB9F63225BB570900BBFD3B /* FavoritesCollectionViewCell.swift in Sources */,
 				8B9C9C2F25BA05D300260E82 /* SceneDelegate.swift in Sources */,
 				8B9C9C3725BA05D300260E82 /* DigitalCoin.xcdatamodeld in Sources */,
 				8B8C07EB25BA70C200DD7EB6 /* ViewConfiguration.swift in Sources */,
