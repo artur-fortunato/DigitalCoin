@@ -15,6 +15,10 @@ class CoinsDetailsViewController: UIViewController {
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     
     
+    var coins: Welcome? = []
+    var getAllUsd = [Double]()
+    
+    
     
     private lazy var coinDetailView: UIView = {
         let view = UIView()
@@ -56,7 +60,7 @@ class CoinsDetailsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 40, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "$ 31,010.20"
+        label.text = "$ 31,600.03"
         return label
     }()
     
@@ -154,6 +158,7 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getDataUsd()
         setupViewConfiguration()
     }
     
@@ -167,8 +172,26 @@ class CoinsDetailsViewController: UIViewController {
     @objc func buttonAddAction(sender: UIButton!){
         print("Adicionar")
     }
+    
+    func getDataUsd() {
+        CoinsAPI().getCoins { (coinsArray, erro) in
+            if let error = erro {
+                print(error)
+            }else if let coins = coinsArray{
+                self.coins = coins
+                for x in 0..<coins.count{
+                    let allSingleValue = coins[x]
+                    let allUsd = allSingleValue.priceUsd
+                    self.getAllUsd.append(allUsd ?? 0.00)
+                }
+            }
+            print(self.getAllUsd)
+        }
+    }
 
 }
+
+
 
 
 
@@ -284,5 +307,9 @@ extension CoinsDetailsViewController: ViewConfiguration{
 
     func configureViews() {
         view.backgroundColor = .white
+//        let usdFirst = getAllUsd.first
+//        let usdFirstString = String(describing: usdFirst)
+//        lblValue.text = usdFirstString
+        
     }
 }
