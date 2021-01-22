@@ -18,6 +18,7 @@
 		8B9C9C3C25BA05D800260E82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B9C9C3A25BA05D800260E82 /* LaunchScreen.storyboard */; };
 		8B9C9C4725BA05D900260E82 /* DigitalCoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C4625BA05D900260E82 /* DigitalCoinTests.swift */; };
 		8B9C9C5225BA05D900260E82 /* DigitalCoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */; };
+		8BB9F60A25BB384C00BBFD3B /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB9F60925BB384C00BBFD3B /* Bindable.swift */; };
 		B5C6B895B4457CA3284B83AC /* Pods_DigitalCoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D544E30314E81D5D132C3B /* Pods_DigitalCoin.framework */; };
 		D3BC335225BB14870096BE97 /* CoinAPIImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC335125BB14870096BE97 /* CoinAPIImagem.swift */; };
 		D3BC335725BB14910096BE97 /* CoinJSONImagem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BC335625BB14910096BE97 /* CoinJSONImagem.swift */; };
@@ -64,6 +65,7 @@
 		8B9C9C4D25BA05D900260E82 /* DigitalCoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DigitalCoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B9C9C5125BA05D900260E82 /* DigitalCoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalCoinUITests.swift; sourceTree = "<group>"; };
 		8B9C9C5325BA05D900260E82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BB9F60925BB384C00BBFD3B /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		ABB2778DC85835C61B7C9E42 /* Pods-DigitalCoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoinTests.release.xcconfig"; path = "Target Support Files/Pods-DigitalCoinTests/Pods-DigitalCoinTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADE25748FE9297E34D6E089E /* Pods-DigitalCoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalCoin.debug.xcconfig"; path = "Target Support Files/Pods-DigitalCoin/Pods-DigitalCoin.debug.xcconfig"; sourceTree = "<group>"; };
 		ADEF42C0A0CE710A596606A0 /* Pods_DigitalCoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DigitalCoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,10 +116,7 @@
 		8B9C9C2025BA05D300260E82 = {
 			isa = PBXGroup;
 			children = (
-				D3BC336525BB14D50096BE97 /* ApiViewController */,
-				D3BC335025BB14200096BE97 /* Api */,
 				8B9C9C2B25BA05D300260E82 /* DigitalCoin */,
-				8B8C07E925BA70C200DD7EB6 /* Helper */,
 				8B9C9C4525BA05D900260E82 /* DigitalCoinTests */,
 				8B9C9C5025BA05D900260E82 /* DigitalCoinUITests */,
 				8B9C9C2A25BA05D300260E82 /* Products */,
@@ -139,13 +138,15 @@
 		8B9C9C2B25BA05D300260E82 /* DigitalCoin */ = {
 			isa = PBXGroup;
 			children = (
-				8B9C9C2C25BA05D300260E82 /* AppDelegate.swift */,
-				8B9C9C2E25BA05D300260E82 /* SceneDelegate.swift */,
-				8B9C9C3825BA05D800260E82 /* Assets.xcassets */,
-				8B9C9C3A25BA05D800260E82 /* LaunchScreen.storyboard */,
-				8B9C9C3D25BA05D800260E82 /* Info.plist */,
-				8B9C9C3525BA05D300260E82 /* DigitalCoin.xcdatamodeld */,
-				8B8C07AA25BA4C5000DD7EB6 /* CoinsDetailsViewController.swift */,
+				8BB9F5FA25BB36D600BBFD3B /* Aplication */,
+				D3BC336525BB14D50096BE97 /* ApiViewController */,
+				D3BC335025BB14200096BE97 /* Api */,
+				8BB9F5FF25BB37EA00BBFD3B /* View */,
+				8BB9F60625BB380100BBFD3B /* ViewModels */,
+				8BB9F60725BB380F00BBFD3B /* Models */,
+				8BB9F5FB25BB376A00BBFD3B /* Resources */,
+				8BB9F60825BB384C00BBFD3B /* Core */,
+				8B8C07E925BA70C200DD7EB6 /* Helper */,
 			);
 			path = DigitalCoin;
 			sourceTree = "<group>";
@@ -166,6 +167,80 @@
 				8B9C9C5325BA05D900260E82 /* Info.plist */,
 			);
 			path = DigitalCoinUITests;
+			sourceTree = "<group>";
+		};
+		8BB9F5FA25BB36D600BBFD3B /* Aplication */ = {
+			isa = PBXGroup;
+			children = (
+				8B9C9C2C25BA05D300260E82 /* AppDelegate.swift */,
+				8B9C9C2E25BA05D300260E82 /* SceneDelegate.swift */,
+				8B9C9C3A25BA05D800260E82 /* LaunchScreen.storyboard */,
+				8B9C9C3D25BA05D800260E82 /* Info.plist */,
+				8B9C9C3525BA05D300260E82 /* DigitalCoin.xcdatamodeld */,
+			);
+			path = Aplication;
+			sourceTree = "<group>";
+		};
+		8BB9F5FB25BB376A00BBFD3B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8B9C9C3825BA05D800260E82 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8BB9F5FC25BB378C00BBFD3B /* TelaPrincipal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TelaPrincipal;
+			sourceTree = "<group>";
+		};
+		8BB9F5FD25BB37AD00BBFD3B /* TelaDetalhes */ = {
+			isa = PBXGroup;
+			children = (
+				8B8C07AA25BA4C5000DD7EB6 /* CoinsDetailsViewController.swift */,
+			);
+			path = TelaDetalhes;
+			sourceTree = "<group>";
+		};
+		8BB9F5FE25BB37C000BBFD3B /* TelaFavoritos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TelaFavoritos;
+			sourceTree = "<group>";
+		};
+		8BB9F5FF25BB37EA00BBFD3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BB9F5FC25BB378C00BBFD3B /* TelaPrincipal */,
+				8BB9F5FD25BB37AD00BBFD3B /* TelaDetalhes */,
+				8BB9F5FE25BB37C000BBFD3B /* TelaFavoritos */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BB9F60625BB380100BBFD3B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8BB9F60725BB380F00BBFD3B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8BB9F60825BB384C00BBFD3B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8BB9F60925BB384C00BBFD3B /* Bindable.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		BEA91F9283E3331B218EC065 /* Pods */ = {
@@ -451,6 +526,7 @@
 				8B9C9C2D25BA05D300260E82 /* AppDelegate.swift in Sources */,
 				D3BC336125BB14A90096BE97 /* CoinsJSON.swift in Sources */,
 				D3BC335225BB14870096BE97 /* CoinAPIImagem.swift in Sources */,
+				8BB9F60A25BB384C00BBFD3B /* Bindable.swift in Sources */,
 				8B9C9C2F25BA05D300260E82 /* SceneDelegate.swift in Sources */,
 				8B9C9C3725BA05D300260E82 /* DigitalCoin.xcdatamodeld in Sources */,
 				8B8C07EB25BA70C200DD7EB6 /* ViewConfiguration.swift in Sources */,
@@ -626,7 +702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DigitalCoin/Info.plist;
+				INFOPLIST_FILE = DigitalCoin/Aplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -645,7 +721,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DigitalCoin/Info.plist;
+				INFOPLIST_FILE = DigitalCoin/Aplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
