@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,15 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DigitalCoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s8-cA-t2W">
-                                <rect key="frame" x="121.5" y="316" width="132" height="35"/>
-                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moeda Digital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s8-cA-t2W">
+                                <rect key="frame" x="65.5" y="307.5" width="244.5" height="52"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="38"/>
                                 <color key="textColor" red="0.90185171369999995" green="0.91308277849999997" blue="0.82966059449999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.54447036979999996" green="0.59974068400000002" blue="0.35289901489999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="8s8-cA-t2W" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="7aK-oJ-igF"/>
                             <constraint firstItem="8s8-cA-t2W" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lgg-zv-8cK"/>
@@ -36,9 +35,4 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

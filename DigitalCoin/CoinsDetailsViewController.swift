@@ -88,6 +88,59 @@ class CoinsDetailsViewController: UIViewController {
         return label
     }()
     
+    private lazy var lblLastHour: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = fontColor
+        label.text = "última hora"
+        return label
+    }()
+    
+    private lazy var lblLastHourValue: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = fontColor
+        label.text = "$ 123.456.78"
+        return label
+    }()
+    
+    private lazy var lblLastMonth: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = fontColor
+        label.text = "último mês"
+        return label
+    }()
+    
+    private lazy var lblLastMonthValue: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = fontColor
+        label.text = "$ 123.456.78"
+        return label
+    }()
+    
+    private lazy var lblLastYear: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = fontColor
+        label.text = "último ano"
+        return label
+    }()
+    
+    private lazy var lblLastYearValue: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = fontColor
+        label.text = "$ 123.456.78"
+        return label
+    }()
     
     init(){
         super.init(nibName: nil, bundle: nil)
@@ -99,7 +152,7 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        //view.backgroundColor = .green
         setupViewConfiguration()
     }
 
@@ -120,6 +173,12 @@ extension CoinsDetailsViewController: ViewConfiguration{
         coinDetailView.addSubview(buttonAdd)
         view.addSubview(tradeView)
         tradeView.addSubview(tradedVolume)
+        tradeView.addSubview(lblLastHour)
+        tradeView.addSubview(lblLastHourValue)
+        tradeView.addSubview(lblLastMonth)
+        tradeView.addSubview(lblLastMonthValue)
+        tradeView.addSubview(lblLastYear)
+        tradeView.addSubview(lblLastYearValue)
     }
     
     func setupConstraints() {
@@ -161,7 +220,6 @@ extension CoinsDetailsViewController: ViewConfiguration{
             make.top.equalTo(lblValue.snp.bottom).offset(30)
             make.left.equalTo(coinDetailView).offset(80)
             make.right.equalTo(coinDetailView).inset(80)
-
             make.height.equalTo(40)
         }
         
@@ -169,13 +227,46 @@ extension CoinsDetailsViewController: ViewConfiguration{
             make.top.equalTo(coinDetailView.snp.bottom).offset(0)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
-            make.height.equalTo(500)
+            make.bottom.equalTo(view).offset(0)
         }
         
         tradedVolume.snp.makeConstraints { (make) in
             make.top.equalTo(tradeView).offset(20)
             make.left.equalTo(tradeView).offset(30)
             make.right.equalTo(tradeView).inset(30)
+        }
+        
+        lblLastHour.snp.makeConstraints { (make) in
+            make.top.equalTo(tradedVolume.snp.bottom).offset(50)
+            make.left.equalTo(tradeView).offset(20)
+
+        }
+        
+        lblLastHourValue.snp.makeConstraints { (make) in
+            make.top.equalTo(tradedVolume.snp.bottom).offset(50)
+            make.right.equalTo(tradeView).inset(20)
+        }
+        
+        lblLastMonth.snp.makeConstraints { (make) in
+            make.top.equalTo(lblLastHour.snp.bottom).offset(30)
+            make.left.equalTo(tradeView).offset(20)
+
+        }
+        
+        lblLastMonthValue.snp.makeConstraints { (make) in
+            make.top.equalTo(lblLastHourValue.snp.bottom).offset(30)
+            make.right.equalTo(tradeView).inset(20)
+        }
+        
+        lblLastYear.snp.makeConstraints { (make) in
+            make.top.equalTo(lblLastMonth.snp.bottom).offset(30)
+            make.left.equalTo(tradeView).offset(20)
+
+        }
+        
+        lblLastYearValue.snp.makeConstraints { (make) in
+            make.top.equalTo(lblLastMonthValue.snp.bottom).offset(30)
+            make.right.equalTo(tradeView).inset(20)
         }
     }
 
