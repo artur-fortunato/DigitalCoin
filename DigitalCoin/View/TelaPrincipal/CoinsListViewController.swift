@@ -223,7 +223,11 @@ extension CoinsListViewController: ViewConfiguration{
     func setupConstraints() {
         
         coinDetailView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(0)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(view.safeAreaLayoutGuide).offset(0)
+            } else {
+                make.top.equalTo(view)
+            }
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.height.equalTo(300)
