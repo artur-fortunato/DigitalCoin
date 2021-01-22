@@ -19,7 +19,9 @@ class WelcomeElement: Codable {
     let dataStart, dataEnd, dataQuoteStart, dataQuoteEnd: String
     let dataOrderbookStart, dataOrderbookEnd, dataTradeStart, dataTradeEnd: String
     let dataSymbolsCount: Int
-    let volume1HrsUsd, volume1DayUsd, volume1MthUsd: Double
+    let volume1HrsUsd: Double?
+    let volume1DayUsd: Double?
+    let volume1MthUsd: Double?
     let priceUsd: Double?
     let idIcon: String?
 
@@ -43,7 +45,7 @@ class WelcomeElement: Codable {
         case idIcon = "id_icon"
     }
 
-    init(assetID: String, name: String, typeIsCrypto: Int, dataStart: String, dataEnd: String, dataQuoteStart: String, dataQuoteEnd: String, dataOrderbookStart: String, dataOrderbookEnd: String, dataTradeStart: String, dataTradeEnd: String, dataSymbolsCount: Int, volume1HrsUsd: Double, volume1DayUsd: Double, volume1MthUsd: Double, priceUsd: Double?, idIcon: String?) {
+    init(assetID: String, name: String, typeIsCrypto: Int, dataStart: String, dataEnd: String, dataQuoteStart: String, dataQuoteEnd: String, dataOrderbookStart: String, dataOrderbookEnd: String, dataTradeStart: String, dataTradeEnd: String, dataSymbolsCount: Int, volume1HrsUsd: Double?, volume1DayUsd: Double?, volume1MthUsd: Double?, priceUsd: Double?, idIcon: String?) {
         self.assetID = assetID
         self.name = name
         self.typeIsCrypto = typeIsCrypto
