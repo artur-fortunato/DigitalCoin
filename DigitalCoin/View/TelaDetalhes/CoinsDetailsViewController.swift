@@ -164,6 +164,7 @@ class CoinsDetailsViewController: UIViewController {
         super.viewDidLoad()
         //getDataUsd()
         setupViewConfiguration()
+        
     }
     
     

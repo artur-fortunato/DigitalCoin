@@ -58,12 +58,30 @@ class CoinsFavoritesViewController: UIViewController {
         return cv
     }()
     
-    var contador: Int?
+    private lazy var collectionViewCell: UICollectionViewCell = {
+        let cvc = UICollectionViewCell()
+        
+        return cvc
+    }()
+    
+
+    
+//    let viewModel: MainViewModel
+//    
+//    init(viewModel: MainViewModel = MainViewModel()) {
+//        self.viewModel = viewModel
+//        super.init(nibName: nil, bundle: nil)
+//    }
+////
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
-
+//        viewModel.delegate = self
+//        viewModel.loadCoin()
     }
 }
 
@@ -115,7 +133,7 @@ extension CoinsFavoritesViewController: ViewConfiguration{
     }
     
     func configureViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = blackColor
         
     }
     
@@ -124,22 +142,29 @@ extension CoinsFavoritesViewController: ViewConfiguration{
 extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.5, height: collectionView.frame.width/2)
+        return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 2
+        return 50
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoritesCollectionViewCell
-        cell.backgroundColor = .green
-        cell.layer.cornerRadius = 10
+        cell.backgroundColor = greenColor
+        cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
+        cell.lblName.text = "Oi"
         return cell
     }
     
     
 }
+
+//extension CoinsFavoritesViewController: MainViewModelDelegate{
+//    func reloadData(coin: CoinsViewData) {
+//        self.lblCoin.text = coin.assetID
+//    }
+//}
