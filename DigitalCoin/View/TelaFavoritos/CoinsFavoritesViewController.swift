@@ -53,19 +53,19 @@ class CoinsFavoritesViewController: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         cv.backgroundColor = blackColor
+        cv.delegate = self
+        cv.dataSource = self
         return cv
     }()
     
+    var contador: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+
     }
-
 }
-
 
 extension CoinsFavoritesViewController: ViewConfiguration{
     func buildViewHierarchy() {
@@ -78,7 +78,11 @@ extension CoinsFavoritesViewController: ViewConfiguration{
     
     func setupConstraints() {
         titleView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(0)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(view.safeAreaLayoutGuide)
+            } else {
+                make.top.equalTo(view)
+            }
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.height.equalTo(80)
@@ -104,8 +108,8 @@ extension CoinsFavoritesViewController: ViewConfiguration{
         
         collectionView.snp.makeConstraints { (make) in
             make.top.equalTo(favoritesView).offset(20)
-            make.left.equalTo(favoritesView).offset(20)
-            make.right.equalTo(favoritesView).inset(20)
+            make.left.equalTo(favoritesView).offset(30)
+            make.right.equalTo(favoritesView).inset(30)
             make.bottom.equalTo(favoritesView).inset(10)
         }
     }
@@ -124,12 +128,16 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoritesCollectionViewCell
-        cell.backgroundColor = .white
+        cell.backgroundColor = .green
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
         return cell
     }
     

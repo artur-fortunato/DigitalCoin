@@ -73,7 +73,11 @@ class CoinsDetailsViewController: UIViewController {
         
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
-        button.layer.borderColor = CGColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
+        if #available(iOS 13.0, *) {
+            button.layer.borderColor = CGColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
+        } else {
+            //
+        }
         
         return button
     }()
@@ -219,14 +223,22 @@ extension CoinsDetailsViewController: ViewConfiguration{
     func setupConstraints() {
         
         coinDetailView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(0)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(view.safeAreaLayoutGuide)
+            } else {
+                make.top.equalTo(view)
+            }
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.height.equalTo(300)
         }
         
         buttonBack.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(view.safeAreaLayoutGuide)
+            } else {
+                make.top.equalTo(view)
+            }
             make.left.equalTo(view).offset(8)
         }
         
