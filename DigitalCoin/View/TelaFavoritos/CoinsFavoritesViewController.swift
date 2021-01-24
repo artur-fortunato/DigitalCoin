@@ -9,6 +9,10 @@ import UIKit
 
 class CoinsFavoritesViewController: UIViewController {
     
+    var coins: Welcome? = []
+    var getAllName = [String]()
+    var getAllAssetId = [String]()
+    var getAllUsd = [Double]()
     
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
@@ -79,12 +83,63 @@ class CoinsFavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getDataName()
+        getDataAssetId()
+        getDataUsd()
         setupViewConfiguration()
 //        viewModel.delegate = self
 //        viewModel.loadCoin()
     }
+    // MARK: - Funçoes da API, precisamos remanejar de alguma outra forma.
+    func getDataName() {
+        CoinsAPI().getCoins { (coinsArray, erro) in
+            if let error = erro {
+                print(error)
+            }else if let coins = coinsArray{
+                self.coins = coins
+                for x in 0..<coins.count{
+                    let allSingleValue = coins[x]
+                    let allNames = allSingleValue.name
+                    self.getAllName.append(allNames)
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func getDataAssetId() {
+        CoinsAPI().getCoins { (coinsArray, erro) in
+            if let error = erro {
+                print(error)
+            }else if let coins = coinsArray{
+                self.coins = coins
+                for x in 0..<coins.count{
+                    let allSingleValue = coins[x]
+                    let allAssetId = allSingleValue.assetID
+                    self.getAllAssetId.append(allAssetId)
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func getDataUsd() {
+        CoinsAPI().getCoins { (coinsArray, erro) in
+            if let error = erro {
+                print(error)
+            }else if let coins = coinsArray{
+                self.coins = coins
+                for x in 0..<coins.count{
+                    let allSingleValue = coins[x]
+                    let allUsd = allSingleValue.priceUsd
+                    self.getAllUsd.append(allUsd ?? 0.00)
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
 }
-
+// MARK: Extensões
 extension CoinsFavoritesViewController: ViewConfiguration{
     func buildViewHierarchy() {
         view.addSubview(titleView)
@@ -147,7 +202,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 50
+        return getAllName.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -156,7 +211,11 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         cell.backgroundColor = greenColor
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
-        cell.lblName.text = "Oi"
+        cell.lblName.text = getAllName[indexPath.row]
+        cell.lblID.text = getAllAssetId[indexPath.row]
+        let usd = getAllUsd[indexPath.row]
+        let usdString = String(describing: usd)
+        cell.lblValue.text = usdString
         return cell
     }
     

@@ -22,7 +22,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var lblID: UILabel = {
+    lazy var lblID: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .light)
         label.textColor = fontColor
@@ -31,11 +31,11 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var lblValue: UILabel = {
+    lazy var lblValue: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 23, weight: .light)
         label.textColor = fontColor
-        //label.textAlignment = .center
+        label.textAlignment = .center
         label.text = "$ 31,010.20"
         return label
     }()
