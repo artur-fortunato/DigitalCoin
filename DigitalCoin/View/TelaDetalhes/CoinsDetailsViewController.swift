@@ -162,7 +162,7 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Details"
+        //self.title = "Details"
         //getDataUsd()
         setupViewConfiguration()
         
