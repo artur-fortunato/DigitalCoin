@@ -79,7 +79,11 @@ class CoinsFavoritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Adicionadas"
+        
         setupViewConfiguration()
+        
+        
 //        viewModel.delegate = self
 //        viewModel.loadCoin()
     }
@@ -142,12 +146,12 @@ extension CoinsFavoritesViewController: ViewConfiguration{
 extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.2)
+        return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.7)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 50
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -156,7 +160,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         cell.backgroundColor = greenColor
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
-        cell.lblName.text = "Oi"
+//        cell.lblName.text = "Oi"
         return cell
     }
     

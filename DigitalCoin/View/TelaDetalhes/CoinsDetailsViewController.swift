@@ -162,6 +162,7 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.title = "Details"
         //getDataUsd()
         setupViewConfiguration()
         
@@ -171,7 +172,10 @@ class CoinsDetailsViewController: UIViewController {
     //MARK:- Buttons
     
     @objc func buttonBackAction(sender: UIButton!) {
-        print("Button Clicked")
+        if let navigation = navigationController{
+            navigation.popViewController(animated: true)
+            
+        }
     }
     
     @objc func buttonAddAction(sender: UIButton!){

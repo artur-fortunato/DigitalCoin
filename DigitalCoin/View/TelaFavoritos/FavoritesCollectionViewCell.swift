@@ -13,10 +13,16 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     
+    private lazy var icon: UIView = {
+        let view = UIView()
+        view.backgroundColor = .orange
+        return view
+    }()
+    
     lazy var lblName: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 23, weight: .light)
-        //label.textAlignment = .center
+        label.textAlignment = .center
         label.textColor = fontColor
         label.text = "Bitcoin"
         return label
@@ -26,7 +32,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .light)
         label.textColor = fontColor
-        //label.textAlignment = .center
+        label.textAlignment = .center
         label.text = "BTC"
         return label
     }()
@@ -35,7 +41,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 23, weight: .light)
         label.textColor = fontColor
-        //label.textAlignment = .center
+        label.textAlignment = .center
         label.text = "$ 31,010.20"
         return label
     }()
@@ -43,6 +49,8 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect){
         super.init(frame: frame)
         setupViewConfiguration()
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -55,27 +63,35 @@ extension FavoritesCollectionViewCell: ViewConfiguration{
         addSubview(lblName)
         addSubview(lblID)
         addSubview(lblValue)
+        addSubview(icon)
     }
 
     func setupConstraints() {
+        
+        icon.snp.makeConstraints { (make) in
+            make.top.equalTo(-5)
+            make.right.equalTo(5)
+            make.height.equalTo(30)
+            make.width.equalTo(30)
+
+        }
         lblName.snp.makeConstraints { (make) in
             make.top.equalTo(20)
-            make.left.equalTo(40)
-            make.right.equalTo(40)
-            
+            make.left.equalTo(0)
+            make.right.equalTo(0)
         }
         
         lblID.snp.makeConstraints { (make) in
             make.top.equalTo(lblName.snp.bottom).offset(10)
-            make.left.equalTo(60)
-            make.right.equalTo(60)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
 
         }
         
         lblValue.snp.makeConstraints { (make) in
             make.top.equalTo(lblID.snp.bottom).offset(20)
-            make.left.equalTo(10)
-            make.right.equalTo(10)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
 
         }
     }
