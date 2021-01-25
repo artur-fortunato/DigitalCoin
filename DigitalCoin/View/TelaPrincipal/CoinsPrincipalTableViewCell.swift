@@ -25,13 +25,17 @@ class CoinsPrincipalTableViewCell: UITableViewCell, UISearchBarDelegate {
 //        return search
 //    }()
     
-    private lazy var icon: UIView = {
-        let view = UIView()
-        view.backgroundColor = .orange
-        return view
+//    lazy var icon: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .orange
+//        return view
+//    }()
+    lazy var imagemCoin: UIImageView = {
+        let image = UIImageView()
+        return image
     }()
     
-    private lazy var lblName: UILabel = {
+    lazy var lblName: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 23, weight: .light)
         label.textColor = fontColor
@@ -39,7 +43,7 @@ class CoinsPrincipalTableViewCell: UITableViewCell, UISearchBarDelegate {
         return label
     }()
     
-    private lazy var lblID: UILabel = {
+    lazy var lblID: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17, weight: .light)
         label.textColor = fontColor
@@ -47,7 +51,7 @@ class CoinsPrincipalTableViewCell: UITableViewCell, UISearchBarDelegate {
         return label
     }()
 
-    private lazy var lblValue: UILabel = {
+    lazy var lblValue: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 23, weight: .light)
         label.textColor = fontColor
@@ -68,7 +72,7 @@ class CoinsPrincipalTableViewCell: UITableViewCell, UISearchBarDelegate {
 
 extension CoinsPrincipalTableViewCell: ViewConfiguration{
     func buildViewHierarchy() {
-        addSubview(icon)
+        addSubview(imagemCoin)
         addSubview(lblName)
         addSubview(lblID)
         addSubview(lblValue)
@@ -76,7 +80,7 @@ extension CoinsPrincipalTableViewCell: ViewConfiguration{
 
     func setupConstraints() {
         
-        icon.snp.makeConstraints { (make) in
+        imagemCoin.snp.makeConstraints { (make) in
             make.top.equalTo(20)
             make.left.equalTo(20)
             make.height.equalTo(60)
@@ -86,12 +90,12 @@ extension CoinsPrincipalTableViewCell: ViewConfiguration{
         
         lblName.snp.makeConstraints { (make) in
             make.top.equalTo(20)
-            make.left.equalTo(icon.snp.right).offset(20)
+            make.left.equalTo(imagemCoin.snp.right).offset(20)
         }
 
         lblID.snp.makeConstraints { (make) in
             make.top.equalTo(lblName.snp.bottom).offset(10)
-            make.left.equalTo(icon.snp.right).offset(20)
+            make.left.equalTo(imagemCoin.snp.right).offset(20)
 
         }
 

@@ -17,16 +17,16 @@ class CoinsListViewController: UIViewController {
     
     let names = ["Bitcoin","Ethereum","Bitcoin Cash", "Moeda1", "Moeda2"]
     
-    var coins: Welcome? = []
-    var getAllUsd = [Double]()
+    
     
     
     
     private lazy var coinDetailView: UITableView = {
         let view = UITableView()
-        let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
-        view.register(nibCoin, forCellReuseIdentifier: "coinCell")
+//        let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
+//        view.register(nibCoin, forCellReuseIdentifier: "principalCell")
         view.dataSource = self
+        
         
         //view.backgroundColor = blackColor
         return view
@@ -165,9 +165,10 @@ class CoinsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getDataUsd()
+        
         setupViewConfiguration()
     }
+    
 //
 //
 //    //MARK:- Buttons
@@ -180,21 +181,6 @@ class CoinsListViewController: UIViewController {
 //        print("Adicionar")
 //    }
 //
-//    func getDataUsd() {
-//        CoinsAPI().getCoins { (coinsArray, erro) in
-//            if let error = erro {
-//                print(error)
-//            }else if let coins = coinsArray{
-//                self.coins = coins
-//                for x in 0..<coins.count{
-//                    let allSingleValue = coins[x]
-//                    let allUsd = allSingleValue.priceUsd
-//                    self.getAllUsd.append(allUsd ?? 0.00)
-//                }
-//            }
-//            print(self.getAllUsd)
-//        }
-//    }
 
 }
 
@@ -328,9 +314,9 @@ extension CoinsListViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = coinDetailView.dequeueReusableCell(withIdentifier: "coinCell") as! TelaPrincipalTableViewCell
+        let cell = coinDetailView.dequeueReusableCell(withIdentifier: "principalCell") as! CoinsPrincipalTableViewCell
         
-        cell.labelnomeMoeda.text = names[indexPath.row]
+        
         
         return cell
     }
