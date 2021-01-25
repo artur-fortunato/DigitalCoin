@@ -57,7 +57,6 @@ class CoinsPrincipalViewController: UIViewController {
         self.title = "Moedas"
         setupViewConfiguration()
         
-        
     }
 }
 
