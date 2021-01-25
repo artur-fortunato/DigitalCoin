@@ -39,7 +39,7 @@ class CoinsDetailsViewController: UIViewController {
         return button
     }()
     
-    private lazy var lblID: UILabel = {
+    lazy var lblID: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
@@ -48,14 +48,18 @@ class CoinsDetailsViewController: UIViewController {
         return label
     }()
     
-    private lazy var icon: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
+//    lazy var icon: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .white
+//        return view
+//    }()
+    lazy var imagemCoin: UIImageView = {
+        let image = UIImageView()
+        return image
     }()
     
     
-    private lazy var lblValue: UILabel = {
+    lazy var lblValue: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 40, weight: .medium)
         label.textAlignment = .center
@@ -64,7 +68,7 @@ class CoinsDetailsViewController: UIViewController {
         return label
     }()
     
-    private lazy var buttonAdd: UIButton = {
+    lazy var buttonAdd: UIButton = {
         let button = UIButton.init(type: .roundedRect)
         button.setTitle("ADICIONAR", for: .normal)
         button.setTitleColor(fontColor, for: .normal)
@@ -82,14 +86,14 @@ class CoinsDetailsViewController: UIViewController {
         return button
     }()
     
-    private lazy var tradeView: UIView = {
+    lazy var tradeView: UIView = {
         let view = UIView()
         view.backgroundColor = blackColor
         
         return view
     }()
     
-    private lazy var tradedVolume: UILabel = {
+    lazy var tradedVolume: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
@@ -103,11 +107,11 @@ class CoinsDetailsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "última hora"
+        label.text = "última hora:"
         return label
     }()
     
-    private lazy var lblLastHourValue: UILabel = {
+    lazy var lblLastHourValue: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
@@ -121,11 +125,11 @@ class CoinsDetailsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "último mês"
+        label.text = "último dia:"
         return label
     }()
     
-    private lazy var lblLastMonthValue: UILabel = {
+    lazy var lblLastMonthValue: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
@@ -139,11 +143,11 @@ class CoinsDetailsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "último ano"
+        label.text = "último mês:"
         return label
     }()
     
-    private lazy var lblLastYearValue: UILabel = {
+    lazy var lblLastYearValue: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
@@ -212,7 +216,7 @@ extension CoinsDetailsViewController: ViewConfiguration{
         view.addSubview(coinDetailView)
         coinDetailView.addSubview(buttonBack)
         coinDetailView.addSubview(lblID)
-        coinDetailView.addSubview(icon)
+        coinDetailView.addSubview(imagemCoin)
         coinDetailView.addSubview(lblValue)
         coinDetailView.addSubview(buttonAdd)
         view.addSubview(tradeView)
@@ -253,16 +257,16 @@ extension CoinsDetailsViewController: ViewConfiguration{
             make.right.equalTo(coinDetailView).inset(10)
         }
             
-        icon.snp.makeConstraints { (make) in
+        imagemCoin.snp.makeConstraints { (make) in
             make.top.equalTo(lblID.snp.bottom).offset(20)
-            make.left.equalTo(coinDetailView).offset(100)
-            make.right.equalTo(coinDetailView).inset(100)
+            make.left.equalTo(coinDetailView).offset(170)
+            make.right.equalTo(coinDetailView).inset(170)
 
             make.height.equalTo(30)
         }
         
         lblValue.snp.makeConstraints { (make) in
-            make.top.equalTo(icon.snp.bottom).offset(20)
+            make.top.equalTo(imagemCoin.snp.bottom).offset(20)
             make.left.equalTo(coinDetailView).offset(10)
             make.right.equalTo(coinDetailView).inset(10)
 
