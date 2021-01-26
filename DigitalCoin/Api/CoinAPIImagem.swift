@@ -14,7 +14,7 @@ class CoinsAPIImagem: NSObject {
     
     func getCoins2(completion:@escaping (_ coins:[WelcomeElement2]?, _ error:String?) -> Void ) {
         
-        let url = "https://rest.coinapi.io/v1/assets/icons/32?apikey=98BD8F47-4B1B-45DE-BCA2-038D7571BA3C"
+        let url = "https://bfe60046-16b5-4af0-86ec-c0c54b6881ba.mock.pstmn.io/"
         
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if let data = response.data {
