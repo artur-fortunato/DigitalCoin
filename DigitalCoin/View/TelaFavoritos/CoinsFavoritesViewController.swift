@@ -159,6 +159,8 @@ extension CoinsFavoritesViewController: ViewConfiguration{
 
 extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.5)
     }
@@ -176,6 +178,11 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         cell.layer.masksToBounds = true
 //        cell.lblName.text = "Oi"
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let coinsDetailsViewController = CoinsDetailsViewController()
+        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
     
     
