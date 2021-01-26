@@ -13,6 +13,13 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     
+    private lazy var cellView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.backgroundColor = greenColor
+        return view
+    }()
+    
     private lazy var icon: UIView = {
         let view = UIView()
         view.backgroundColor = .orange
@@ -60,23 +67,31 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
 
 extension FavoritesCollectionViewCell: ViewConfiguration{
     func buildViewHierarchy() {
-        addSubview(lblName)
-        addSubview(lblID)
-        addSubview(lblValue)
-        addSubview(icon)
+        addSubview(cellView)
+        cellView.addSubview(lblName)
+        cellView.addSubview(lblID)
+        cellView.addSubview(lblValue)
+        cellView.addSubview(icon)
     }
 
     func setupConstraints() {
         
+        cellView.snp.makeConstraints { (make) in
+            make.top.equalTo(contentView).offset(10)
+            make.right.equalTo(contentView).inset(10)
+            make.left.equalTo(contentView).offset(10)
+            make.bottom.equalTo(contentView).inset(10)
+        }
+        
         icon.snp.makeConstraints { (make) in
-            make.top.equalTo(-5)
-            make.right.equalTo(5)
+            make.top.equalTo(cellView).offset(-10)
+            make.right.equalTo(cellView).offset(10)
             make.height.equalTo(30)
             make.width.equalTo(30)
 
         }
         lblName.snp.makeConstraints { (make) in
-            make.top.equalTo(20)
+            make.top.equalTo(10)
             make.left.equalTo(0)
             make.right.equalTo(0)
         }
@@ -89,7 +104,7 @@ extension FavoritesCollectionViewCell: ViewConfiguration{
         }
         
         lblValue.snp.makeConstraints { (make) in
-            make.top.equalTo(lblID.snp.bottom).offset(20)
+            make.top.equalTo(lblID.snp.bottom).offset(15)
             make.left.equalTo(0)
             make.right.equalTo(0)
 

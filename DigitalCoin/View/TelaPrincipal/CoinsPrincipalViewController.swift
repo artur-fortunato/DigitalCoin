@@ -43,6 +43,11 @@ class CoinsPrincipalViewController: UIViewController {
         return label
     }()
     
+    private lazy var lineWhite: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        return label
+    }()
     
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -90,6 +95,7 @@ extension CoinsPrincipalViewController: ViewConfiguration{
         view.addSubview(titleView)
         titleView.addSubview(lblCoin)
         titleView.addSubview(lblDate)
+        view.addSubview(lineWhite)
         view.addSubview(tableView)
     }
     
@@ -116,9 +122,14 @@ extension CoinsPrincipalViewController: ViewConfiguration{
             make.right.equalTo(titleView).inset(10)
         }
         
-        
+        lineWhite.snp.makeConstraints { (make) in
+            make.top.equalTo(titleView.snp.bottom).offset(0)
+            make.left.equalTo(view).offset(0)
+            make.right.equalTo(view).inset(0)
+            make.height.equalTo(1)
+        }
         tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleView.snp.bottom).offset(1)
+            make.top.equalTo(lineWhite.snp.bottom).offset(1)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.bottom.equalTo(view).inset(0)

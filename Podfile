@@ -7,6 +7,7 @@ target 'DigitalCoin' do
   pod 'Alamofire', '~> 4.7.0'
   pod 'AlamofireImage', '~> 3.4.0'
 	pod 'SnapKit'
+  pod 'SwiftLint'
   # Pods for DigitalCoin
 
   target 'DigitalCoinTests' do

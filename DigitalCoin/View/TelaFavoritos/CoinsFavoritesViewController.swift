@@ -39,6 +39,12 @@ class CoinsFavoritesViewController: UIViewController {
         return label
     }()
     
+    private lazy var lineWhite: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .white
+        return label
+    }()
+    
     private lazy var favoritesView: UIView = {
         let view = UIView()
         
@@ -94,6 +100,7 @@ extension CoinsFavoritesViewController: ViewConfiguration{
         view.addSubview(titleView)
         titleView.addSubview(lblCoin)
         titleView.addSubview(lblDate)
+        view.addSubview(lineWhite)
         view.addSubview(favoritesView)
         favoritesView.addSubview(collectionView)
     }
@@ -121,8 +128,15 @@ extension CoinsFavoritesViewController: ViewConfiguration{
             make.right.equalTo(titleView).inset(10)
         }
         
+        lineWhite.snp.makeConstraints { (make) in
+            make.top.equalTo(titleView.snp.bottom).offset(0)
+            make.left.equalTo(view).offset(0)
+            make.right.equalTo(view).inset(0)
+            make.height.equalTo(1)
+        }
+        
         favoritesView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleView.snp.bottom).offset(1)
+            make.top.equalTo(lineWhite.snp.bottom).offset(0)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.bottom.equalTo(view).inset(0)
@@ -146,7 +160,7 @@ extension CoinsFavoritesViewController: ViewConfiguration{
 extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.7)
+        return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -157,7 +171,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoritesCollectionViewCell
-        cell.backgroundColor = greenColor
+        cell.backgroundColor = blackColor
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
 //        cell.lblName.text = "Oi"
