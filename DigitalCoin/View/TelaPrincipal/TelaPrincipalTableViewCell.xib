@@ -23,8 +23,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoinsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tQL-9X-hf3">
                                 <rect key="frame" x="0.0" y="0.5" width="54" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="BQu-Vr-DWC"/>
                                     <constraint firstAttribute="width" constant="54" id="b2F-nT-YGI"/>
+                                    <constraint firstAttribute="height" constant="54" id="s0p-4s-fL8"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZSU-lk-ssh">

@@ -12,12 +12,24 @@ class CoinsListViewController: UIViewController, UITableViewDelegate {
     
     // MARK - Variaveis
 
-    var coinstableView = UITableView()
+    //var coinstableView = UITableView()
     var viewModelCoins = CoinsViewModel()
+    var coins: Welcome = []
+    var coins2: Welcome2 = []
+    let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     
     // MARK: Titulo
     
-    private lazy var titleView: UIView = {
+    lazy var coinstableView : UITableView = {
+        let tableview = UITableView()
+        let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
+        tableview.register(nibCoin, forCellReuseIdentifier: "coinCell")
+        tableview.delegate = self
+        tableview.dataSource = self
+        tableview.backgroundColor = blackColor
+        return tableview
+    }()
+        private lazy var titleView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
         return view
@@ -58,31 +70,53 @@ class CoinsListViewController: UIViewController, UITableViewDelegate {
     
     // MARK - TableView
     
-    func coinList(){
-        let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
-        coinstableView.register(nibCoin, forCellReuseIdentifier: "coinCell")
-        coinstableView.delegate = self
-        coinstableView.dataSource = self
-       
-        viewModelCoins.cl = self
-        viewModelCoins.alamoCoinsList()
-    }
+//    func coinList(){
+//        let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
+//        coinstableView.register(nibCoin, forCellReuseIdentifier: "coinCell")
+//        coinstableView.delegate = self
+//        coinstableView.dataSource = self
+//       
+//        viewModelCoins.cl = self
+//        viewModelCoins.alamoCoinsList()
+    //}
     
     
     // MARK: - Inicializadores
     
-    init(){
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    init(){
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
-        coinList()
+        //coinList()
+        getData()
+        getDataImagem()
+    }
+    func getData() {
+        CoinsAPI().getCoins { (coinsArray, erro) in
+            if let error = erro {
+                print(error)
+            }else if let coins = coinsArray{
+                self.coins = coins
+                self.coinstableView.reloadData()
+            }
+        }
+    }
+    func getDataImagem() {
+        CoinsAPIImagem().getCoins2 { (coinsArrayImagem, erro) in
+            if let error = erro {
+                print(error)
+            }else if let coinsImagem = coinsArrayImagem{
+                self.coins2 = coinsImagem
+                self.coinstableView.reloadData()
+            }
+        }
     }
 }
 
@@ -143,7 +177,8 @@ extension CoinsListViewController: ViewConfiguration{
             make.top.equalTo(searchCoin.snp.bottom).offset(30)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
-            make.height.equalTo(view)
+            make.bottom.equalTo(view).inset(0)
+            //make.height.equalTo(view)
         }
     }
 
@@ -161,7 +196,7 @@ extension CoinsListViewController: ViewConfiguration{
 @available(iOS 13.0, *)
 extension CoinsListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModelCoins.coins.count
+        coins.count + coins2.count - 13
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -170,7 +205,24 @@ extension CoinsListViewController: UITableViewDataSource{
 //          cell.labelnomeMoeda.text = names[indexPath.row]
 //          cell.labelSiglaCoin.text = siglas[indexPath.row]
 //          cell.labelValorCoin.text = valores[indexPath.row]
-        cell.modelCoins = viewModelCoins.coins[indexPath.row]
+       // cell.modelCoins = viewModelCoins.coins[indexPath.row]
+        let result = coins[indexPath.row]
+        let result2 = coins2[indexPath.row]
+        cell.labelnomeMoeda.text = result.name ?? "nil"
+        cell.labelSiglaCoin.text = result.assetID ?? "nil"
+        
+        let formatter4 = NumberFormatter()
+        formatter4.maximumFractionDigits = 4
+        formatter4.minimumFractionDigits = 4
+        
+        if let usd  = formatter4.string(for: result.priceUsd){
+            cell.labelValorCoin.text = "$ \(usd)"
+        }
+        
+        let imageUrl = URL(string: result2.url ?? "nil")
+        cell.imageSimboloCoin.af_setImage(withURL: imageUrl!)
+        
+        
         
         return cell
     }
@@ -181,8 +233,8 @@ extension CoinsListViewController: UITableViewDataSource{
         
         //Setando variaveis indexPath.row
 //       let result = coins[indexPath.row]
-        let result = viewModelCoins.coins[indexPath.row]
-        //let result2 = coins2[indexPath.row]
+        let result = coins[indexPath.row]
+        let result2 = coins2[indexPath.row]
         
         //Setando Label Asset_Id:
         coinsDetailsViewController.lblID.text = result.name ?? "nil"
@@ -199,24 +251,24 @@ extension CoinsListViewController: UITableViewDataSource{
         let formatter2 = NumberFormatter()
         formatter2.maximumFractionDigits = 2
         formatter2.minimumFractionDigits = 2
-        if let usdLastHour = formatter2.string(for: result.lastHour){
+        if let usdLastHour = formatter2.string(for: result.volume1HrsUsd){
             coinsDetailsViewController.lblLastHourValue.text = "$ \(usdLastHour)"
         }
         
         //Setando Volume_ultimo_dia:
-        if let usdLastDay = formatter2.string(for: result.lastDay){
+        if let usdLastDay = formatter2.string(for: result.volume1DayUsd){
             coinsDetailsViewController.lblLastMonthValue.text = "$ \(usdLastDay)"
         }
         
         //Setando Label Volume_ultimo_mes:
         
-        if let usdLastMth = formatter2.string(for: result.lastMonth){
+        if let usdLastMth = formatter2.string(for: result.volume1MthUsd){
             coinsDetailsViewController.lblLastYearValue.text = "$ \(usdLastMth)"
         }
         
         //Setando Label ImagemCoin:
-        //let imageUrl = URL(string: result2.url ?? "nil")
-        //coinsDetailsViewController.imagemCoin.af_setImage(withURL: imageUrl!)
+        let imageUrl = URL(string: result2.url ?? "nil")
+        coinsDetailsViewController.imagemCoin.af_setImage(withURL: imageUrl!)
     }
 }
 
