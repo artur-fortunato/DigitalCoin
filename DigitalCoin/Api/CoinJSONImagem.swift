@@ -14,15 +14,15 @@ import Foundation
 
 // MARK: - WelcomeElement
 class WelcomeElement2: Codable {
-    let assetID: String
-    let url: String
+    let assetID: String?
+    let url: String?
 
     enum CodingKeys: String, CodingKey {
         case assetID = "asset_id"
         case url
     }
 
-    init(assetID: String, url: String) {
+    init(assetID: String?, url: String?) {
         self.assetID = assetID
         self.url = url
     }

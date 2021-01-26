@@ -11,7 +11,6 @@ import CoreData
 
 class CoinsAPIImagem: NSObject {
     
-    var listaCoins2 = [String]()
     
     func getCoins2(completion:@escaping (_ coins:[WelcomeElement2]?, _ error:String?) -> Void ) {
         

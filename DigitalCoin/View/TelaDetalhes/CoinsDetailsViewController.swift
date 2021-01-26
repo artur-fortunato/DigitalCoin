@@ -176,10 +176,7 @@ class CoinsDetailsViewController: UIViewController {
     //MARK:- Buttons
     
     @objc func buttonBackAction(sender: UIButton!) {
-        if let navigation = navigationController{
-            navigation.popViewController(animated: true)
-            
-        }
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func buttonAddAction(sender: UIButton!){

@@ -16,14 +16,7 @@ class CoinsPrincipalViewController: UIViewController {
     
     // MARK: - VARIAVEIS DA API, PRECISAM SER REMANEJADAS(MODULO)
     var coins: Welcome = []
-    var coins2: Welcome2? = []
-    var getAllName = [String]()
-    var getAllUsd = [Double]()
-    var getAllUrl = [String]()
-    var getAllAssetId = [String]()
-    var getAllVolumeHrs = [Double]()
-    var getAllVolumeDay = [Double]()
-    var getAllVolumeMth = [Double]()
+    var coins2: Welcome2 = []
     
     private lazy var titleView: UIView = {
         let view = UIView()
@@ -51,7 +44,7 @@ class CoinsPrincipalViewController: UIViewController {
     }()
     
     
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(CoinsPrincipalTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -60,128 +53,33 @@ class CoinsPrincipalViewController: UIViewController {
         table.dataSource = self
         return table
     }()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Moedas"
-        getDataName()
-        getDataUsd()
+        getData()
         getDataImagem()
-        getDataAssetId()
-        getDataVolumeHrs()
-        getDataVolumeDay()
-        getDataVolumeMth()
         setupViewConfiguration()
-        
     }
-    // MARK: -FUNCOES DA API, PRECISAM SER REMANEJADAS(MODULO)
-    func getDataName() {
+    // MARK: - Funçoes das API`S Precisam ir para MODULO
+    func getData() {
         CoinsAPI().getCoins { (coinsArray, erro) in
             if let error = erro {
                 print(error)
             }else if let coins = coinsArray{
                 self.coins = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allNames = allSingleValue.name
-                    self.getAllName.append(allNames)
-                    self.tableView.reloadData()
-                }
+                self.tableView.reloadData()
             }
         }
     }
     
-    func getDataUsd() {
-        CoinsAPI().getCoins { (coinsArray, erro) in
-            if let error = erro {
-                print(error)
-            }else if let coins = coinsArray{
-                self.coins = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allUsd = allSingleValue.priceUsd
-                    self.getAllUsd.append(allUsd ?? 0.00)
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
     func getDataImagem() {
-        CoinsAPIImagem().getCoins2 { (coinsArray, erro) in
+        CoinsAPIImagem().getCoins2 { (coinsArrayImagem, erro) in
             if let error = erro {
                 print(error)
-            }else if let coins = coinsArray{
-                self.coins2 = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allUrl = allSingleValue.url
-                    self.getAllUrl.append(allUrl)
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    func getDataAssetId() {
-        CoinsAPI().getCoins { (coinsArray, erro) in
-            if let error = erro {
-                print(error)
-            }else if let coins = coinsArray{
-                self.coins = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allAssetId = allSingleValue.assetID
-                    self.getAllAssetId.append(allAssetId)
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    func getDataVolumeHrs() {
-        CoinsAPI().getCoins { (coinsArray, erro) in
-            if let error = erro {
-                print(error)
-            }else if let coins = coinsArray{
-                self.coins = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allVolumeHrs = allSingleValue.volume1HrsUsd
-                    self.getAllVolumeHrs.append(allVolumeHrs ?? 0.00)
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    func getDataVolumeDay() {
-        CoinsAPI().getCoins { (coinsArray, erro) in
-            if let error = erro {
-                print(error)
-            }else if let coins = coinsArray{
-                self.coins = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allVolumeDay = allSingleValue.volume1DayUsd
-                    self.getAllVolumeDay.append(allVolumeDay ?? 0.00)
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    func getDataVolumeMth() {
-        CoinsAPI().getCoins { (coinsArray, erro) in
-            if let error = erro {
-                print(error)
-            }else if let coins = coinsArray{
-                self.coins = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allVolumeMth = allSingleValue.volume1MthUsd
-                    self.getAllVolumeMth.append(allVolumeMth ?? 0.00)
-                    self.tableView.reloadData()
-                }
+            }else if let coinsImagem = coinsArrayImagem{
+                self.coins2 = coinsImagem
+                self.tableView.reloadData()
             }
         }
     }
@@ -233,69 +131,87 @@ extension CoinsPrincipalViewController: ViewConfiguration{
 
 extension CoinsPrincipalViewController: UITableViewDataSource, UITableViewDelegate{
     
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getAllName.count
+        return coins.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CoinsPrincipalTableViewCell
         
-            cell.backgroundColor = blackColor
+        //Setando variaveis indexPath.row
+        let result = coins[indexPath.row]
+        //let result2 = coins2[indexPath.row]
         
-        //Imagem:
-        let imageUrl = URL(string: getAllUrl[indexPath.row])
-        cell.imagemCoin.af_setImage(withURL: imageUrl!)
+        //Setando label nome da moeda
+        cell.lblName.text = result.name ?? "nil"
         
-        //Label Name:
-        cell.lblName.text = getAllName[indexPath.row]
+        //Setando label sigla da moeda
+        cell.lblID.text = result.assetID ?? "nil"
         
-        //Label Asset_Id:
-        cell.lblID.text = getAllAssetId[indexPath.row]
+        //Setando label valor da moeda em USD
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 4
+        formatter.minimumFractionDigits = 4
+        if let usdString = formatter.string(for: result.priceUsd){
+            cell.lblValue.text = "$ \(usdString)"
+        }
         
-        //Label Value:
-        let usd = getAllUsd[indexPath.row]
-        let doubleStr = String(format: "%.2f", usd)
-        cell.lblValue.text = "$ \(doubleStr)"
-
-            return cell
+        //Setando icone da moeda
+        //let imageUrl = URL(string: result2.url ?? "nil")
+        //cell.imagemCoin.af_setImage(withURL: imageUrl!)
+        
+        cell.backgroundColor = blackColor
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coinSelected = indexPath.item
         let coinsDetailsViewController = CoinsDetailsViewController()
         self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
         
-        //Label Asset_Id:
-        coinsDetailsViewController.lblID.text = getAllAssetId[indexPath.row]
+        //Setando variaveis indexPath.row
+        let result = coins[indexPath.row]
+        //let result2 = coins2[indexPath.row]
         
-        //Label Value:
-        let usd = getAllUsd[indexPath.row]
-        let doubleUsd = String(format: "%.2f", usd)
-        coinsDetailsViewController.lblValue.text = "$ \(doubleUsd)"
+        //Setando Label Asset_Id:
+        coinsDetailsViewController.lblID.text = result.name ?? "nil"
         
-        //Label Volume_ultima_hora:
-        let usdLastHour = getAllVolumeHrs[indexPath.row]
-        let doubleUsdLastHour = String(format: "%.2f", usdLastHour)
-        coinsDetailsViewController.lblLastHourValue.text = "$ \(doubleUsdLastHour)"
+        //Setando Label Value:
+        let formatter4 = NumberFormatter()
+        formatter4.maximumFractionDigits = 4
+        formatter4.minimumFractionDigits = 4
+        if let usd  = formatter4.string(for: result.priceUsd){
+            coinsDetailsViewController.lblValue.text = "$ \(usd)"
+        }
         
-        //Label Volume_ultimo_dia:
-        let usdLastDay = getAllVolumeDay[indexPath.row]
-        let doubleUsdLastDay = String(format: "%.2f", usdLastDay)
-        coinsDetailsViewController.lblLastMonthValue.text = "$ \(doubleUsdLastDay)"
+        //Setando Label Volume_ultima_hora:
+        let formatter2 = NumberFormatter()
+        formatter2.maximumFractionDigits = 2
+        formatter2.minimumFractionDigits = 2
+        if let usdLastHour = formatter2.string(for: result.volume1HrsUsd){
+            coinsDetailsViewController.lblLastHourValue.text = "$ \(usdLastHour)"
+        }
         
-        // Label Volume_ultimo_mes:
+        //Setando Volume_ultimo_dia:
+        if let usdLastDay = formatter2.string(for: result.volume1DayUsd){
+            coinsDetailsViewController.lblLastMonthValue.text = "$ \(usdLastDay)"
+        }
         
-        let usdLastMth = getAllVolumeMth[indexPath.row]
-        let doubleUsdLastMth = String(format: "%.2f", usdLastMth)
-        coinsDetailsViewController.lblLastYearValue.text = "$ \(doubleUsdLastMth)"
+        //Setando Label Volume_ultimo_mes:
         
-        // Label ImagemCoin:
-        let imageUrl = URL(string: getAllUrl[indexPath.row])
-        coinsDetailsViewController.imagemCoin.af_setImage(withURL: imageUrl!)
+        if let usdLastMth = formatter2.string(for: result.volume1MthUsd){
+            coinsDetailsViewController.lblLastYearValue.text = "$ \(usdLastMth)"
+        }
+        
+        //Setando Label ImagemCoin:
+        //let imageUrl = URL(string: result2.url ?? "nil")
+        //coinsDetailsViewController.imagemCoin.af_setImage(withURL: imageUrl!)
     }
     
     

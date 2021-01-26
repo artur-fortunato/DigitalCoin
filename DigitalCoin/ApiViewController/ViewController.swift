@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         getDataName()
         getDataUsd()
-        getDataImagem()
+        //getDataImagem()
         getDataAssetId()
         getDataVolumeHrs()
         getDataVolumeDay()
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
                 for x in 0..<coins.count{
                     let allSingleValue = coins[x]
                     let allNames = allSingleValue.name
-                    self.getAllName.append(allNames)
+                    self.getAllName.append(allNames ?? "nil")
                 }
             }
         }
@@ -109,21 +109,21 @@ class ViewController: UIViewController {
         }
     }
     
-    func getDataImagem() {
-        CoinsAPIImagem().getCoins2 { (coinsArray, erro) in
-            if let error = erro {
-                print(error)
-            }else if let coins = coinsArray{
-                self.coins2 = coins
-                for x in 0..<coins.count{
-                    let allSingleValue = coins[x]
-                    let allUrl = allSingleValue.url
-                    self.getAllUrl.append(allUrl)
-                }
-                //print (self.getAllUrl)
-            }
-        }
-    }
+//    func getDataImagem() {
+//        CoinsAPIImagem().getCoins2 { (coinsArray, erro) in
+//            if let error = erro {
+//                print(error)
+//            }else if let coins = coinsArray{
+//                self.coins2 = coins
+//                for x in 0..<coins.count{
+//                    let allSingleValue = coins[x]
+//                    let allUrl = allSingleValue.url
+//                    self.getAllUrl.append(allUrl)
+//                }
+//                //print (self.getAllUrl)
+//            }
+//        }
+//    }
     
     func getDataAssetId() {
         CoinsAPI().getCoins { (coinsArray, erro) in
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
                 for x in 0..<coins.count{
                     let allSingleValue = coins[x]
                     let allAssetId = allSingleValue.assetID
-                    self.getAllAssetId.append(allAssetId)
+                    self.getAllAssetId.append(allAssetId ?? "nil")
                 }
             }
         }
