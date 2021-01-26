@@ -27,18 +27,6 @@ class CoinsDetailsViewController: UIViewController {
         return view
     }()
     
-    private lazy var buttonBack: UIButton = {
-        let button = UIButton.init(type: .roundedRect)
-        button.setTitle("Voltar", for: .normal)
-        button.setTitleColor(fontColor, for: .normal)
-        button.addTarget(self, action: #selector(buttonBackAction), for: .touchUpInside)
-
-        let backButtonImage = UIImage(named: "backbutton")?.withRenderingMode(.alwaysTemplate)
-        button.setImage(backButtonImage, for: .normal)
-        
-        return button
-    }()
-    
     lazy var lblID: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
@@ -174,30 +162,9 @@ class CoinsDetailsViewController: UIViewController {
     
     
     //MARK:- Buttons
-    
-    @objc func buttonBackAction(sender: UIButton!) {
-        navigationController?.popViewController(animated: true)
-    }
-    
     @objc func buttonAddAction(sender: UIButton!){
         print("Adicionar")
     }
-    
-//    func getDataUsd() {
-//        CoinsAPI().getCoins { (coinsArray, erro) in
-//            if let error = erro {
-//                print(error)
-//            }else if let coins = coinsArray{
-//                self.coins = coins
-//                for x in 0..<coins.count{
-//                    let allSingleValue = coins[x]
-//                    let allUsd = allSingleValue.priceUsd
-//                    self.getAllUsd.append(allUsd ?? 0.00)
-//                }
-//            }
-//            print(self.getAllUsd)
-//        }
-//    }
 
 }
 
@@ -211,7 +178,6 @@ extension CoinsDetailsViewController: ViewConfiguration{
     func buildViewHierarchy() {
 
         view.addSubview(coinDetailView)
-        coinDetailView.addSubview(buttonBack)
         coinDetailView.addSubview(lblID)
         coinDetailView.addSubview(imagemCoin)
         coinDetailView.addSubview(lblValue)
@@ -239,17 +205,9 @@ extension CoinsDetailsViewController: ViewConfiguration{
             make.height.equalTo(300)
         }
         
-        buttonBack.snp.makeConstraints { (make) in
-            if #available(iOS 11.0, *) {
-                make.top.equalTo(view.safeAreaLayoutGuide)
-            } else {
-                make.top.equalTo(view)
-            }
-            make.left.equalTo(view).offset(8)
-        }
         
         lblID.snp.makeConstraints { (make) in
-            make.top.equalTo(coinDetailView).offset(20)
+            make.top.equalTo(coinDetailView).offset(5)
             make.left.equalTo(coinDetailView).offset(10)
             make.right.equalTo(coinDetailView).inset(10)
         }

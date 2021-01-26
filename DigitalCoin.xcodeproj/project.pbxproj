@@ -164,6 +164,7 @@
 		8B9C9C2B25BA05D300260E82 /* DigitalCoin */ = {
 			isa = PBXGroup;
 			children = (
+				8BF8520F25C09FB5003A2277 /* Emergencia */,
 				DFE08F6825C08D7B0036C775 /* Models */,
 				8BB9F5FA25BB36D600BBFD3B /* Aplication */,
 				D3BC336525BB14D50096BE97 /* ApiViewController */,
@@ -270,6 +271,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		8BF8520F25C09FB5003A2277 /* Emergencia */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD03D125BC875700263E30 /* CoinsPrincipalViewController.swift */,
+				8B246C0325BE3509000D6411 /* CoinsPrincipalTableViewCell.swift */,
+			);
+			path = Emergencia;
+			sourceTree = "<group>";
+		};
 		BEA91F9283E3331B218EC065 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,8 +318,6 @@
 				DFE08F6325C088960036C775 /* TelaPrincipalTableViewCell.xib */,
 				8BDD03E625BCAB8C00263E30 /* TelaPrincipalTableViewCell.swift */,
 				8BB9F65125BB760F00BBFD3B /* CoinsListViewController.swift */,
-				8BDD03D125BC875700263E30 /* CoinsPrincipalViewController.swift */,
-				8B246C0325BE3509000D6411 /* CoinsPrincipalTableViewCell.swift */,
 			);
 			path = TelaPrincipal;
 			sourceTree = "<group>";
