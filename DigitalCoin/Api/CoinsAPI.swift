@@ -14,7 +14,7 @@ class CoinsAPI: NSObject {
     
     func getCoins(completion:@escaping (_ coins:[WelcomeElement]?, _ error:String?) -> Void ) {
         
-        let url = "https://e6e6bed0-453a-4fee-88e2-fab778bfdcaa.mock.pstmn.io"
+        let url = "https://e6e6bed0-453a-4fee-88e2-fab778bfdcaa.mock.pstmn.io/"
         
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if let data = response.data {
