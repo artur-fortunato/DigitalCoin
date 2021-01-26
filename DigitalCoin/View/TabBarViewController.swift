@@ -30,7 +30,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
             UITabBar.appearance().tintColor = .blue
         }
         
-        let tabOne = CoinsPrincipalViewController()
+        let tabOne = CoinsListViewController()
         tabOne.tabBarItem = UITabBarItem(title: "Moedas", image: UIImage(named: "dollar.png"), selectedImage: UIImage(named: "dollar.png"))
         
         let tabTwo = CoinsFavoritesViewController()
@@ -38,7 +38,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
         let viewControllerList = [tabOne, tabTwo]
 //        tabOne.tableView.reloadData()
-        tabOne.tableView.reloadData()
+        //tabOne.coinstableView.reloadData()
         
         self.viewControllers = viewControllerList
     
