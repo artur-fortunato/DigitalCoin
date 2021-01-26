@@ -39,8 +39,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         tabTwo.tabBarItem = UITabBarItem(title: "Adicionadas", image: UIImage(named: "star.png"), selectedImage: UIImage(named: "star.png"))
     
         let viewControllerList = [tabOne, tabTwo]
-//        tabOne.tableView.reloadData()
-//        tabOne.tableView.reloadData()
+
         
         self.viewControllers = viewControllerList
     

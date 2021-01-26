@@ -63,7 +63,7 @@ class CoinsPrincipalViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Moedas"
         getData()
-        getDataImagem()
+        //getDataImagem()
         setupViewConfiguration()
     }
     // MARK: - Funçoes das API`S Precisam ir para MODULO
@@ -89,6 +89,7 @@ class CoinsPrincipalViewController: UIViewController {
         }
     }
 }
+
 
 extension CoinsPrincipalViewController: ViewConfiguration{
     func buildViewHierarchy() {
@@ -149,7 +150,7 @@ extension CoinsPrincipalViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coins.count + coins2.count - 24
+        return coins.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -157,7 +158,7 @@ extension CoinsPrincipalViewController: UITableViewDataSource, UITableViewDelega
         
         //Setando variaveis indexPath.row
         let result = coins[indexPath.row]
-        let result2 = coins2[indexPath.row]
+        //let result2 = coins2[indexPath.row]
         
         //Setando label nome da moeda
         cell.lblName.text = result.name ?? "nil"
@@ -174,8 +175,8 @@ extension CoinsPrincipalViewController: UITableViewDataSource, UITableViewDelega
         }
         
         //Setando icone da moeda
-        let imageUrl = URL(string: result2.url ?? "nil")
-        cell.imagemCoin.af_setImage(withURL: imageUrl!)
+        //let imageUrl = URL(string: result2.url ?? "nil")
+        //cell.imagemCoin.af_setImage(withURL: imageUrl!)
         
         cell.backgroundColor = blackColor
         
@@ -188,7 +189,7 @@ extension CoinsPrincipalViewController: UITableViewDataSource, UITableViewDelega
         
         //Setando variaveis indexPath.row
         let result = coins[indexPath.row]
-        let result2 = coins2[indexPath.row]
+        //let result2 = coins2[indexPath.row]
         
         //Setando Label Asset_Id:
         coinsDetailsViewController.lblID.text = result.name ?? "nil"
@@ -221,9 +222,10 @@ extension CoinsPrincipalViewController: UITableViewDataSource, UITableViewDelega
         }
         
         //Setando Label ImagemCoin:
-        let imageUrl = URL(string: result2.url ?? "nil")
-        coinsDetailsViewController.imagemCoin.af_setImage(withURL: imageUrl!)
+        //let imageUrl = URL(string: result2.url ?? "nil")
+        //coinsDetailsViewController.imagemCoin.af_setImage(withURL: imageUrl!)
     }
     
-    
 }
+
+
