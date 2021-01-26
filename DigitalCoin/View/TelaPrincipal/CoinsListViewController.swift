@@ -165,7 +165,7 @@ class CoinsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Moedas"
         setupViewConfiguration()
     }
     

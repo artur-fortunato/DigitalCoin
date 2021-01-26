@@ -11,11 +11,10 @@ import CoreData
 
 class CoinsAPI: NSObject {
     
-    var listaCoins = [String]()
     
     func getCoins(completion:@escaping (_ coins:[WelcomeElement]?, _ error:String?) -> Void ) {
         
-        let url = "https://b993dcbf-4ae6-4118-8f63-ce30481e35ba.mock.pstmn.io/v1/assets"
+        let url = "https://de9e8ec7-6202-46ca-b30f-ae87f405a744.mock.pstmn.io/"
         
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if let data = response.data {
