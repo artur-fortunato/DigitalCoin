@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        let mainViewController = CoinsFavoritesViewController()
+        let mainViewController = TabBarViewController()
         let navigationController = UINavigationController(rootViewController: mainViewController)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
