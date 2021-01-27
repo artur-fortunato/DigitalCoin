@@ -17,6 +17,9 @@ class CoinsListViewController: UIViewController {
     var coins: Welcome = []
     var coins2: Welcome2 = []
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+    let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
+    let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
+    
     
     // MARK: Titulo
     
@@ -31,7 +34,7 @@ class CoinsListViewController: UIViewController {
     }()
         private lazy var titleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = blackColor
         return view
     }()
     
@@ -39,7 +42,7 @@ class CoinsListViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
-        label.textColor = .lightGray
+        label.textColor = fontColor
         label.text = "Moeda Digital"
         return label
     }()
@@ -48,7 +51,7 @@ class CoinsListViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.textAlignment = .center
-        label.textColor = .lightGray
+        label.textColor = fontColor
         label.text = "4 jan 2020"
         return label
     }()
@@ -57,44 +60,21 @@ class CoinsListViewController: UIViewController {
     
     private lazy var searchCoin: UISearchBar = {
        let search = UISearchBar()
-        search.barTintColor = .black
+        search.barTintColor = blackColor
         search.placeholder = "Coin"
         return search
     }()
     
     private lazy var lineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         return view
     }()
     
-    // MARK - TableView
-    
-//    func coinList(){
-//        let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
-//        coinstableView.register(nibCoin, forCellReuseIdentifier: "coinCell")
-//        coinstableView.delegate = self
-//        coinstableView.dataSource = self
-//       
-//        viewModelCoins.cl = self
-//        viewModelCoins.alamoCoinsList()
-    //}
-    
-    
-    // MARK: - Inicializadores
-    
-//    init(){
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
-        //coinList()
         getData()
         getDataImagem()
     }
@@ -184,7 +164,7 @@ extension CoinsListViewController: ViewConfiguration{
     }
 
     func configureViews() {
-        view.backgroundColor = .black
+        view.backgroundColor = blackColor
 //        let usdFirst = getAllUsd.first
 //        let usdFirstString = String(describing: usdFirst)
 //        lblValue.text = usdFirstString

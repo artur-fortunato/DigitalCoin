@@ -25,7 +25,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
         if tabBarTag == true{
             UITabBar.appearance().tintColor = greenColor
         }else{
@@ -49,8 +50,20 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     func setupNavigationBarAppearance() {
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().barTintColor = blackColor
+        UINavigationBar.appearance().barTintColor = greenColor
+        if #available(iOS 11.0, *) {
+            self.navigationItem.backButtonTitle = "Voltar"
+        } else {
+            // Fallback on earlier versions
+        }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
 
