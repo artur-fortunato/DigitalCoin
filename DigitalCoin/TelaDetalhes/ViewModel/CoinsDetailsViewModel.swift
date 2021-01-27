@@ -7,6 +7,22 @@
 
 import Foundation
 
-class CoinsDetailsViewModel{
+protocol CoinsDetailsViewModelDelegate {
+    func reloadData(coin: CoinsDetailsViewData)
+}
+
+class CoinsDetailsViewModel {
+    // MARK: - Properts
+    private let client: CoinsServiceProtocol
+    var delegate: CoinsDetailsViewModelDelegate?
+    // MARK: - Constructors
+    init(client: CoinsServiceProtocol = CoinService()){
+        self.client = client
+    }
     
+    func loadCoin(){
+        client.getCoins { (coin, error) in
+            self.delegate?.reloadData(coin: CoinsDetailsViewData(model: coin!))
+        }
+    }
 }

@@ -79,7 +79,7 @@ class CoinsListViewController: UIViewController {
         getDataImagem()
     }
     func getData() {
-        CoinsAPI().getCoins { (coinsArray, erro) in
+        CoinService().getCoins { (coinsArray, erro) in
             if let error = erro {
                 print(error)
             }else if let coins = coinsArray{
@@ -238,13 +238,13 @@ extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate{
         
         //Setando Volume_ultimo_dia:
         if let usdLastDay = formatter2.string(for: result.volume1DayUsd){
-            coinsDetailsViewController.lblLastMonthValue.text = "$ \(usdLastDay)"
+            coinsDetailsViewController.lblLastDayValue.text = "$ \(usdLastDay)"
         }
         
         //Setando Label Volume_ultimo_mes:
         
         if let usdLastMth = formatter2.string(for: result.volume1MthUsd){
-            coinsDetailsViewController.lblLastYearValue.text = "$ \(usdLastMth)"
+            coinsDetailsViewController.lblLastMonthValue.text = "$ \(usdLastMth)"
         }
         
         //Setando Label ImagemCoin:

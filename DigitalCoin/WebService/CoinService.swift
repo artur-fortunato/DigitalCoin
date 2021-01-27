@@ -9,8 +9,11 @@
 import UIKit
 import Alamofire
 
+protocol CoinsServiceProtocol {
+    func getCoins(completion:@escaping (_ coins:[Coin]?, _ error:String?) -> Void )
+}
 
-class CoinsAPI{
+class CoinService: CoinsServiceProtocol {
 
     //    private let urlAPI = "https://e6e6bed0-453a-4fee-88e2-fab778bfdcaa.mock.pstmn.io"
     
@@ -34,7 +37,7 @@ class CoinsAPI{
         }
 
     }
-    
+}
 //    func coinsList(){
 //      
 //              guard let urlResult = URL(string: urlAPI)else{return}
@@ -64,6 +67,6 @@ class CoinsAPI{
 //      
 //                 task.resume()
 //          }
-}
+
 
 
