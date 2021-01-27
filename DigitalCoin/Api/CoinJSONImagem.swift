@@ -12,7 +12,7 @@
 
 import Foundation
 
-// MARK: - WelcomeElement
+// MARK: - Coin
 class WelcomeElement2: Codable {
     let assetID: String?
     let url: String?
