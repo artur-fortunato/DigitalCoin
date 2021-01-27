@@ -3,11 +3,7 @@
 //
 //   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
- 
-
 import Foundation
-
- 
 
 // MARK: - WelcomeElement
 struct Coin: Codable {
@@ -19,8 +15,6 @@ struct Coin: Codable {
     let volume1HrsUsd, volume1DayUsd, volume1MthUsd: Double
     let priceUsd: Double?
     let idIcon: String?
-
- 
 
     enum CodingKeys: String, CodingKey {
         case assetID = "asset_id"
@@ -42,7 +36,4 @@ struct Coin: Codable {
         case idIcon = "id_icon"
     }
 }
-
- 
-
 typealias Welcome = [Coin]

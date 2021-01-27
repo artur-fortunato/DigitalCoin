@@ -8,8 +8,6 @@
 import UIKit
 
 class CoinsFavoritesViewController: UIViewController {
-    
-    
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
@@ -20,7 +18,6 @@ class CoinsFavoritesViewController: UIViewController {
         view.backgroundColor = blackColor
         return view
     }()
-    
     private lazy var lblCoin: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
@@ -29,7 +26,6 @@ class CoinsFavoritesViewController: UIViewController {
         label.text = "Moeda Digital"
         return label
     }()
-    
     private lazy var lblDate: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
@@ -38,59 +34,40 @@ class CoinsFavoritesViewController: UIViewController {
         label.text = "4 jan 2020"
         return label
     }()
-    
     private lazy var lineWhite: UILabel = {
         let label = UILabel()
         label.backgroundColor = .white
         return label
     }()
-    
     private lazy var favoritesView: UIView = {
         let view = UIView()
-        
         view.backgroundColor = blackColor
         return view
     }()
-    
-    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        cv.backgroundColor = blackColor
-        cv.delegate = self
-        cv.dataSource = self
-        return cv
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.backgroundColor = blackColor
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
     }()
-    
     private lazy var collectionViewCell: UICollectionViewCell = {
         let cvc = UICollectionViewCell()
-        
         return cvc
     }()
-    
     var favoritesCoinsViewModel = CoinsFavoritesViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Adicionadas"
-        
         setupViewConfiguration()
-        favoritesCoinsViewModel.loadCoin()
         collectionView.reloadData()
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? MovieDetailsViewController {
-//            if let sender = sender as? Movie {
-//                vc.movieDetailVM = MovieDetailViewModel(movie: sender)
-//            }
-//        }
-//    }
 }
 
-extension CoinsFavoritesViewController: ViewConfiguration{
+extension CoinsFavoritesViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(titleView)
         titleView.addSubview(lblCoin)
@@ -99,7 +76,6 @@ extension CoinsFavoritesViewController: ViewConfiguration{
         view.addSubview(favoritesView)
         favoritesView.addSubview(collectionView)
     }
-    
     func setupConstraints() {
         titleView.snp.makeConstraints { (make) in
             if #available(iOS 11.0, *) {
@@ -116,27 +92,23 @@ extension CoinsFavoritesViewController: ViewConfiguration{
             make.left.equalTo(titleView).offset(10)
             make.right.equalTo(titleView).inset(10)
         }
-        
         lblDate.snp.makeConstraints { (make) in
             make.top.equalTo(lblCoin.snp.bottom).offset(8)
             make.left.equalTo(titleView).offset(10)
             make.right.equalTo(titleView).inset(10)
         }
-        
         lineWhite.snp.makeConstraints { (make) in
             make.top.equalTo(titleView.snp.bottom).offset(0)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.height.equalTo(1)
         }
-        
         favoritesView.snp.makeConstraints { (make) in
             make.top.equalTo(lineWhite.snp.bottom).offset(0)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.bottom.equalTo(view).inset(0)
         }
-        
         collectionView.snp.makeConstraints { (make) in
             make.top.equalTo(favoritesView).offset(20)
             make.left.equalTo(favoritesView).offset(30)
@@ -144,47 +116,27 @@ extension CoinsFavoritesViewController: ViewConfiguration{
             make.bottom.equalTo(favoritesView).inset(10)
         }
     }
-    
     func configureViews() {
         view.backgroundColor = blackColor
-        
     }
-    
 }
 
-extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
-    
-    
-    
+extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.5)
     }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return 5
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoritesCollectionViewCell
         cell.backgroundColor = blackColor
         cell.layer.cornerRadius = 15
         cell.layer.masksToBounds = true
-//        cell.lblName.text = "Oi"
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let coinsDetailsViewController = CoinsDetailsViewController()
         self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
-    
-    
 }
-
-//extension CoinsFavoritesViewController: MainViewModelDelegate{
-//    func reloadData(coin: CoinsViewData) {
-//        self.lblCoin.text = coin.assetID
-//    }
-//}

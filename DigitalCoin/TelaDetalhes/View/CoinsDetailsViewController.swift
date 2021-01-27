@@ -43,7 +43,7 @@ class CoinsDetailsViewController: UIViewController {
         let button = UIButton.init(type: .roundedRect)
         button.setTitle("ADICIONAR", for: .normal)
         button.setTitleColor(fontColor, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize:20, weight: .black)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .black)
         button.addTarget(self, action: #selector(buttonAddAction), for: .touchUpInside)
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
@@ -125,22 +125,18 @@ class CoinsDetailsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
         viewModel.delegate = self
-        viewModel.loadCoin()
+//        viewModel.loadCoin()
     }
-    
-    //MARK:- Buttons
-    @objc func buttonAddAction(sender: UIButton!){
-        
+    // MARK:- Buttons
+    @objc func buttonAddAction(sender: UIButton!) {
     }
 }
 
-extension CoinsDetailsViewController: ViewConfiguration{
-
+extension CoinsDetailsViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(coinDetailView)
         coinDetailView.addSubview(lblID)
@@ -156,9 +152,7 @@ extension CoinsDetailsViewController: ViewConfiguration{
         tradeView.addSubview(lblLastMonth)
         tradeView.addSubview(lblLastMonthValue)
     }
-    
     func setupConstraints() {
-        
         coinDetailView.snp.makeConstraints { (make) in
             if #available(iOS 11.0, *) {
                 make.top.equalTo(view.safeAreaLayoutGuide)
@@ -169,13 +163,11 @@ extension CoinsDetailsViewController: ViewConfiguration{
             make.right.equalTo(view).inset(0)
             make.height.equalTo(300)
         }
-        
         lblID.snp.makeConstraints { (make) in
             make.top.equalTo(coinDetailView).offset(5)
             make.left.equalTo(coinDetailView).offset(10)
             make.right.equalTo(coinDetailView).inset(10)
         }
-            
         imagemCoin.snp.makeConstraints { (make) in
             make.top.equalTo(lblID.snp.bottom).offset(20)
 //            make.left.equalTo(coinDetailView).offset(0)
@@ -183,75 +175,61 @@ extension CoinsDetailsViewController: ViewConfiguration{
             make.width.equalTo(54)
             make.height.equalTo(54)
         }
-        
         lblValue.snp.makeConstraints { (make) in
             make.top.equalTo(imagemCoin.snp.bottom).offset(20)
             make.left.equalTo(coinDetailView).offset(10)
             make.right.equalTo(coinDetailView).inset(10)
 
         }
-       
         buttonAdd.snp.makeConstraints { (make) in
             make.top.equalTo(lblValue.snp.bottom).offset(30)
             make.left.equalTo(coinDetailView).offset(80)
             make.right.equalTo(coinDetailView).inset(80)
             make.height.equalTo(40)
         }
-        
         tradeView.snp.makeConstraints { (make) in
             make.top.equalTo(coinDetailView.snp.bottom).offset(0)
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).inset(0)
             make.bottom.equalTo(view).offset(0)
         }
-        
         tradedVolume.snp.makeConstraints { (make) in
             make.top.equalTo(tradeView).offset(20)
             make.left.equalTo(tradeView).offset(30)
             make.right.equalTo(tradeView).inset(30)
         }
-        
         lblLastHour.snp.makeConstraints { (make) in
             make.top.equalTo(tradedVolume.snp.bottom).offset(50)
             make.left.equalTo(tradeView).offset(20)
 
         }
-        
         lblLastHourValue.snp.makeConstraints { (make) in
             make.top.equalTo(tradedVolume.snp.bottom).offset(50)
             make.right.equalTo(tradeView).inset(20)
         }
-        
         lblLastDay.snp.makeConstraints { (make) in
             make.top.equalTo(lblLastHour.snp.bottom).offset(30)
             make.left.equalTo(tradeView).offset(20)
-
         }
-        
         lblLastDayValue.snp.makeConstraints { (make) in
             make.top.equalTo(lblLastHourValue.snp.bottom).offset(30)
             make.right.equalTo(tradeView).inset(20)
         }
-        
         lblLastMonth.snp.makeConstraints { (make) in
             make.top.equalTo(lblLastDay.snp.bottom).offset(30)
             make.left.equalTo(tradeView).offset(20)
-
         }
-        
         lblLastMonthValue.snp.makeConstraints { (make) in
             make.top.equalTo(lblLastDayValue.snp.bottom).offset(30)
             make.right.equalTo(tradeView).inset(20)
         }
     }
-
     func configureViews() {
         view.backgroundColor = .white
-        
     }
 }
 
-extension CoinsDetailsViewController: CoinsDetailsViewModelDelegate{
+extension CoinsDetailsViewController: CoinsDetailsViewModelDelegate {
     func reloadData(coin: CoinsDetailsViewData) {
         self.lblID.text = coin.assetID
         self.lblValue.text = coin.priceUsd
@@ -259,6 +237,4 @@ extension CoinsDetailsViewController: CoinsDetailsViewModelDelegate{
         self.lblLastDayValue.text = coin.volume1DayUsd
         self.lblLastMonthValue.text = coin.volume1MthUsd
     }
-    
-    
 }

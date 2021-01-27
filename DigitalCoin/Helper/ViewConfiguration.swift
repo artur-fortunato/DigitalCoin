@@ -2,7 +2,7 @@
 //  ViewConfiguration.swift
 //  MVC-Example
 //
-//  Created by Marcio Fetter on 12/01/21.
+//  Created by Artur Fortunato on 12/01/21.
 //
 
 protocol ViewConfiguration: class {
@@ -13,12 +13,10 @@ protocol ViewConfiguration: class {
 }
 
 extension ViewConfiguration {
-    
     func setupViewConfiguration() {
         buildViewHierarchy()
         setupConstraints()
         configureViews()
     }
-    
     func configureViews() { }
 }

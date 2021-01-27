@@ -14,15 +14,10 @@ protocol CoinsFavoritesViewModelDelegate {
 class CoinsFavoritesViewModel {
     // MARK: - Properts
     private let client: CoinsServiceProtocol
+    var viewData: Bindable<[CoinsFavoritesViewData]> = Bindable([])
     var delegate: CoinsFavoritesViewModelDelegate?
     // MARK: - Constructors
     init(client: CoinsServiceProtocol = CoinService()){
         self.client = client
-    }
-    
-    func loadCoin(){
-        client.getCoins { (coin, error) in
-            self.delegate?.reloadData(coin: CoinsFavoritesViewData(model: coin!))
-        }
     }
 }

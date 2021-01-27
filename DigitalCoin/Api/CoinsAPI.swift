@@ -1,9 +1,9 @@
-////
-////  CoinsAPI.swift
-////  testandoAPI
-////
-////  Created by Aloisio Formento Junior on 21/01/21.
-////
+//
+//  CoinsAPI.swift
+//  testandoAPI
+//
+//  Created by Aloisio Formento Junior on 21/01/21.
+//
 //
 //import UIKit
 //import Alamofire
