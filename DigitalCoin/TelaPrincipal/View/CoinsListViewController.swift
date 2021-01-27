@@ -56,10 +56,20 @@ class CoinsListViewController: UIViewController {
         return view
     }()
     var principalViewModel = CoinsListViewModel()
+    var principalImageViewModel = CoinsListImageViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
         coinstableView.reloadData()
+        bind()
+    }
+    func bind() {
+        principalViewModel.viewData.bind { (_) in
+            self.coinstableView.reloadData()
+        }
+        principalImageViewModel.viewDataImage.bind { (_) in
+            self.coinstableView.reloadData()
+        }
     }
 }
 
@@ -119,11 +129,12 @@ extension CoinsListViewController: ViewConfiguration {
 
 extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return principalViewModel.viewData.value.count
+        return principalViewModel.viewData.value.count + principalImageViewModel.viewDataImage.value.count - 13
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinstableView.dequeueReusableCell(withIdentifier: "coinCell") as! TelaPrincipalTableViewCell
         cell.reloadData(coin: principalViewModel.viewData.value[indexPath.row])
+        cell.reloadDataImage(coinImage: principalImageViewModel.viewDataImage.value[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

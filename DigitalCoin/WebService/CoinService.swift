@@ -11,6 +11,7 @@ import Alamofire
 
 protocol CoinsServiceProtocol {
     func getCoins(completion:@escaping (_ coins:[Coin], _ error:String?) -> Void )
+    func getCoinsImage(completion:@escaping (_ coins:[CoinsImage], _ error:String?) -> Void )
 }
 
 class CoinService: CoinsServiceProtocol {
@@ -30,6 +31,22 @@ class CoinService: CoinsServiceProtocol {
                 completion([], "Data null")
             }
         }
-
+    }
+    func getCoinsImage(completion:@escaping (_ coins:[CoinsImage], _ error:String?) -> Void ) {
+        let url = "https://fc7ed954-6de2-458b-a962-a391d7302e61.mock.pstmn.io/"
+        Alamofire.request(url, method: .get).responseJSON { (response) in
+            if let data = response.data {
+                do {
+                    let decoder = JSONDecoder()
+                    let welcome2 = try decoder.decode(WelcomeImage.self, from: data)
+                    completion(welcome2, nil)
+                } catch let error {
+                    print(error)
+                    completion([], error.localizedDescription)
+                }
+            }else{
+                completion([], "Data null")
+            }
+        }
     }
 }

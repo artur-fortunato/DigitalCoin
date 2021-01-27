@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class TelaPrincipalTableViewCell: UITableViewCell {
 
@@ -31,4 +32,21 @@ extension TelaPrincipalTableViewCell: CoinsListViewModelDelegate {
         self.labelSiglaCoin.text = coin.assetID
         self.labelValorCoin.text = coin.priceUsd
     }
+}
+
+extension TelaPrincipalTableViewCell: CoinsListImageViewModelDelegate{
+    func reloadDataImage(coinImage: CoinsListImageViewData) {
+        let image = coinImage.image
+        if let urlImage = URL(string: "\(image)")
+            {
+            self.imageSimboloCoin.af_setImage(withURL: urlImage)
+            self.imageSimboloCoin.layer.cornerRadius = 10
+            self.imageSimboloCoin.layer.masksToBounds = true
+            }
+        else{
+            print("error")
+        }
+    }
+    
+    
 }

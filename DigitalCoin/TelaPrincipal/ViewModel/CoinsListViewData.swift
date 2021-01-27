@@ -11,6 +11,7 @@ protocol CoinsListViewDataType {
     var name: String {get}
     var assetID: String {get}
     var priceUsd: String {get}
+//    var image: String {get}
 }
 
 class CoinsListViewData {
@@ -33,4 +34,7 @@ extension CoinsListViewData: CoinsListViewDataType {
         let stringPriceUsd = String(format: "$ %.2f", value)
         return stringPriceUsd
     }
+//    var image: String {
+//        return model
+//    }
 }

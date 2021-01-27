@@ -13,19 +13,17 @@
 //import Foundation
 //
 //// MARK: - Coin
-//class WelcomeElement2: Codable {
+//class CoinImage: Codable {
 //    let assetID: String?
 //    let url: String?
-//
+//    
 //    enum CodingKeys: String, CodingKey {
 //        case assetID = "asset_id"
 //        case url
 //    }
-//
 //    init(assetID: String?, url: String?) {
 //        self.assetID = assetID
 //        self.url = url
 //    }
 //}
-//
-//typealias Welcome2 = [WelcomeElement2]
+//typealias WelcomeImage = [CoinImage]
