@@ -7,13 +7,13 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
-class CoinsListViewController: UIViewController, UITableViewDelegate {
+
+class CoinsListViewController: UIViewController {
     
     // MARK - Variaveis
 
     //var coinstableView = UITableView()
-    var viewModelCoins = CoinsViewModel()
+    //var viewModelCoins = CoinsViewModel()
     var coins: Welcome = []
     var coins2: Welcome2 = []
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
@@ -118,10 +118,11 @@ class CoinsListViewController: UIViewController, UITableViewDelegate {
             }
         }
     }
+
 }
 
 
-@available(iOS 13.0, *)
+
 extension CoinsListViewController: ViewConfiguration{
    
 
@@ -193,8 +194,8 @@ extension CoinsListViewController: ViewConfiguration{
 
 // MARK: TableDataSource - Coins
 
-@available(iOS 13.0, *)
-extension CoinsListViewController: UITableViewDataSource{
+
+extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         coins.count + coins2.count - 13
     }

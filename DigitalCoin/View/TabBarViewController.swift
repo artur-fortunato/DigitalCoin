@@ -7,7 +7,7 @@
 
 import UIKit
 
-@available(iOS 13.0, *)
+
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
@@ -39,12 +39,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         tabTwo.tabBarItem = UITabBarItem(title: "Adicionadas", image: UIImage(named: "star.png"), selectedImage: UIImage(named: "star.png"))
     
         let viewControllerList = [tabOne, tabTwo]
-<<<<<<< HEAD
 
-=======
-//        tabOne.tableView.reloadData()
-        //tabOne.coinstableView.reloadData()
->>>>>>> acb4933a51835cf557382f687ad900901d8241c1
         
         self.viewControllers = viewControllerList
     

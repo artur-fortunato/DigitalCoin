@@ -14,6 +14,8 @@ class CoinsDetailsViewController: UIViewController {
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     
+    let defaults = UserDefaults.standard
+    let favorites: [String:Any] = [:]
     
     var coins: Welcome? = []
     var getAllUsd = [Double]()
@@ -43,13 +45,14 @@ class CoinsDetailsViewController: UIViewController {
 //    }()
     lazy var imagemCoin: UIImageView = {
         let image = UIImageView()
+        
         return image
     }()
     
     
     lazy var lblValue: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 40, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "$ 31,600.03"
@@ -83,7 +86,7 @@ class CoinsDetailsViewController: UIViewController {
     
     lazy var tradedVolume: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "volumes negociados"
@@ -92,7 +95,7 @@ class CoinsDetailsViewController: UIViewController {
     
     private lazy var lblLastHour: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "última hora:"
@@ -101,7 +104,7 @@ class CoinsDetailsViewController: UIViewController {
     
     lazy var lblLastHourValue: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "$ 123.456.78"
@@ -110,7 +113,7 @@ class CoinsDetailsViewController: UIViewController {
     
     private lazy var lblLastMonth: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "último dia:"
@@ -119,7 +122,7 @@ class CoinsDetailsViewController: UIViewController {
     
     lazy var lblLastMonthValue: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "$ 123.456.78"
@@ -128,7 +131,7 @@ class CoinsDetailsViewController: UIViewController {
     
     private lazy var lblLastYear: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "último mês:"
@@ -137,7 +140,7 @@ class CoinsDetailsViewController: UIViewController {
     
     lazy var lblLastYearValue: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "$ 123.456.78"
@@ -163,7 +166,7 @@ class CoinsDetailsViewController: UIViewController {
     
     //MARK:- Buttons
     @objc func buttonAddAction(sender: UIButton!){
-        print("Adicionar")
+        
     }
 
 }
@@ -214,10 +217,10 @@ extension CoinsDetailsViewController: ViewConfiguration{
             
         imagemCoin.snp.makeConstraints { (make) in
             make.top.equalTo(lblID.snp.bottom).offset(20)
-            make.left.equalTo(coinDetailView).offset(170)
-            make.right.equalTo(coinDetailView).inset(170)
-
-            make.height.equalTo(30)
+//            make.left.equalTo(coinDetailView).offset(0)
+//            make.right.equalTo(coinDetailView).inset(0)
+            make.width.equalTo(54)
+            make.height.equalTo(54)
         }
         
         lblValue.snp.makeConstraints { (make) in
@@ -283,9 +286,6 @@ extension CoinsDetailsViewController: ViewConfiguration{
 
     func configureViews() {
         view.backgroundColor = .white
-//        let usdFirst = getAllUsd.first
-//        let usdFirstString = String(describing: usdFirst)
-//        lblValue.text = usdFirstString
         
     }
 }
