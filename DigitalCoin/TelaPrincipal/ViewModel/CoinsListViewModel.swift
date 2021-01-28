@@ -15,7 +15,7 @@ class CoinsListViewModel {
     // MARK: - Properts
     private let client: CoinsServiceProtocol
     var viewData: Bindable<[CoinsListViewData]> = Bindable([])
-    var viewDataImage: Bindable<[CoinsListImageViewData]> = Bindable([])
+    //var viewDataImage: Bindable<[CoinsListImageViewData]> = Bindable([])
     var delegate: CoinsListViewModelDelegate?
     // MARK: - Constructors
     init(client: CoinsServiceProtocol = CoinService()) {

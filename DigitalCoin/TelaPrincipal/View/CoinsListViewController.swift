@@ -8,18 +8,12 @@
 import UIKit
 
 class CoinsListViewController: UIViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.barStyle = .black
-    }
-    // MARK - Variaveis
+    // MARK: - Variaveis
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
-    // MARK: Titulo
-    lazy var coinstableView : UITableView = {
+    // MARK: - Titulo
+    lazy var coinstableView: UITableView = {
         let tableview = UITableView()
         let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
         tableview.register(nibCoin, forCellReuseIdentifier: "coinCell")
@@ -70,7 +64,6 @@ class CoinsListViewController: UIViewController {
         return view
     }()
     var principalViewModel = CoinsListViewModel()
-    var principalImageViewModel = CoinsListImageViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
@@ -81,10 +74,13 @@ class CoinsListViewController: UIViewController {
         principalViewModel.viewData.bind { (_) in
             self.coinstableView.reloadData()
         }
-        principalImageViewModel.viewDataImage.bind { (_) in
-            self.coinstableView.reloadData()
-        }
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        navigationController?.navigationBar.barStyle = .black
+//    }
 }
 
 extension CoinsListViewController: ViewConfiguration {
@@ -143,15 +139,15 @@ extension CoinsListViewController: ViewConfiguration {
 
 extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return principalViewModel.viewData.value.count + principalImageViewModel.viewDataImage.value.count - 13
+        return principalViewModel.viewData.value.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinstableView.dequeueReusableCell(withIdentifier: "coinCell") as! TelaPrincipalTableViewCell
         cell.reloadData(coin: principalViewModel.viewData.value[indexPath.row])
-        cell.reloadDataImage(coinImage: principalImageViewModel.viewDataImage.value[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let coinSelected =  principalViewModel.viewData.value[indexPath.row]
         let coinsDetailsViewController = CoinsDetailsViewController()
         self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
