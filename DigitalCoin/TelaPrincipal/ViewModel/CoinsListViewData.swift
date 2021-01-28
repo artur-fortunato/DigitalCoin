@@ -29,17 +29,18 @@ extension CoinsListViewData: CoinsListViewDataType {
     var idIcon: String {
         guard let idIcon = model.idIcon else {return ""}
         let idIconFormat = idIcon.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range: nil)
-        return idIconFormat
+        let urlImage = "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_64/\(idIconFormat).png"
+        return urlImage
     }
     var name: String {
-        return model.name
+        return model.name ?? ""
     }
     var assetID: String {
-        return model.assetID
+        return model.assetID ?? ""
     }
     var priceUsd: String {
         let value = model.priceUsd ?? 0
-        let stringPriceUsd = String(format: "$ %.2f", value)
+        let stringPriceUsd = String(format: "$ %.4f", value)
         return stringPriceUsd
     }
 }

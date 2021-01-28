@@ -29,7 +29,7 @@ extension CoinsDetailsViewData: CoinsDetailsViewDataType {
         return model
     }
     var assetID: String {
-        return model.assetID
+        return model.assetID ?? ""
     }
     var priceUsd: String {
         let value = model.priceUsd ?? 0
@@ -38,17 +38,17 @@ extension CoinsDetailsViewData: CoinsDetailsViewDataType {
     }
     var volume1HrsUsd: String {
         let value = model.volume1HrsUsd
-        let stringVolume1HrsUsd = String(format: "Value: %.4f", value)
+        let stringVolume1HrsUsd = String(format: "Value: %.4f", value as! CVarArg)
         return stringVolume1HrsUsd
     }
     var volume1DayUsd: String {
         let value = model.volume1DayUsd
-        let stringVolume1DayUsd = String(format: "Value: %.4f", value)
+        let stringVolume1DayUsd = String(format: "Value: %.4f", value as! CVarArg)
         return stringVolume1DayUsd
     }
     var volume1MthUsd: String {
         let value = model.volume1MthUsd
-        let stringVolume1MthUsd = String(format: "Value: %.4f", value)
+        let stringVolume1MthUsd = String(format: "Value: %.4f", value as! CVarArg)
         return stringVolume1MthUsd
     }
 }
