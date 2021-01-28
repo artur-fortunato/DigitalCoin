@@ -24,10 +24,10 @@ class CoinsFavoritesViewData {
 
 extension CoinsFavoritesViewData: CoinsFavoritesViewDataType {
     var name: String {
-        return model.name
+        return model.name ?? ""
     }
     var assetID: String {
-        return model.assetID
+        return model.assetID ?? ""
     }
     var priceUsd: String {
         let value = model.priceUsd ?? 0
