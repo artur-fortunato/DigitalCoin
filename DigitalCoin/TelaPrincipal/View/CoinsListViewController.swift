@@ -8,6 +8,12 @@
 import UIKit
 
 class CoinsListViewController: UIViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barStyle = .black
+    }
     // MARK - Variaveis
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
@@ -40,7 +46,15 @@ class CoinsListViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "4 jan 2020"
+        //Formatando a data
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM"
+        let month = formatter.string(from: date)
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let year = calendar.component(.year, from: date)
+        label.text = "\(day) \(month) \(year)"
         return label
     }()
     // MARK: SearchBar
