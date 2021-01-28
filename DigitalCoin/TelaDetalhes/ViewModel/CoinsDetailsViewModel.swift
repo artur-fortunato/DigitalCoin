@@ -20,10 +20,10 @@ class CoinsDetailsViewModel {
     init(client: CoinsServiceProtocol = CoinService()) {
         self.client = client
     }
-    
-//    func loadCoin(){
+
+//    func loadCoinID() {
 //        client.getCoins { (coin, error) in
-//            self.delegate?.reloadData(coin: CoinsDetailsViewData(model: coin!))
+//            self.viewData.listeners = coin.map({ return CoinsDetailsViewData(model: $0.assetID)})
 //        }
 //    }
 }

@@ -8,12 +8,12 @@
 import UIKit
 
 class CoinsListViewController: UIViewController {
-    // MARK - Variaveis
+    // MARK: - Variaveis
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
-    // MARK: Titulo
-    lazy var coinstableView : UITableView = {
+    // MARK: - Titulo
+    lazy var coinstableView: UITableView = {
         let tableview = UITableView()
         let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
         tableview.register(nibCoin, forCellReuseIdentifier: "coinCell")
@@ -40,7 +40,15 @@ class CoinsListViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "4 jan 2020"
+        //Formatando a data
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM"
+        let month = formatter.string(from: date)
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let year = calendar.component(.year, from: date)
+        label.text = "\(day) \(month) \(year)"
         return label
     }()
     // MARK: SearchBar
@@ -56,8 +64,6 @@ class CoinsListViewController: UIViewController {
         return view
     }()
     var principalViewModel = CoinsListViewModel()
-    var principalImageViewModel = CoinsListImageViewModel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
@@ -68,10 +74,13 @@ class CoinsListViewController: UIViewController {
         principalViewModel.viewData.bind { (_) in
             self.coinstableView.reloadData()
         }
-        principalImageViewModel.viewDataImage.bind { (_) in
-            self.coinstableView.reloadData()
-        }
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        navigationController?.navigationBar.barStyle = .black
+//    }
 }
 
 extension CoinsListViewController: ViewConfiguration {
@@ -130,18 +139,16 @@ extension CoinsListViewController: ViewConfiguration {
 
 extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return principalViewModel.viewData.value.count + principalImageViewModel.viewDataImage.value.count - 13
+        return principalViewModel.viewData.value.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinstableView.dequeueReusableCell(withIdentifier: "coinCell") as! TelaPrincipalTableViewCell
         cell.reloadData(coin: principalViewModel.viewData.value[indexPath.row])
-        cell.reloadDataImage(coinImage: principalImageViewModel.viewDataImage.value[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let coinsDetailsViewController = CoinsDetailsViewController()
-//        let coinSelected =  principalViewModel.viewData.value[indexPath.row].assetID
-//        
-//        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
+        let coinSelected =  principalViewModel.viewData.value[indexPath.row]
+        let coinsDetailsViewController = CoinsDetailsViewController()
+        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }

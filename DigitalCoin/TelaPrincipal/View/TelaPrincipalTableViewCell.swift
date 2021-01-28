@@ -14,7 +14,6 @@ class TelaPrincipalTableViewCell: UITableViewCell {
     @IBOutlet weak var labelnomeMoeda: UILabel!
     @IBOutlet weak var labelSiglaCoin: UILabel!
     @IBOutlet weak var labelValorCoin: UILabel!
-  
     // MARK - Inicializadores
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,22 +30,11 @@ extension TelaPrincipalTableViewCell: CoinsListViewModelDelegate {
         self.labelnomeMoeda.text = coin.name
         self.labelSiglaCoin.text = coin.assetID
         self.labelValorCoin.text = coin.priceUsd
-    }
-}
-
-extension TelaPrincipalTableViewCell: CoinsListImageViewModelDelegate{
-    func reloadDataImage(coinImage: CoinsListImageViewData) {
-        let image = coinImage.image
-        if let urlImage = URL(string: "\(image)")
-            {
+        let image = coin.idIcon
+        if let urlImage = URL(string: "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_64/\(image).png") {
             self.imageSimboloCoin.af_setImage(withURL: urlImage)
             self.imageSimboloCoin.layer.cornerRadius = 10
             self.imageSimboloCoin.layer.masksToBounds = true
-            }
-        else{
-            print("error")
         }
     }
-    
-    
 }

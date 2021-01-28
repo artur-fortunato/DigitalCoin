@@ -7,22 +7,30 @@
 
 import Foundation
 
+
 protocol CoinsListViewDataType {
     var name: String {get}
     var assetID: String {get}
     var priceUsd: String {get}
-//    var image: String {get}
+    var idIcon: String {get}
 }
 
 class CoinsListViewData {
     // MARK: - Properts
+    private let imagem = TelaPrincipalTableViewCell()
     private let model: Coin
     // MARK: - Constructors
     init(model: Coin) {
         self.model = model
     }
 }
+
 extension CoinsListViewData: CoinsListViewDataType {
+    var idIcon: String {
+        guard let idIcon = model.idIcon else {return ""}
+        let idIconFormat = idIcon.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range: nil)
+        return idIconFormat
+    }
     var name: String {
         return model.name
     }
@@ -34,7 +42,4 @@ extension CoinsListViewData: CoinsListViewDataType {
         let stringPriceUsd = String(format: "$ %.2f", value)
         return stringPriceUsd
     }
-//    var image: String {
-//        return model
-//    }
 }
