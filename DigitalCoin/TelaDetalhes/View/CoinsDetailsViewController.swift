@@ -115,20 +115,22 @@ class CoinsDetailsViewController: UIViewController {
         label.text = "$ 123.456.78"
         return label
     }()
-    // MARK: - Properts
-    let viewModel: CoinsDetailsViewModel
-    // MARK: - Constructors
-    init(viewModel: CoinsDetailsViewModel = CoinsDetailsViewModel()) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    // MARK: - Properts
+//    let viewModel: CoinsDetailsViewModel
+//    // MARK: - Constructors
+//    init(viewModel: CoinsDetailsViewModel = CoinsDetailsViewModel()) {
+//        self.viewModel = viewModel
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "BTC"
         setupViewConfiguration()
-        viewModel.delegate = self
+//        viewModel.delegate = self
 //        viewModel.loadCoin()
     }
     // MARK:- Buttons

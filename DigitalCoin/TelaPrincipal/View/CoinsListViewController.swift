@@ -57,6 +57,7 @@ class CoinsListViewController: UIViewController {
     }()
     var principalViewModel = CoinsListViewModel()
     var principalImageViewModel = CoinsListImageViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewConfiguration()
@@ -138,7 +139,9 @@ extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coinsDetailsViewController = CoinsDetailsViewController()
-        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
+//        let coinsDetailsViewController = CoinsDetailsViewController()
+//        let coinSelected =  principalViewModel.viewData.value[indexPath.row].assetID
+//        
+//        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }
