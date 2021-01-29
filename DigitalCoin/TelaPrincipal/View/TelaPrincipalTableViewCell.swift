@@ -18,10 +18,24 @@ class TelaPrincipalTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        setupAcessibility()
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    func setupAcessibility(){
+        labelnomeMoeda.isAccessibilityElement = true
+        labelnomeMoeda.accessibilityTraits = .none
+        labelnomeMoeda.accessibilityValue = "O nome da moeda digital"
+        labelSiglaCoin.isAccessibilityElement = true
+        labelSiglaCoin.accessibilityTraits = .none
+        labelSiglaCoin.accessibilityValue = "A sigla da moeda"
+        labelValorCoin.isAccessibilityElement = true
+        labelValorCoin.accessibilityTraits = .none
+        labelValorCoin.accessibilityValue = "cents, o valor em dólares de uma unidade da moeda"
+        
+        self.accessibilityElements = [labelnomeMoeda,labelSiglaCoin,labelValorCoin]
     }
 }
 
