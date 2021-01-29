@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoinsListViewController: UIViewController {
+class CoinsListViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Variaveis
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
@@ -69,6 +69,7 @@ class CoinsListViewController: UIViewController {
         setupViewConfiguration()
         coinstableView.reloadData()
         bind()
+        searchCoin.delegate = self
     }
     func bind() {
         principalViewModel.viewData.bind { (_) in
@@ -78,9 +79,11 @@ class CoinsListViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//        navigationController?.navigationBar.barStyle = .black
-//    }
+    func searchCoin(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        principalViewModel.searchBar(searchText)
+        coinstableView.reloadData()
+        
+    }
 }
 
 extension CoinsListViewController: ViewConfiguration {
@@ -149,6 +152,7 @@ extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coinSelected =  principalViewModel.viewData.value[indexPath.row]
         let coinsDetailsViewController = CoinsDetailsViewController()
+//        coinsDetailsViewController.coinsDetailsViewModel = coinSelected
         self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }

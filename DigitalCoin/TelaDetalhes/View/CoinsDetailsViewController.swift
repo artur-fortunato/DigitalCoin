@@ -127,7 +127,7 @@ class CoinsDetailsViewController: UIViewController {
 //    }
     
 
-    
+    var coinsDetailsViewModel: CoinsDetailsViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "BTC"
