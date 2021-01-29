@@ -8,9 +8,7 @@
 import UIKit
 
 class CoinsFavoritesViewController: UIViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+
 //    override func viewDidAppear(_ animated: Bool) {
 //        navigationController?.navigationBar.barStyle = blackColor
 //    }
@@ -78,6 +76,10 @@ class CoinsFavoritesViewController: UIViewController {
         self.title = "Adicionadas"
         setupViewConfiguration()
         collectionView.reloadData()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

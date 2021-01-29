@@ -34,7 +34,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         let tabTwo = CoinsFavoritesViewController()
         tabTwo.tabBarItem = UITabBarItem(title: "Adicionadas", image: UIImage(named: "star.png"), selectedImage: UIImage(named: "star.png"))
         let viewControllerList = [tabOne, tabTwo]
-        self.viewControllers = viewControllerList
+        self.viewControllers = viewControllerList      
     }
     func setupNavigationBarAppearance() {
         UINavigationBar.appearance().tintColor = .white
@@ -50,5 +50,4 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
 }
