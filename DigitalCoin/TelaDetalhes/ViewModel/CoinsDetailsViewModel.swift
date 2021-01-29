@@ -13,9 +13,20 @@ import Foundation
 
 class CoinsDetailsViewModel {
     // MARK: - Properts
+    var coin: [String] = []
+    let userDF = UserDefaults.standard
     var viewData: CoinsViewData?
     // MARK: - Constructors
     init(viewData: CoinsViewData?) {
         self.viewData = viewData
+    }
+    func saveFavorites(_ assetID: String?) {
+        if let saveValue: String = assetID {
+        let savedArray = userDF.array(forKey: "coinsFavorites") as? [String]
+            coin = savedArray ?? []
+        coin.append(saveValue)
+        userDF.set(coin, forKey: "coinsFavorites")
+        print(userDF.array(forKey: "coinsFavorites"))
+        }
     }
 }
