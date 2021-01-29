@@ -16,7 +16,7 @@ protocol CoinsServiceProtocol {
 
 class CoinService: CoinsServiceProtocol {
     func getCoins(completion:@escaping (_ coins:Welcome, _ error:String?) -> Void ) {
-        let url = "https://ee4fd70e-9e0b-4eaf-b1aa-fe0288d5846f.mock.pstmn.io/v1/api"
+        let url = "https://rest.coinapi.io/v1/assets?apikey=98BD8F47-4B1B-45DE-BCA2-038D7571BA3S"
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if let data = response.data {
                 do {
@@ -31,38 +31,29 @@ class CoinService: CoinsServiceProtocol {
                     case 400:
                         let title = String("Bad Request")
                         let message = String("There is something wrong with your request")
-                        self.alertMessage(title, message)
+                        ErroAPI().erroAlert(title: title, message: message)
                     case 401:
                         let title = String("Unauthorized")
                         let message = String("Your API key is wrong")
-                        self.alertMessage(title, message)
+                        ErroAPI().erroAlert(title: title, message: message)
                     case 403:
                         let title = String("Forbidden")
                         let message = String("Your API key doesnt't have enough privileges to access this resource")
-                        self.alertMessage(title, message)
+                        ErroAPI().erroAlert(title: title, message: message)
                     case 429:
-                        print(errorApi)
                         let title = String("Too many requests")
                         let message = String("You have exceeded your API key rate limits")
-                        self.alertMessage(title, message)
+                        ErroAPI().erroAlert(title: title, message: message)
                     case 550:
                         let title = String("No data")
                         let message = String("You requested specific single item that we don't have at this")
-                        self.alertMessage(title, message)
+                        ErroAPI().erroAlert(title: title, message: message)
                     default:
-                        let title = String("Ola")
-                        let message = String("teste")
-                        self.alertMessage(title, message)
+                        print(error.localizedDescription)
                     }
                 }
             }
         }
     }
 }
-    func alertMessage(_ title: String, _ message: String) {
-        let alerta = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let botao = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alerta.addAction(botao)
-        }
-
 }
