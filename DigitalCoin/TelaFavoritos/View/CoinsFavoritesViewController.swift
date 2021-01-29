@@ -9,16 +9,12 @@ import UIKit
 
 class CoinsFavoritesViewController: UIViewController {
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        navigationController?.navigationBar.barStyle = blackColor
-//    }
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     
     private lazy var titleView: UIView = {
         let view = UIView()
-        
         view.backgroundColor = blackColor
         return view
     }()
@@ -70,14 +66,12 @@ class CoinsFavoritesViewController: UIViewController {
         let cvc = UICollectionViewCell()
         return cvc
     }()
-    var favoritesCoinsViewModel = CoinsFavoritesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Adicionadas"
         setupViewConfiguration()
         collectionView.reloadData()
     }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

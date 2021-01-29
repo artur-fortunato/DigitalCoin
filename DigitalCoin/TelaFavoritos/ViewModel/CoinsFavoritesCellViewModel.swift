@@ -1,17 +1,13 @@
 //
-//  CoinsFavoritesViewController.swift
+//  CoinsFavoritesCellViewModel.swift
 //  DigitalCoin
 //
-//  Created by Fabricio Rodrigo Baixo on 1/27/21.
+//  Created by Artur Rodrigues Fortunato on 29/01/21.
 //
 
 import Foundation
 
-//protocol CoinsFavoritesViewModelDelegate {
-//    func reloadData(coin: CoinsViewData)
-//}
-
-class CoinsFavoritesViewModel {
+class CoinsFavoritesCellViewModel {
     // MARK: - Properts
     var viewData: CoinsViewData?
     var userDefaults = UserDefaults.standard
@@ -19,5 +15,4 @@ class CoinsFavoritesViewModel {
     init(viewData: CoinsViewData?) {
         self.viewData = viewData
     }
-
 }

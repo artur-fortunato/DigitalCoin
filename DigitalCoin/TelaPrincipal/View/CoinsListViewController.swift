@@ -159,8 +159,8 @@ extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coinSelected =  principalViewModel.viewData.value[indexPath.row]
-        let coinsDetailViewModel = CoinsDetailsViewModel(viewData: coinSelected)
-        let coinsDetailsViewController = CoinsDetailsViewController(detailsViewModel: coinsDetailViewModel)
+        let coinsDetailsViewModel = CoinsDetailsViewModel(viewData: coinSelected)
+        let coinsDetailsViewController = CoinsDetailsViewController(coinsDetailsViewModel: coinsDetailsViewModel)
         self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }

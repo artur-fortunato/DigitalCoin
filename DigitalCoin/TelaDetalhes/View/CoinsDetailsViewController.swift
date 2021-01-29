@@ -113,20 +113,21 @@ class CoinsDetailsViewController: UIViewController {
     // MARK: - Properts
     let coinsDetailsViewModel: CoinsDetailsViewModel?
     // MARK: - Constructors
-    init(detailsViewModel: CoinsDetailsViewModel?) {
-        self.coinsDetailsViewModel = detailsViewModel
+    init(coinsDetailsViewModel: CoinsDetailsViewModel?) {
+        self.coinsDetailsViewModel = coinsDetailsViewModel
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    let userDF = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = coinsDetailsViewModel?.viewData?.assetID.uppercased()
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         setupViewConfiguration()
         coinDetails()
+        checkFavorites()
 
     }
     func coinDetails() {
@@ -138,15 +139,37 @@ class CoinsDetailsViewController: UIViewController {
             self.lblLastMonthValue.text = valueCoin.volume1MthUsd
         }
     }
+    func checkFavorites() {
+        if let userDefaultValue = UserDefaults.standard.getValue(), userDefaultValue {
+            buttonAdd.setTitle("REMOVER", for: .normal)
+        } else {
+            buttonAdd.setTitle("ADICIONAR", for: .normal)
+        }
+    }
+    
+    func saveFavorites() {
+        let dictCoin = [
+            "name": coinsDetailsViewModel?.viewData?.name,
+            "idIcon": coinsDetailsViewModel?.viewData?.idIcon,
+            "priceUsd": coinsDetailsViewModel?.viewData?.priceUsd,
+            "assetID": coinsDetailsViewModel?.viewData?.assetID
+        ]
+        let arrayCoin = [dictCoin]
+        userDF.set(arrayCoin, forKey: "arrayFavorites")
+//        let savedArray = userDF.object(forKey: "arrayFavorites") as? [String] ?? [String]()
+        userDF.synchronize()
+    }
+    //MARK: - Buttons
+    @objc func buttonAddAction(sender: UIButton!) {
+        saveFavorites()
+        print(userDF.object(forKey: "arrayFavorites"))
+    }
     override func viewDidAppear(_ animated: Bool) {
     navigationController?.navigationBar.barStyle = .black
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-    //MARK: - Buttons
-    @objc func buttonAddAction(sender: UIButton!) {
     }
 }
 
