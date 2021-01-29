@@ -7,23 +7,15 @@
 
 import Foundation
 
-protocol CoinsDetailsViewModelDelegate {
-    func reloadData(coin: CoinsDetailsViewData)
-}
+//protocol CoinsDetailsViewModelDelegate {
+//    func reloadData(coin: CoinsViewData)
+//}
 
 class CoinsDetailsViewModel {
     // MARK: - Properts
-    private let client: CoinsServiceProtocol
-    var viewData: Bindable<CoinsDetailsViewData?> = Bindable(nil)
-    var delegate: CoinsDetailsViewModelDelegate?
+    var viewData: CoinsViewData?
     // MARK: - Constructors
-    init(client: CoinsServiceProtocol = CoinService()) {
-        self.client = client
+    init(viewData: CoinsViewData?) {
+        self.viewData = viewData
     }
-
-//    func loadCoinID() {
-//        client.getCoins { (coin, error) in
-//            self.viewData.listeners = coin.map({ return CoinsDetailsViewData(model: $0.assetID)})
-//        }
-//    }
 }

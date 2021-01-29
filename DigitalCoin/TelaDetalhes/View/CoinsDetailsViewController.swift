@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 class CoinsDetailsViewController: UIViewController {
 
@@ -19,14 +20,14 @@ class CoinsDetailsViewController: UIViewController {
         view.backgroundColor = greenColor
         return view
     }()
-    lazy var lblID: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
-        label.textAlignment = .center
-        label.textColor = fontColor
-        label.text = "ID"
-        return label
-    }()
+//    lazy var lblID: UILabel = {
+//        let label = UILabel()
+//        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+//        label.textAlignment = .center
+//        label.textColor = fontColor
+//        label.text = "ID"
+//        return label
+//    }()
     lazy var imagemCoin: UIImageView = {
         let image = UIImageView()
         return image
@@ -115,25 +116,35 @@ class CoinsDetailsViewController: UIViewController {
         label.text = "$ 123.456.78"
         return label
     }()
-//    // MARK: - Properts
-//    let viewModel: CoinsDetailsViewModel
-//    // MARK: - Constructors
-//    init(viewModel: CoinsDetailsViewModel = CoinsDetailsViewModel()) {
-//        self.viewModel = viewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
+    // MARK: - Properts
+    let coinsDetailsViewModel: CoinsDetailsViewModel?
+    // MARK: - Constructors
+    init(detailsViewModel: CoinsDetailsViewModel?) {
+        self.coinsDetailsViewModel = detailsViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-    var coinsDetailsViewModel: CoinsDetailsViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "BTC"
+        self.title = coinsDetailsViewModel?.viewData?.assetID
         setupViewConfiguration()
-//        viewModel.delegate = self
-//        viewModel.loadCoin()
+        coinDetails()
+
+    }
+    
+    func coinDetails() {
+        if coinsDetailsViewModel?.viewData != nil {
+            if let valueCoin = coinsDetailsViewModel?.viewData {
+                self.imagemCoin.sd_setImage(with: URL(string: valueCoin.idIcon), placeholderImage: UIImage(named: "errorImage.png"))
+                self.lblValue.text = valueCoin.priceUsd
+                self.lblLastHourValue.text = valueCoin.volume1HrsUsd
+                self.lblLastDayValue.text = valueCoin.volume1Day
+                self.lblLastMonthValue.text = valueCoin.volume1MthUsd
+            }
+        }
     }
     // MARK:- Buttons
     @objc func buttonAddAction(sender: UIButton!) {
@@ -143,7 +154,7 @@ class CoinsDetailsViewController: UIViewController {
 extension CoinsDetailsViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(coinDetailView)
-        coinDetailView.addSubview(lblID)
+//        coinDetailView.addSubview(lblID)
         coinDetailView.addSubview(imagemCoin)
         coinDetailView.addSubview(lblValue)
         coinDetailView.addSubview(buttonAdd)
@@ -167,16 +178,15 @@ extension CoinsDetailsViewController: ViewConfiguration {
             make.right.equalTo(view).inset(0)
             make.height.equalTo(300)
         }
-        lblID.snp.makeConstraints { (make) in
-            make.top.equalTo(coinDetailView).offset(5)
-            make.left.equalTo(coinDetailView).offset(10)
-            make.right.equalTo(coinDetailView).inset(10)
-        }
+//        lblID.snp.makeConstraints { (make) in
+//            make.top.equalTo(coinDetailView).offset(5)
+//            make.left.equalTo(coinDetailView).offset(10)
+//            make.right.equalTo(coinDetailView).inset(10)
+//        }
         imagemCoin.snp.makeConstraints { (make) in
-            make.top.equalTo(lblID.snp.bottom).offset(20)
-//            make.left.equalTo(coinDetailView).offset(0)
-//            make.right.equalTo(coinDetailView).inset(0)
-            make.width.equalTo(54)
+            make.top.equalTo(20)
+            make.left.equalTo(coinDetailView).offset(168)
+            make.right.equalTo(coinDetailView).inset(168)
             make.height.equalTo(54)
         }
         lblValue.snp.makeConstraints { (make) in
@@ -230,15 +240,5 @@ extension CoinsDetailsViewController: ViewConfiguration {
     }
     func configureViews() {
         view.backgroundColor = .white
-    }
-}
-
-extension CoinsDetailsViewController: CoinsDetailsViewModelDelegate {
-    func reloadData(coin: CoinsDetailsViewData) {
-        self.lblID.text = coin.assetID
-        self.lblValue.text = coin.priceUsd
-        self.lblLastHourValue.text = coin.volume1HrsUsd
-        self.lblLastDayValue.text = coin.volume1DayUsd
-        self.lblLastMonthValue.text = coin.volume1MthUsd
     }
 }

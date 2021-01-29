@@ -150,7 +150,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let coinsDetailsViewController = CoinsDetailsViewController()
-        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
+//        let coinsDetailsViewController = CoinsDetailsViewController()
+//        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }

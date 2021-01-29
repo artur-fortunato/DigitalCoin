@@ -70,6 +70,15 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         coinstableView.reloadData()
         bind()
         searchCoin.delegate = self
+        setupAcessibility()
+    }
+    func setupAcessibility() {
+        lblCoin.accessibilityTraits = .header
+        lblCoin.accessibilityValue = "O nome do aplicativo"
+        lblDate.accessibilityTraits = .none
+        lblDate.accessibilityValue = "O dia de hoje"
+        searchCoin.accessibilityTraits = .searchField
+        searchCoin.accessibilityValue = "Busca uma moeda digital"
     }
     func bind() {
         principalViewModel.viewData.bind { (_) in
@@ -80,8 +89,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         return .lightContent
     }
     func searchCoin(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        principalViewModel.searchBar(searchText)
-        coinstableView.reloadData()
+
         
     }
 }
@@ -151,8 +159,8 @@ extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coinSelected =  principalViewModel.viewData.value[indexPath.row]
-        let coinsDetailsViewController = CoinsDetailsViewController()
-//        coinsDetailsViewController.coinsDetailsViewModel = coinSelected
+        let coinsDetailViewModel = CoinsDetailsViewModel(viewData: coinSelected)
+        let coinsDetailsViewController = CoinsDetailsViewController(detailsViewModel: coinsDetailViewModel)
         self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }
