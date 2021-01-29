@@ -24,7 +24,7 @@ class TelaPrincipalTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    func setupAcessibility(){
+    func setupAcessibility() {
         labelnomeMoeda.isAccessibilityElement = true
         labelnomeMoeda.accessibilityTraits = .none
         labelnomeMoeda.accessibilityValue = "O nome da moeda digital"
@@ -40,7 +40,7 @@ class TelaPrincipalTableViewCell: UITableViewCell {
 }
 
 extension TelaPrincipalTableViewCell: CoinsListViewModelDelegate {
-    func reloadData(coin: CoinsListViewData) {
+    func reloadData(coin: CoinsViewData) {
         self.labelnomeMoeda.text = coin.name
         self.labelSiglaCoin.text = coin.assetID
         self.labelValorCoin.text = coin.priceUsd
