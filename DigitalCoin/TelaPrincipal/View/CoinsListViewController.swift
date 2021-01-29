@@ -69,6 +69,15 @@ class CoinsListViewController: UIViewController {
         setupViewConfiguration()
         coinstableView.reloadData()
         bind()
+        setupAcessibility()
+    }
+    func setupAcessibility() {
+        lblCoin.accessibilityTraits = .header
+        lblCoin.accessibilityValue = "O nome do aplicativo"
+        lblDate.accessibilityTraits = .none
+        lblDate.accessibilityValue = "O dia de hoje"
+        searchCoin.accessibilityTraits = .searchField
+        searchCoin.accessibilityValue = "Busca uma moeda digital"
     }
     func bind() {
         principalViewModel.viewData.bind { (_) in
