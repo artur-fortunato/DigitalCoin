@@ -20,13 +20,29 @@ class CoinsDetailsViewModel {
     init(viewData: CoinsViewData?) {
         self.viewData = viewData
     }
-    func saveFavorites(_ assetID: String?) {
-        if let saveValue: String = assetID {
-        let savedArray = userDF.array(forKey: "coinsFavorites") as? [String]
+    func saveFavorites(_ assetID: String) -> Bool? {
+        if coin.contains(assetID){
+            coin = coin.filter { $0 != assetID}
+            userDF.set(coin, forKey: "favorites")
+            print(userDF.array(forKey: "favorites"))
+            return false
+        } else {
+            guard let saveValue = assetID as? String else {return false}
+            let savedArray = userDF.array(forKey: "favorites") as? [String]
             coin = savedArray ?? []
-        coin.append(saveValue)
-        userDF.set(coin, forKey: "coinsFavorites")
-        print(userDF.array(forKey: "coinsFavorites"))
+            coin.append(saveValue)
+            userDF.set(coin, forKey: "favorites")
+            print(userDF.array(forKey: "favorites"))
+            return true
         }
     }
+    func checkFavorites(_ assetID: String) -> Bool {
+        let savedArray = userDF.array(forKey: "favorites") as? [String]
+        coin = savedArray ?? []
+            if coin.contains(assetID) {
+                return true
+            } else {
+                return false
+            }
+        }
 }

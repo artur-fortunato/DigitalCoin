@@ -14,10 +14,29 @@ import Foundation
 class CoinsFavoritesViewModel {
     // MARK: - Properts
     var viewData: CoinsViewData?
+    var countCoin: [String] = []
     var userDefaults = UserDefaults.standard
     // MARK: - Constructors
-    init(viewData: CoinsViewData?) {
-        self.viewData = viewData
+    
+    func recoverCoin() {
+        if (UserDefaults.standard.array(forKey: "favorites")) != nil {
+            let loadCoinFavorite = (UserDefaults.standard.array(forKey: "favorites") as? [String])!
+            self.countCoin = loadCoinFavorite
+            print(loadCoinFavorite)
+        }
+    }
+    
+    func numberCell() -> Int {
+        return userDefaults.array(forKey: "favorites")?.count ?? 0
+    }
+    
+    
+    func teste (_ assetID: String) {
+        for assetID in countCoin {
+            let localize = NSLocalizedString(assetID, comment: "")
+                
+            print(localize)
+        }
     }
 
 }

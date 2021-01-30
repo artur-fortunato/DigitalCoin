@@ -48,9 +48,11 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         label.text = "$ 31,010.20"
         return label
     }()
+    var coinsFavoritesViewModel: CoinsFavoritesCellViewModel?
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewConfiguration()
+        coinsFavoritesViewModel?.reloadCell()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
