@@ -154,7 +154,7 @@ extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinstableView.dequeueReusableCell(withIdentifier: "coinCell") as! TelaPrincipalTableViewCell
-        cell.reloadData(coin: principalViewModel.viewData.value[indexPath.row])
+        cell.configureCell(coin: principalViewModel.viewData.value[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

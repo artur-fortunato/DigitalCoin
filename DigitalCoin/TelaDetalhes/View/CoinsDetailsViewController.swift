@@ -108,6 +108,14 @@ class CoinsDetailsViewController: UIViewController {
         label.text = "$ 123.456.78"
         return label
     }()
+    lazy var star: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        label.textAlignment = .center
+        label.textColor = fontColor
+        label.text = ""
+        return label
+    }()
     let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)]
 
     // MARK: - Properts
@@ -142,9 +150,10 @@ class CoinsDetailsViewController: UIViewController {
         guard let assetID = coinsDetailsViewModel?.viewData?.assetID else {return}
         if coinsDetailsViewModel?.checkFavorites(assetID) != true {
             buttonAdd.setTitle("ADICIONAR", for: .normal)
-            
+            star.text = ""
         } else {
             buttonAdd.setTitle("REMOVER", for: .normal)
+            star.text = "★"
         }
     }
     //MARK: - Buttons
@@ -152,9 +161,10 @@ class CoinsDetailsViewController: UIViewController {
         guard let assetID = coinsDetailsViewModel?.viewData?.assetID else {return}
         if coinsDetailsViewModel?.saveFavorites(assetID) != true {
             buttonAdd.setTitle("ADICIONAR", for: .normal)
+            star.text = ""
         } else {
             buttonAdd.setTitle("REMOVER", for: .normal)
-            
+            star.text = "★"
         }
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -169,6 +179,7 @@ class CoinsDetailsViewController: UIViewController {
 extension CoinsDetailsViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(coinDetailView)
+        coinDetailView.addSubview(star)
         coinDetailView.addSubview(imagemCoin)
         coinDetailView.addSubview(lblValue)
         coinDetailView.addSubview(buttonAdd)
@@ -192,6 +203,11 @@ extension CoinsDetailsViewController: ViewConfiguration {
             make.right.equalTo(view).inset(0)
             make.height.equalTo(300)
         }
+        star.snp.makeConstraints { (make) in
+            make.top.equalTo(10)
+            make.right.equalTo(coinDetailView).inset(60)
+            make.width.equalTo(60)
+        }
         imagemCoin.snp.makeConstraints { (make) in
             make.top.equalTo(20)
             make.centerX.equalTo(view.center.x)
@@ -199,15 +215,17 @@ extension CoinsDetailsViewController: ViewConfiguration {
         }
         lblValue.snp.makeConstraints { (make) in
             make.top.equalTo(imagemCoin.snp.bottom).offset(20)
-            make.left.equalTo(coinDetailView).offset(10)
-            make.right.equalTo(coinDetailView).inset(10)
-
+//            make.left.equalTo(coinDetailView).offset(10)
+//            make.right.equalTo(coinDetailView).inset(10)
+            make.centerX.equalTo(view.center.x)
         }
         buttonAdd.snp.makeConstraints { (make) in
             make.top.equalTo(lblValue.snp.bottom).offset(40)
-            make.left.equalTo(coinDetailView).offset(80)
-            make.right.equalTo(coinDetailView).inset(80)
-            make.height.equalTo(40)
+            make.centerX.equalTo(view.center.x)
+//            make.left.equalTo(coinDetailView).offset(80)
+//            make.right.equalTo(coinDetailView).inset(80)
+            make.width.equalTo(250)
+            make.height.equalTo(60)
         }
         tradeView.snp.makeConstraints { (make) in
             make.top.equalTo(coinDetailView.snp.bottom).offset(0)
