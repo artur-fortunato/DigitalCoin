@@ -14,6 +14,8 @@ class TelaPrincipalTableViewCell: UITableViewCell {
     @IBOutlet weak var labelnomeMoeda: UILabel!
     @IBOutlet weak var labelSiglaCoin: UILabel!
     @IBOutlet weak var labelValorCoin: UILabel!
+    
+    var telaPrincipalTableCellViewModel = TelaPrincipalTableCellViewModel()
     // MARK - Inicializadores
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +25,23 @@ class TelaPrincipalTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    func configureCell(coin: CoinsViewData) {
+        telaPrincipalTableCellViewModel.loadCoin(viewData: coin)
+        bind()
+    }
+    func bind() {
+        guard let setarCell = telaPrincipalTableCellViewModel.viewData.value else {return}
+        if setarCell.favorites {
+            labelnomeMoeda.text = setarCell.name + " ★"
+        } else {
+            labelnomeMoeda.text = setarCell.name
+        }
+        labelSiglaCoin.text = setarCell.assetID
+        labelValorCoin.text = setarCell.priceUsd
+        imageSimboloCoin.sd_setImage(with: URL(string: setarCell.idIcon), placeholderImage: UIImage(named: "errorImage.png"))
+        imageSimboloCoin.layer.cornerRadius = 10
+        imageSimboloCoin.layer.masksToBounds = true
     }
     func setupAcessibility() {
         labelnomeMoeda.isAccessibilityElement = true
@@ -34,18 +53,6 @@ class TelaPrincipalTableViewCell: UITableViewCell {
         labelValorCoin.isAccessibilityElement = true
         labelValorCoin.accessibilityTraits = .none
         labelValorCoin.accessibilityValue = "cents, o valor em dólares de uma unidade da moeda"
-        
         self.accessibilityElements = [labelnomeMoeda,labelSiglaCoin,labelValorCoin]
-    }
-}
-
-extension TelaPrincipalTableViewCell: CoinsListViewModelDelegate {
-    func reloadData(coin: CoinsViewData) {
-        self.labelnomeMoeda.text = coin.name
-        self.labelSiglaCoin.text = coin.assetID
-        self.labelValorCoin.text = coin.priceUsd
-        self.imageSimboloCoin.sd_setImage(with: URL(string: coin.idIcon), placeholderImage: UIImage(named: "errorImage.png"))
-        self.imageSimboloCoin.layer.cornerRadius = 10
-        self.imageSimboloCoin.layer.masksToBounds = true
     }
 }

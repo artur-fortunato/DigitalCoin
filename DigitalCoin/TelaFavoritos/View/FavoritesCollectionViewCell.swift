@@ -97,11 +97,3 @@ extension FavoritesCollectionViewCell: ViewConfiguration {
         }
     }
 }
-
-//extension FavoritesCollectionViewCell: CoinsFavoritesViewModelDelegate {
-//    func reloadData(coin: CoinsFavoritesViewData) {
-//        self.lblName.text = coin.name
-//        self.lblID.text = coin.assetID
-//        self.lblValue.text = coin.priceUsd
-//    }
-//}
