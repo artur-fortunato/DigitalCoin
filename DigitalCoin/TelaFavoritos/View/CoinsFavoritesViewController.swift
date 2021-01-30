@@ -66,11 +66,13 @@ class CoinsFavoritesViewController: UIViewController {
         let cvc = UICollectionViewCell()
         return cvc
     }()
+    let coinsFavoritesViewModel = CoinsFavoritesViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Adicionadas"
         setupViewConfiguration()
         collectionView.reloadData()
+        coinsFavoritesViewModel.recoverCoin()
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -136,7 +138,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.5)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return coinsFavoritesViewModel.numberCell()
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoritesCollectionViewCell
@@ -146,7 +148,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let coinsDetailsViewController = CoinsDetailsViewController()
+//        let coinsDetailsViewController = CoinsDetailsViewController(coinsDetailsViewModel)
 //        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }

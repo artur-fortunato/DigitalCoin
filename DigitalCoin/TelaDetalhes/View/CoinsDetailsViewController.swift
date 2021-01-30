@@ -124,12 +124,9 @@ class CoinsDetailsViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = coinsDetailsViewModel?.viewData?.assetID.uppercased()
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        buttonTitleCheck()
         setupViewConfiguration()
         coinDetails()
-        checkFavorites()
-
     }
     func coinDetails() {
         if let valueCoin = coinsDetailsViewModel?.viewData {
@@ -140,18 +137,25 @@ class CoinsDetailsViewController: UIViewController {
             self.lblLastMonthValue.text = valueCoin.volume1MthUsd
         }
     }
-    func checkFavorites() {
-        if let userDefaultValue = UserDefaults.standard.getValue(), userDefaultValue {
-            buttonAdd.setTitle("REMOVER", for: .normal)
-        } else {
+    func buttonTitleCheck () {
+        
+        guard let assetID = coinsDetailsViewModel?.viewData?.assetID else {return}
+        if coinsDetailsViewModel?.checkFavorites(assetID) != true {
             buttonAdd.setTitle("ADICIONAR", for: .normal)
+            
+        } else {
+            buttonAdd.setTitle("REMOVER", for: .normal)
         }
     }
-
     //MARK: - Buttons
     @objc func buttonAddAction(sender: UIButton!) {
         guard let assetID = coinsDetailsViewModel?.viewData?.assetID else {return}
-        coinsDetailsViewModel?.saveFavorites(assetID)
+        if coinsDetailsViewModel?.saveFavorites(assetID) != true {
+            buttonAdd.setTitle("ADICIONAR", for: .normal)
+        } else {
+            buttonAdd.setTitle("REMOVER", for: .normal)
+            
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
     navigationController?.navigationBar.barStyle = .black
@@ -244,5 +248,7 @@ extension CoinsDetailsViewController: ViewConfiguration {
     }
     func configureViews() {
         view.backgroundColor = .white
+        self.title = coinsDetailsViewModel?.viewData?.assetID.uppercased()
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
     }
 }
