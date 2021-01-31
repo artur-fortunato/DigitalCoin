@@ -12,6 +12,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
+    let viewModel: CoinsListViewModel = CoinsListViewModel()
     // MARK: - Titulo
     lazy var coinstableView: UITableView = {
         let tableview = UITableView()
@@ -53,9 +54,11 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
     }()
     // MARK: SearchBar
     private lazy var searchCoin: UISearchBar = {
-       let search = UISearchBar()
+        let search = UISearchBar()
         search.barTintColor = blackColor
         search.placeholder = "Coin"
+        let kobra = search.value(forKey:"searchField") as? UITextField
+        kobra?.textColor = UIColor.white
         return search
     }()
     private lazy var lineView: UIView = {
@@ -81,15 +84,16 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         searchCoin.accessibilityValue = "Busca uma moeda digital"
     }
     func bind() {
-        principalViewModel.viewData.bind { (_) in
+        viewModel.viewData.bind { (_) in
             self.coinstableView.reloadData()
         }
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    func searchCoin(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filterResults(searchText)
+        coinstableView.reloadData()
         
     }
 }
@@ -150,15 +154,15 @@ extension CoinsListViewController: ViewConfiguration {
 
 extension CoinsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return principalViewModel.viewData.value.count
+        return viewModel.viewData.value.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinstableView.dequeueReusableCell(withIdentifier: "coinCell") as! TelaPrincipalTableViewCell
-        cell.configureCell(coin: principalViewModel.viewData.value[indexPath.row])
+        cell.configureCell(coin: viewModel.viewData.value[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let coinSelected =  principalViewModel.viewData.value[indexPath.row]
+        let coinSelected =  viewModel.viewData.value[indexPath.row]
         let coinsDetailsViewModel = CoinsDetailsViewModel(viewData: coinSelected)
         let coinsDetailsViewController = CoinsDetailsViewController(coinsDetailsViewModel: coinsDetailsViewModel)
         self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
