@@ -7,7 +7,7 @@ target 'DigitalCoin' do
   pod 'Alamofire', '~> 4.7.0'
 	pod 'SnapKit'
   pod 'SDWebImage'
-  pod 'Commons', :git => 'https://github.com/arfortunato/Commons.git', :branch => 'master'
+  pod  'Commons', :git  =>  'https://github.com/fabriciosenna/Commons.git', :branch  =>  'main'
   
   # Pods for DigitalCoin
 

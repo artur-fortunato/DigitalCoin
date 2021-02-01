@@ -8,18 +8,18 @@
 import Foundation
 
 public class Bindable<T> {
-    typealias Listener = (T) -> Void
+    public typealias Listener = (T) -> Void
     // MARK: - Properties
     var listeners: [Listener] = []
     // MARK: - Constructors
-    init(_ val: T) {
+    public init(_ val: T) {
         self.value = val
     }
     // MARK: - Bind
-    func bind(_ listerner: @escaping Listener) {
+    public func bind(_ listerner: @escaping Listener) {
         self.listeners.append(listerner)
     }
-    var value: T {
+    public var value: T {
         didSet {
             listeners.forEach { $0(value) }
         }

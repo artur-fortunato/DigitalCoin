@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Commons
 
 class CoinMainTableCellViewModel {
     var viewData: Bindable<CoinsViewData?> = Bindable(nil)
