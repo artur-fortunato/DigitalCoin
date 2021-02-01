@@ -164,9 +164,6 @@ class CoinsDetailsViewController: UIViewController {
             buttonAdd.setTitle("REMOVER", for: .normal)
             star.text = "★"
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.navigationController?.popViewController(animated: true)
-        }
     }
     override func viewDidAppear(_ animated: Bool) {
     navigationController?.navigationBar.barStyle = .black

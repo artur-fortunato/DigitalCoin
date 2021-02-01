@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Commons
 
 class CoinsListViewModel {
     // MARK: - Properts

@@ -1,6 +1,6 @@
 # Commons
 
-[![CI Status](https://img.shields.io/travis/artur.rf@hotmail.com/Commons.svg?style=flat)](https://travis-ci.org/artur.rf@hotmail.com/Commons)
+[![CI Status](https://img.shields.io/travis/fabriciosenna/Commons.svg?style=flat)](https://travis-ci.org/fabriciosenna/Commons)
 [![Version](https://img.shields.io/cocoapods/v/Commons.svg?style=flat)](https://cocoapods.org/pods/Commons)
 [![License](https://img.shields.io/cocoapods/l/Commons.svg?style=flat)](https://cocoapods.org/pods/Commons)
 [![Platform](https://img.shields.io/cocoapods/p/Commons.svg?style=flat)](https://cocoapods.org/pods/Commons)
@@ -22,7 +22,7 @@ pod 'Commons'
 
 ## Author
 
-artur.rf@hotmail.com, Artur
+fabriciosenna, fabriciosenna@gmail.com
 
 ## License
 

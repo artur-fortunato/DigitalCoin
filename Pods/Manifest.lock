@@ -2,7 +2,6 @@ PODS:
   - Alamofire (4.7.3)
   - Commons (1.0.0):
     - Alamofire
-    - SnapKit
   - SDWebImage (5.10.3):
     - SDWebImage/Core (= 5.10.3)
   - SDWebImage/Core (5.10.3)
@@ -10,7 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.0)
-  - Commons (from `https://github.com/arfortunato/Commons.git`, branch `master`)
+  - Commons (from `https://github.com/fabriciosenna/Commons.git`, branch `main`)
   - SDWebImage
   - SnapKit
 
@@ -22,20 +21,20 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   Commons:
-    :branch: master
-    :git: https://github.com/arfortunato/Commons.git
+    :branch: main
+    :git: https://github.com/fabriciosenna/Commons.git
 
 CHECKOUT OPTIONS:
   Commons:
-    :commit: b5bc2d119ed3f472bddc2b5123cb51be9862deee
-    :git: https://github.com/arfortunato/Commons.git
+    :commit: a0f96a15dc175332f69235443fe94fdf2f0dd59a
+    :git: https://github.com/fabriciosenna/Commons.git
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Commons: e5a808de9205189cb86c0e4469bf34cd856193cb
+  Commons: fe274dd4143669f66263e82a05ce92c2d9226e5e
   SDWebImage: e378178472b735e84b007bfb55514c97948a0598
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 8d3517cc6661eb087bf264e38002121a49486c93
+PODFILE CHECKSUM: 21fa4e39397e84fcaa2010db1596008016625794
 
 COCOAPODS: 1.10.1
