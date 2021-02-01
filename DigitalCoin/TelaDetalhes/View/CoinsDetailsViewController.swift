@@ -14,7 +14,6 @@ class CoinsDetailsViewController: UIViewController {
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-    
     private lazy var coinDetailView: UIView = {
         let view = UIView()
         view.backgroundColor = greenColor
@@ -65,7 +64,7 @@ class CoinsDetailsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "última hora:"
+        label.text = "última hora"
         return label
     }()
     lazy var lblLastHourValue: UILabel = {
@@ -81,7 +80,7 @@ class CoinsDetailsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "último dia:"
+        label.text = "último dia"
         return label
     }()
     lazy var lblLastDayValue: UILabel = {
@@ -97,7 +96,7 @@ class CoinsDetailsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        label.text = "último mês:"
+        label.text = "último mês"
         return label
     }()
     lazy var lblLastMonthValue: UILabel = {
@@ -119,7 +118,6 @@ class CoinsDetailsViewController: UIViewController {
     let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)]
 
     // MARK: - Properts
-   
     let coinsDetailsViewModel: CoinsDetailsViewModel?
     // MARK: - Constructors
     init(coinsDetailsViewModel: CoinsDetailsViewModel?) {
@@ -129,12 +127,12 @@ class CoinsDetailsViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonTitleCheck()
         setupViewConfiguration()
         coinDetails()
+
     }
     func coinDetails() {
         if let valueCoin = coinsDetailsViewModel?.viewData {
@@ -146,7 +144,6 @@ class CoinsDetailsViewController: UIViewController {
         }
     }
     func buttonTitleCheck () {
-        
         guard let assetID = coinsDetailsViewModel?.viewData?.assetID else {return}
         if coinsDetailsViewModel?.checkFavorites(assetID) != true {
             buttonAdd.setTitle("ADICIONAR", for: .normal)
@@ -156,7 +153,7 @@ class CoinsDetailsViewController: UIViewController {
             star.text = "★"
         }
     }
-    //MARK: - Buttons
+    // MARK: - Buttons
     @objc func buttonAddAction(sender: UIButton!) {
         guard let assetID = coinsDetailsViewModel?.viewData?.assetID else {return}
         if coinsDetailsViewModel?.saveFavorites(assetID) != true {
@@ -215,16 +212,12 @@ extension CoinsDetailsViewController: ViewConfiguration {
         }
         lblValue.snp.makeConstraints { (make) in
             make.top.equalTo(imagemCoin.snp.bottom).offset(20)
-//            make.left.equalTo(coinDetailView).offset(10)
-//            make.right.equalTo(coinDetailView).inset(10)
             make.centerX.equalTo(view.center.x)
         }
         buttonAdd.snp.makeConstraints { (make) in
             make.top.equalTo(lblValue.snp.bottom).offset(40)
             make.centerX.equalTo(view.center.x)
-//            make.left.equalTo(coinDetailView).offset(80)
-//            make.right.equalTo(coinDetailView).inset(80)
-            make.width.equalTo(250)
+            make.width.equalTo(300)
             make.height.equalTo(60)
         }
         tradeView.snp.makeConstraints { (make) in

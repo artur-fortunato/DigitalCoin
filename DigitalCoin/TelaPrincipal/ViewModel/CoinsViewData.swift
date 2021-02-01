@@ -58,12 +58,12 @@ extension CoinsViewData: CoinsViewDataType {
     }
     var priceUsd: String {
         let value = model.priceUsd ?? 0
-        let stringPriceUsd = String(format: "$ %.4f", locale: Locale.current, Double(value))
+        let stringPriceUsd = String(format: "$ %.2f", locale: Locale.current, Double(value))
         return stringPriceUsd
     }
     var favorites: Bool {
         guard let arrayFavorites = UserDefaults.standard.array(forKey: "favorites") as? [String] else {return false}
-        if arrayFavorites.contains(assetID){
+        if arrayFavorites.contains(assetID) {
             return true
         } else {
             return false

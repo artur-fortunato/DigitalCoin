@@ -9,11 +9,9 @@ import UIKit
 import SDWebImage
 
 class FavoritesCollectionViewCell: UICollectionViewCell {
-    
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-    
     private lazy var cellView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 15
@@ -27,7 +25,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     }()
     lazy var lblName: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 23, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .light)
         label.textAlignment = .center
         label.textColor = fontColor
         label.text = "Bitcoin"
@@ -35,7 +33,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var lblID: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
         label.textColor = fontColor
         label.textAlignment = .center
         label.text = "BTC"
@@ -43,7 +41,7 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var lblValue: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 23, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .light)
         label.textColor = fontColor
         label.textAlignment = .center
         label.text = "$ 31,010.20"
@@ -106,7 +104,7 @@ extension FavoritesCollectionViewCell: ViewConfiguration {
             make.right.equalTo(0)
         }
         lblValue.snp.makeConstraints { (make) in
-            make.top.equalTo(lblID.snp.bottom).offset(15)
+            make.top.equalTo(lblID.snp.bottom).offset(25)
             make.left.equalTo(0)
             make.right.equalTo(0)
         }

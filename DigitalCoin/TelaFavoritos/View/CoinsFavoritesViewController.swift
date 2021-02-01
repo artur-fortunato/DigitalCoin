@@ -12,7 +12,6 @@ class CoinsFavoritesViewController: UIViewController {
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-    
     private lazy var titleView: UIView = {
         let view = UIView()
         view.backgroundColor = blackColor
@@ -138,7 +137,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         return CGSize(width: collectionView.frame.width/2.2, height: collectionView.frame.width/2.5)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coinsFavoritesViewModel.arrayCoin.count ?? 0
+        return coinsFavoritesViewModel.arrayCoin.count 
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoritesCollectionViewCell
@@ -146,7 +145,9 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let coinsDetailsViewController = CoinsDetailsViewController(coinsDetailsViewModel)
-//        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
+        let coinSelected =  coinsFavoritesViewModel.arrayCoin[indexPath.row]
+        let coinsDetailsViewModel = CoinsDetailsViewModel(viewData: coinSelected)
+        let coinsDetailsViewController = CoinsDetailsViewController(coinsDetailsViewModel: coinsDetailsViewModel)
+        self.navigationController?.pushViewController(coinsDetailsViewController, animated: true)
     }
 }

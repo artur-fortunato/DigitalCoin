@@ -8,7 +8,6 @@
 import Foundation
 
 class TelaPrincipalTableCellViewModel {
-    
     var viewData: Bindable<CoinsViewData?> = Bindable(nil)
     var coin: [String] = []
     let userDF = UserDefaults.standard

@@ -9,11 +9,10 @@ import UIKit
 
 class ErroAPI: NSObject {
 
-    func erroAlert(title: String, message:String) {
+    func erroAlert(title: String, message: String) {
         let viewController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
         let alert = UIAlertController(title: title, message: "\(message)", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "tentar novamente", style: .default, handler: nil))
         viewController.present(alert, animated: true, completion: nil)
     }
-    
 }

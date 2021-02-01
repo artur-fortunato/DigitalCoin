@@ -13,7 +13,6 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let viewModel: CoinsListViewModel = CoinsListViewModel()
-    // MARK: - Titulo
     lazy var coinstableView: UITableView = {
         let tableview = UITableView()
         let nibCoin = UINib(nibName: "TelaPrincipalTableViewCell", bundle: nil)
@@ -41,7 +40,6 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.textAlignment = .center
         label.textColor = fontColor
-        //Formatando a data
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
@@ -56,8 +54,8 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
     private lazy var searchCoin: UISearchBar = {
         let search = UISearchBar()
         search.barTintColor = blackColor
-        search.placeholder = "Coin"
-        let kobra = search.value(forKey:"searchField") as? UITextField
+        search.placeholder = "Search"
+        let kobra = search.value(forKey: "searchField") as? UITextField
         kobra?.textColor = UIColor.white
         return search
     }()
@@ -94,7 +92,6 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.filterResults(searchText)
         coinstableView.reloadData()
-        
     }
 }
 
