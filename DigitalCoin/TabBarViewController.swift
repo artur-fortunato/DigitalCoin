@@ -12,7 +12,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     var tabBarTag: Bool = true
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self

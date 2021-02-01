@@ -1,4 +1,3 @@
-
 //
 //  CoinsAPI.swift
 //  testandoAPI
@@ -10,13 +9,12 @@ import UIKit
 import Alamofire
 
 protocol CoinsServiceProtocol {
-    func getCoins(completion:@escaping (_ coins:Welcome, _ error:String?) -> Void )
-//    func getCoinsImage(completion:@escaping (_ coins:[CoinImage], _ error:String?) -> Void )
+    func getCoins(completion:@escaping (_ coins: Welcome, _ error: String?) -> Void )
 }
 
 class CoinService: CoinsServiceProtocol {
-    func getCoins(completion:@escaping (_ coins:Welcome, _ error:String?) -> Void ) {
-        let url = "https://fbe46b45-843b-4fd6-9034-c787ddb65824.mock.pstmn.io"
+    func getCoins(completion:@escaping (_ coins: Welcome, _ error: String?) -> Void ) {
+        let url = "https://e3ebf5c1-a974-4ed2-844f-641963d1eca1.mock.pstmn.io"
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if let data = response.data {
                 do {
@@ -27,7 +25,7 @@ class CoinService: CoinsServiceProtocol {
                     completion(filtroUSD, nil)
                 } catch {
                     if let errorApi = response.response?.statusCode {
-                    switch (errorApi) {
+                    switch errorApi {
                     case 400:
                         let title = String("Bad Request")
                         let message = String("There is something wrong with your request")

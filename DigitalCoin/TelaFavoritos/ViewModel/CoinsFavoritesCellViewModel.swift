@@ -8,20 +8,11 @@
 import Foundation
 
 class CoinsFavoritesCellViewModel {
-    // MARK: - Properts
-    var viewData: CoinsViewData?
+    var viewData: Bindable<CoinsViewData?> = Bindable(nil)
     var coin: [String] = []
-    var userDefaults = UserDefaults.standard
+    let userDF = UserDefaults.standard
     // MARK: - Constructors
-    init(viewData: CoinsViewData?) {
-        self.viewData = viewData
-    }
-    
-
-    func reloadCell() {
-        guard let salvedArray = userDefaults.array(forKey: "favorites") as? [String] else {return}
-        coin = salvedArray ?? []
-        print(coin)
-        userDefaults.synchronize()
+    func loadCoin(viewData: CoinsViewData?) {
+        self.viewData.value = viewData
     }
 }

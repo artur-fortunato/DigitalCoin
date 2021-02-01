@@ -7,36 +7,21 @@
 
 import Foundation
 
-//protocol CoinsFavoritesViewModelDelegate {
-//    func reloadData(coin: CoinsViewData)
-//}
-
 class CoinsFavoritesViewModel {
     // MARK: - Properts
-    var viewData: CoinsViewData?
-    var countCoin: [String] = []
-    var userDefaults = UserDefaults.standard
+    var coinList: CoinsListViewModel = CoinsListViewModel()
+    var coinFavorites: [CoinsViewData] = []
+    var arrayCoin: [CoinsViewData] = []
+    var userDF = UserDefaults.standard.array(forKey: "favorites")
     // MARK: - Constructors
-    
-    func recoverCoin() {
-        if (UserDefaults.standard.array(forKey: "favorites")) != nil {
-            let loadCoinFavorite = (UserDefaults.standard.array(forKey: "favorites") as? [String])!
-            self.countCoin = loadCoinFavorite
-            print(loadCoinFavorite)
-        }
-    }
-    
-    func numberCell() -> Int {
-        return userDefaults.array(forKey: "favorites")?.count ?? 0
-    }
-    
-    
-    func teste (_ assetID: String) {
-        for assetID in countCoin {
-            let localize = NSLocalizedString(assetID, comment: "")
-                
-            print(localize)
-        }
-    }
+    func loadCoin() {
+        guard let savedArray = userDF as? [String] else {return}
+            coinFavorites = coinList.arrayFavorites
+            for item in coinFavorites {
+                if savedArray.contains(item.assetID) {
+                    arrayCoin.append(item)
+                }
+            }
 
+        }
 }

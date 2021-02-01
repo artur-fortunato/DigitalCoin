@@ -7,10 +7,6 @@
 
 import Foundation
 
-//protocol CoinsDetailsViewModelDelegate {
-//    func reloadData(coin: CoinsViewData)
-//}
-
 class CoinsDetailsViewModel {
     // MARK: - Properts
     var coin: [String] = []
@@ -21,10 +17,9 @@ class CoinsDetailsViewModel {
         self.viewData = viewData
     }
     func saveFavorites(_ assetID: String) -> Bool? {
-        if coin.contains(assetID){
+        if coin.contains(assetID) {
             coin = coin.filter { $0 != assetID}
             userDF.set(coin, forKey: "favorites")
-            print(userDF.array(forKey: "favorites"))
             return false
         } else {
             guard let saveValue = assetID as? String else {return false}
@@ -32,7 +27,6 @@ class CoinsDetailsViewModel {
             coin = savedArray ?? []
             coin.append(saveValue)
             userDF.set(coin, forKey: "favorites")
-            print(userDF.array(forKey: "favorites"))
             return true
         }
     }
