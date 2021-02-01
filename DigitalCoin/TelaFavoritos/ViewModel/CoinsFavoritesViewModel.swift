@@ -13,25 +13,31 @@ import Foundation
 
 class CoinsFavoritesViewModel {
     // MARK: - Properts
-    private let client: CoinsServiceProtocol
-    var viewData: Bindable<[CoinsViewData]> = Bindable([])
-    var arrayCoinSearch: [CoinsViewData] = []
+    var coin: CoinsViewData?
+    var coinList: CoinsListViewModel = CoinsListViewModel()
+    var coinModel: Coin?
+    var coinFavorites: [CoinsViewData] = []
+    var arrayCoin: [CoinsViewData] = []
     var userDF = UserDefaults.standard.array(forKey: "favorites")
     // MARK: - Constructors
-    init(client: CoinsServiceProtocol = CoinService()) {
-        self.client = client
-        self.loadCoin()
-    }
+ 
     func loadCoin() {
-        client.getCoins { (responseCoin, error) in
-            for coin in responseCoin {
-                self.viewData.value.append(CoinsViewData(model: coin))
+        guard let savedArray = userDF as? [String] else {return}
+        print(savedArray)
+        self.coinFavorites = coinList.viewData.value
+        for item in coinFavorites {
+            if coin?.favorites != false {
+                self.arrayCoin.append(item)
             }
         }
     }
-    func numberCell() -> Int {
-        return userDF? .count ?? 0
-    }
+    
+//    self.coinFavorites = self.viewData.value
+//    if self.coin?.favorites != false {
+//        for coin in viewData.value {
+//            self.coinFavorites.append(coin)
+//            }
+//    }
 //    // MARK: - Properts
 //    var arrayCoin: [String] = []
 //    var userDF = UserDefaults.standard

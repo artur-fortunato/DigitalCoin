@@ -16,7 +16,7 @@ protocol CoinsServiceProtocol {
 
 class CoinService: CoinsServiceProtocol {
     func getCoins(completion:@escaping (_ coins:Welcome, _ error:String?) -> Void ) {
-        let url = "https://fbe46b45-843b-4fd6-9034-c787ddb65824.mock.pstmn.io"
+        let url = "https://fc7ed954-6de2-458b-a962-a391d7302e61.mock.pstmn.io/"
         Alamofire.request(url, method: .get).responseJSON { (response) in
             if let data = response.data {
                 do {

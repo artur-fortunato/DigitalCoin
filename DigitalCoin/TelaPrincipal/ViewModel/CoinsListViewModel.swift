@@ -16,6 +16,7 @@ class CoinsListViewModel {
     private let client: CoinsServiceProtocol
     var viewData: Bindable<[CoinsViewData]> = Bindable([])
     var arrayCoinSearch: [CoinsViewData] = []
+    var arrayCoin: [CoinsViewData] = []
     var delegate: CoinsListViewModelDelegate?
     // MARK: - Constructors
     init(client: CoinsServiceProtocol = CoinService()) {
