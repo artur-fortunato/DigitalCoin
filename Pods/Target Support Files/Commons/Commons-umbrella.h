@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double AlamofireImageVersionNumber;
-FOUNDATION_EXPORT const unsigned char AlamofireImageVersionString[];
+FOUNDATION_EXPORT double CommonsVersionNumber;
+FOUNDATION_EXPORT const unsigned char CommonsVersionString[];
 

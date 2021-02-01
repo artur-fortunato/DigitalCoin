@@ -5,9 +5,10 @@ target 'DigitalCoin' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Alamofire', '~> 4.7.0'
-  pod 'AlamofireImage', '~> 3.4.0'
 	pod 'SnapKit'
   pod 'SDWebImage'
+  pod 'Commons', :git => 'https://github.com/arfortunato/Commons.git', :branch => 'master'
+  
   # Pods for DigitalCoin
 
   target 'DigitalCoinTests' do

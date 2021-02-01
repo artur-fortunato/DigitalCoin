@@ -14,7 +14,7 @@ class TelaPrincipalTableViewCell: UITableViewCell {
     @IBOutlet weak var labelnomeMoeda: UILabel!
     @IBOutlet weak var labelSiglaCoin: UILabel!
     @IBOutlet weak var labelValorCoin: UILabel!
-    var telaPrincipalTableCellViewModel = TelaPrincipalTableCellViewModel()
+    var telaPrincipalTableCellViewModel = CoinMainTableCellViewModel()
     // MARK: - Inicializadores
     override func awakeFromNib() {
         super.awakeFromNib()

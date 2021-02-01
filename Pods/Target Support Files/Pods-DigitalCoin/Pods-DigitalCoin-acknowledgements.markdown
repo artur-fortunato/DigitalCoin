@@ -24,9 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-## AlamofireImage
+## Commons
 
-Copyright (c) 2015-2018 Alamofire Software Foundation (http://alamofire.org/)
+Copyright (c) 2021 artur.rf@hotmail.com <Artur>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

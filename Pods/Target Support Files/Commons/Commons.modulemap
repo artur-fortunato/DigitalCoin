@@ -1,0 +1,6 @@
+framework module Commons {
+  umbrella header "Commons-umbrella.h"
+
+  export *
+  module * { export * }
+}

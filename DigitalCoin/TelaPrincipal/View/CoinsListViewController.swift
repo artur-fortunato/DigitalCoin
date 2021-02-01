@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Commons
 
 class CoinsListViewController: UIViewController, UISearchBarDelegate {
     // MARK: - Variaveis
@@ -42,7 +43,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         label.textColor = fontColor
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM"
+        formatter.dateFormat = "MMM"
         let month = formatter.string(from: date)
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
@@ -72,6 +73,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         bind()
         searchCoin.delegate = self
         setupAcessibility()
+        
     }
     func setupAcessibility() {
         lblCoin.accessibilityTraits = .header
@@ -86,6 +88,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
             self.coinstableView.reloadData()
         }
     }
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

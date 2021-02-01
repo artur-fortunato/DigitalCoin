@@ -1,14 +1,15 @@
 //
-//  FavoritesCollectionViewCell.swift
+//  CoinFavoritesCollectionViewCell.swift
 //  DigitalCoin
 //
-//  Created by Artur Rodrigues Fortunato on 22/01/21.
+//  Created by Artur Rodrigues Fortunato on 01/02/21.
 //
 
 import UIKit
 import SDWebImage
+import Commons
 
-class FavoritesCollectionViewCell: UICollectionViewCell {
+class CoinsFavoritesCollectionViewCell: UICollectionViewCell {
     let greenColor = UIColor(red: 139/255, green: 153/255, blue: 90/255, alpha: 1)
     let fontColor = UIColor(red: 230/255, green: 233/255, blue: 212/255, alpha: 1)
     let blackColor = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
@@ -20,7 +21,6 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     }()
     private lazy var icon: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .orange
         return view
     }()
     lazy var lblName: UILabel = {
@@ -57,9 +57,9 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
     }
     func configureCell(coin: CoinsViewData) {
         coinsFavoritesCellViewModel.loadCoin(viewData: coin)
-        bind()
+        setarCell()
     }
-    func bind() {
+    func setarCell() {
         guard let setarCell = coinsFavoritesCellViewModel.viewData.value else {return}
         if setarCell.favorites {
             lblID.text = setarCell.assetID
@@ -69,10 +69,12 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
             icon.layer.cornerRadius = 10
             icon.layer.masksToBounds = true
         }
+        
     }
+    
 }
 
-extension FavoritesCollectionViewCell: ViewConfiguration {
+extension CoinsFavoritesCollectionViewCell: ViewConfiguration {
     func buildViewHierarchy() {
         addSubview(cellView)
         cellView.addSubview(lblName)

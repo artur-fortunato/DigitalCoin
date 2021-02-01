@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Commons
 
 class CoinsFavoritesViewController: UIViewController {
 
@@ -33,7 +34,7 @@ class CoinsFavoritesViewController: UIViewController {
         // Formatando a Data
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM"
+        formatter.dateFormat = "MMM"
         let month = formatter.string(from: date)
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
@@ -55,7 +56,7 @@ class CoinsFavoritesViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(FavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CoinsFavoritesCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.backgroundColor = blackColor
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -66,12 +67,24 @@ class CoinsFavoritesViewController: UIViewController {
         return cvc
     }()
     let coinsFavoritesViewModel: CoinsFavoritesViewModel = CoinsFavoritesViewModel()
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Adicionadas"
         setupViewConfiguration()
         coinsFavoritesViewModel.loadCoin()
         collectionView.reloadData()
+    }
+    func bind() {
+        coinsFavoritesViewModel.coinList.viewData.bind { (_) in
+            self.collectionView.reloadData()
+        }
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -140,7 +153,7 @@ extension CoinsFavoritesViewController: UICollectionViewDelegateFlowLayout, UICo
         return coinsFavoritesViewModel.arrayCoin.count 
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! FavoritesCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CoinsFavoritesCollectionViewCell
         cell.configureCell(coin: (coinsFavoritesViewModel.arrayCoin[indexPath.item]))
         return cell
     }
