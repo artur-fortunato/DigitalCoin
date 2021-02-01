@@ -29,7 +29,7 @@ class CoinsListViewModel {
     }
     func filterResults(_ searchText: String) {
             var listaArray = arrayCoinSearch
-            if searchText != ""{
+            if searchText != "" {
                 listaArray = listaArray.filter({ (coin) -> Bool in
                     if coin.name.lowercased().contains(searchText.lowercased()) {
                         return true

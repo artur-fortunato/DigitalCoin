@@ -1,13 +1,13 @@
 //
-//  TelaPrincipalTableCellViewModel.swift
+//  CoinMainTableCellViewModel.swift
 //  DigitalCoin
 //
-//  Created by Artur Rodrigues Fortunato on 30/01/21.
+//  Created by Artur Rodrigues Fortunato on 01/02/21.
 //
 
 import Foundation
 
-class TelaPrincipalTableCellViewModel {
+class CoinMainTableCellViewModel {
     var viewData: Bindable<CoinsViewData?> = Bindable(nil)
     var coin: [String] = []
     let userDF = UserDefaults.standard

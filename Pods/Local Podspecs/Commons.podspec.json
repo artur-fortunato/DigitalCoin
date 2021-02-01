@@ -1,0 +1,30 @@
+{
+  "name": "Commons",
+  "version": "1.0.0",
+  "summary": "A short description of Commons.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/arfortunato/Commons.git",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "artur.rf@hotmail.com": "Artur"
+  },
+  "source": {
+    "git": "https://github.com/arfortunato/Commons.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "Commons/Classes/**/*",
+  "dependencies": {
+    "Alamofire": [
+
+    ],
+    "SnapKit": [
+
+    ]
+  }
+}

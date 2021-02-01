@@ -8,19 +8,18 @@
 import Foundation
 
 protocol CoinsViewDataType {
-    var name: String {get}
-    var assetID: String {get}
-    var priceUsd: String {get}
-    var idIcon: String {get}
-    var volume1HrsUsd: String {get}
-    var volume1Day: String {get}
-    var volume1MthUsd: String {get}
-    var favorites: Bool {get}
+    var name: String { get }
+    var assetID: String { get }
+    var priceUsd: String { get }
+    var idIcon: String { get }
+    var volume1HrsUsd: String { get }
+    var volume1Day: String { get }
+    var volume1MthUsd: String { get }
+    var favorites: Bool { get }
 }
 
 class CoinsViewData {
     // MARK: - Properts
-    private let imagem = TelaPrincipalTableViewCell()
     private let model: Coin
     // MARK: - Constructors
     init(model: Coin) {
@@ -45,7 +44,7 @@ extension CoinsViewData: CoinsViewDataType {
         return stringVolume1MthUsd
     }
     var idIcon: String {
-        guard let idIcon = model.idIcon else {return ""}
+        guard let idIcon = model.idIcon else { return "" }
         let idIconFormat = idIcon.replacingOccurrences(of: "-", with: "", options: NSString.CompareOptions.literal, range: nil)
         let urlImage = "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_64/\(idIconFormat).png"
         return urlImage
@@ -53,7 +52,7 @@ extension CoinsViewData: CoinsViewDataType {
     var name: String {
         return model.name ?? ""
     }
-    var assetID: String {
+    public var assetID: String {
         return model.assetID ?? ""
     }
     var priceUsd: String {

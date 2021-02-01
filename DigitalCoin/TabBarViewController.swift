@@ -18,7 +18,6 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         tabBar.barTintColor = blackColor
         tabBar.isTranslucent = false
         setupNavigationBarAppearance()
-
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,6 +29,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         }
         let tabOne = CoinsListViewController()
         tabOne.tabBarItem = UITabBarItem(title: "Moedas", image: UIImage(named: "dollar.png"), selectedImage: UIImage(named: "dollar.png"))
+        tabOne.coinstableView.reloadData()
         let tabTwo = CoinsFavoritesViewController()
         tabTwo.tabBarItem = UITabBarItem(title: "Adicionadas", image: UIImage(named: "star.png"), selectedImage: UIImage(named: "star.png"))
         let viewControllerList = [tabOne, tabTwo]
