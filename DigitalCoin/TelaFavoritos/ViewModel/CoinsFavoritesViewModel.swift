@@ -13,30 +13,45 @@ import Foundation
 
 class CoinsFavoritesViewModel {
     // MARK: - Properts
-    var viewData: CoinsViewData?
-    var countCoin: [String] = []
-    var userDefaults = UserDefaults.standard
+    private let client: CoinsServiceProtocol
+    var viewData: Bindable<[CoinsViewData]> = Bindable([])
+    var arrayCoinSearch: [CoinsViewData] = []
+    var userDF = UserDefaults.standard.array(forKey: "favorites")
     // MARK: - Constructors
-    
-    func recoverCoin() {
-        if (UserDefaults.standard.array(forKey: "favorites")) != nil {
-            let loadCoinFavorite = (UserDefaults.standard.array(forKey: "favorites") as? [String])!
-            self.countCoin = loadCoinFavorite
-            print(loadCoinFavorite)
+    init(client: CoinsServiceProtocol = CoinService()) {
+        self.client = client
+        self.loadCoin()
+    }
+    func loadCoin() {
+        client.getCoins { (responseCoin, error) in
+            for coin in responseCoin {
+                self.viewData.value.append(CoinsViewData(model: coin))
+            }
         }
     }
-    
     func numberCell() -> Int {
-        return userDefaults.array(forKey: "favorites")?.count ?? 0
+        return userDF? .count ?? 0
     }
-    
-    
-    func teste (_ assetID: String) {
-        for assetID in countCoin {
-            let localize = NSLocalizedString(assetID, comment: "")
-                
-            print(localize)
-        }
-    }
+//    // MARK: - Properts
+//    var arrayCoin: [String] = []
+//    var userDF = UserDefaults.standard
+//    var viewData2: [CoinsViewData] = []
+//    var teste: CoinsListViewModel = CoinsListViewModel()
+//    // MARK: - Constructors
+//    func numberCell() -> Int {
+//        return userDF.array(forKey: "favorites")?.count ?? 0
+//    }
+//
+//
+//    func recoverFavorites(){
+//        if (UserDefaults.standard.array(forKey: "favorites")) != nil {
+//            guard let savedArray = userDF.array(forKey: "favorites") as? [String] else {return}
+//            self.arrayCoin = savedArray
+//        }
+//        print(self.arrayCoin)
+//    }
+//    func setFavorites() {
+//        self.viewData2 = teste.viewData.value
+//    }
 
 }

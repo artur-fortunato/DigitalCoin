@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FavoritesCollectionViewCell: UICollectionViewCell {
     
@@ -19,8 +20,8 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         view.backgroundColor = greenColor
         return view
     }()
-    private lazy var icon: UIView = {
-        let view = UIView()
+    private lazy var icon: UIImageView = {
+        let view = UIImageView()
         view.backgroundColor = .orange
         return view
     }()
@@ -48,14 +49,28 @@ class FavoritesCollectionViewCell: UICollectionViewCell {
         label.text = "$ 31,010.20"
         return label
     }()
-    var coinsFavoritesViewModel: CoinsFavoritesCellViewModel?
+    var coinsFavoritesCellViewModel = CoinsFavoritesCellViewModel()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewConfiguration()
-        coinsFavoritesViewModel?.reloadCell()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    func configureCell(coin: CoinsViewData) {
+        coinsFavoritesCellViewModel.loadCoin(viewData: coin)
+        bind()
+    }
+    func bind() {
+        guard let setarCell = coinsFavoritesCellViewModel.viewData.value else {return}
+        if setarCell.favorites {
+            lblID.text = setarCell.assetID
+            lblName.text = setarCell.name
+            lblValue.text = setarCell.priceUsd
+            icon.sd_setImage(with: URL(string: setarCell.idIcon), placeholderImage: UIImage(named: "errorImage.png"))
+            icon.layer.cornerRadius = 10
+            icon.layer.masksToBounds = true
+        }
     }
 }
 
