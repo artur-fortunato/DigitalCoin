@@ -23,12 +23,12 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         tableview.backgroundColor = blackColor
         return tableview
     }()
-        private lazy var titleView: UIView = {
+    lazy var titleView: UIView = {
         let view = UIView()
         view.backgroundColor = blackColor
         return view
     }()
-    private lazy var lblCoin: UILabel = {
+    lazy var lblCoin: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
         label.textAlignment = .center
@@ -36,7 +36,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         label.text = "Moeda Digital"
         return label
     }()
-    private lazy var lblDate: UILabel = {
+    lazy var lblDate: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         label.textAlignment = .center
@@ -52,7 +52,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         return label
     }()
     // MARK: SearchBar
-    private lazy var searchCoin: UISearchBar = {
+    lazy var searchCoin: UISearchBar = {
         let search = UISearchBar()
         search.barTintColor = blackColor
         search.placeholder = "Search"
@@ -60,7 +60,7 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         kobra?.textColor = UIColor.white
         return search
     }()
-    private lazy var lineView: UIView = {
+    lazy var lineView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
@@ -73,15 +73,6 @@ class CoinsListViewController: UIViewController, UISearchBarDelegate {
         bind()
         searchCoin.delegate = self
         setupAcessibility()
-        
-    }
-    func setupAcessibility() {
-        lblCoin.accessibilityTraits = .header
-        lblCoin.accessibilityValue = "O nome do aplicativo"
-        lblDate.accessibilityTraits = .none
-        lblDate.accessibilityValue = "O dia de hoje"
-        searchCoin.accessibilityTraits = .searchField
-        searchCoin.accessibilityValue = "Busca uma moeda digital"
     }
     func bind() {
         viewModel.viewData.bind { (_) in
