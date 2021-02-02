@@ -10,26 +10,26 @@ import Foundation
 extension CoinsListViewController{
     func setupAcessibility() {
         lblCoin.accessibilityTraits = .header
-        lblCoin.accessibilityValue = "O nome do aplicativo"
+        lblCoin.accessibilityHint = "O nome do aplicativo"
         lblDate.accessibilityTraits = .none
-        lblDate.accessibilityValue = "O dia de hoje"
+        lblDate.accessibilityHint = "O dia de hoje"
         searchCoin.isAccessibilityElement = true
         searchCoin.accessibilityTraits = .searchField
-        searchCoin.accessibilityValue = "Digite o nome da moeda que desejas"
+        searchCoin.accessibilityHint = "Digite o nome da moeda que desejas"
     }
 }
 
 extension TelaPrincipalTableViewCell{
     func setupAcessibility() {
         labelnomeMoeda.isAccessibilityElement = true
-        labelnomeMoeda.accessibilityTraits = .none
-        labelnomeMoeda.accessibilityValue = "O nome da moeda digital"
+        labelnomeMoeda.accessibilityTraits = .staticText
+        labelnomeMoeda.accessibilityHint = "O nome da moeda digital"
         labelSiglaCoin.isAccessibilityElement = true
-        labelSiglaCoin.accessibilityTraits = .none
-        labelSiglaCoin.accessibilityValue = "A sigla da moeda"
+        labelSiglaCoin.accessibilityTraits = .staticText
+        labelSiglaCoin.accessibilityHint = "A sigla da moeda"
         labelValorCoin.isAccessibilityElement = true
-        labelValorCoin.accessibilityTraits = .none
-        labelValorCoin.accessibilityValue = "o valor em dólares de uma unidade da moeda"
+        labelValorCoin.accessibilityTraits = .staticText
+        labelValorCoin.accessibilityHint = "o valor em dólares de uma unidade da moeda"
         self.accessibilityElements = [labelnomeMoeda,labelSiglaCoin,labelValorCoin]
     }
 }

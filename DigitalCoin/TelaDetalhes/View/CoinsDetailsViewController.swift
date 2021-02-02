@@ -60,7 +60,7 @@ class CoinsDetailsViewController: UIViewController {
         label.text = "volumes negociados"
         return label
     }()
-    private lazy var lblLastHour: UILabel = {
+    lazy var lblLastHour: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
@@ -76,7 +76,7 @@ class CoinsDetailsViewController: UIViewController {
         label.text = "$ 123.456.78"
         return label
     }()
-    private lazy var lblLastDay: UILabel = {
+    lazy var lblLastDay: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
@@ -92,7 +92,7 @@ class CoinsDetailsViewController: UIViewController {
         label.text = "$ 123.456.78"
         return label
     }()
-    private lazy var lblLastMonth: UILabel = {
+    lazy var lblLastMonth: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .center
